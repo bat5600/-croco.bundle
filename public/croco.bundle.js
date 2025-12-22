@@ -1,5 +1,7 @@
-```js
-/* croco.bundle.js */
+/* croco.bundle.js
+ * Flags: window.__CROCO_BUNDLE_RUNNING__, window.__CROCO_GLOBAL__, window.__CROCO_SPA__
+ * Cache bust: append ?v=YYYYMMDD (or similar) to /croco.bundle.js URL when needed.
+ */
 (() => {
   "use strict";
 
@@ -21,26 +23,93 @@
 
   const log = (...a) => ctx.debug && console.log("[CROCO]", ...a);
   const warn = (...a) => console.warn("[CROCO]", ...a);
+  const INIT_STATE = (window.__CROCO_INIT__ ||= {});
 
   // ============================================================
   // HELPERS
   // ============================================================
-  function loadScript(src, { id, async = true, defer = true } = {}) {
-    return new Promise((resolve, reject) => {
-      if (id && document.getElementById(id)) return resolve(true);
-      // déjà chargé par src ?
-      const existing = [...document.scripts].find((s) => s.src === src);
-      if (existing) return resolve(true);
+  const GLOBAL = (window.__CROCO_GLOBAL__ ||= { once: new Set(), scriptPromises: new Map() });
+
+  function once(key, fn, tag = "core") {
+    if (GLOBAL.once.has(key)) return;
+    GLOBAL.once.add(key);
+    try {
+      return fn();
+    } catch (e) {
+      warn(`${tag} error:`, e);
+    }
+  }
+
+  function loadScriptOnce(src, { id, async = true, defer = true } = {}) {
+    const key = id || src;
+    if (GLOBAL.scriptPromises.has(key)) return GLOBAL.scriptPromises.get(key);
+
+    const absoluteSrc = new URL(src, location.href).href;
+    const promise = new Promise((resolve, reject) => {
+      const existingById = id ? document.getElementById(id) : null;
+      if (existingById) return resolve(true);
+
+      const existingBySrc = [...document.scripts].find((s) => {
+        if (!s.src) return false;
+        try {
+          return new URL(s.src, location.href).href === absoluteSrc;
+        } catch {
+          return false;
+        }
+      });
+      if (existingBySrc) return resolve(true);
 
       const s = document.createElement("script");
       if (id) s.id = id;
-      s.src = src;
+      s.src = absoluteSrc;
       s.async = async;
       s.defer = defer;
       s.onload = () => resolve(true);
       s.onerror = (e) => reject(e);
       document.head.appendChild(s);
     });
+
+    GLOBAL.scriptPromises.set(key, promise);
+    promise.catch(() => GLOBAL.scriptPromises.delete(key));
+    return promise;
+  }
+
+  const SPA = (window.__CROCO_SPA__ ||= { listeners: new Set(), patched: false, lastHref: location.href, scheduled: false });
+  function notifyRouteChange() {
+    if (SPA.scheduled) return;
+    SPA.scheduled = true;
+    requestAnimationFrame(() => {
+      SPA.scheduled = false;
+      const href = location.href;
+      if (href === SPA.lastHref) return;
+      SPA.lastHref = href;
+      SPA.listeners.forEach((fn) => {
+        try {
+          fn(href);
+        } catch (e) {
+          warn("route listener error:", e);
+        }
+      });
+    });
+  }
+  function ensureSpaHooks() {
+    if (SPA.patched) return;
+    SPA.patched = true;
+    ["pushState", "replaceState"].forEach((fn) => {
+      const orig = history[fn];
+      history[fn] = function () {
+        const r = orig.apply(this, arguments);
+        queueMicrotask(() => notifyRouteChange());
+        return r;
+      };
+    });
+    window.addEventListener("popstate", notifyRouteChange);
+    window.addEventListener("hashchange", notifyRouteChange);
+    window.addEventListener("load", notifyRouteChange);
+  }
+  function onRouteChange(fn) {
+    SPA.listeners.add(fn);
+    ensureSpaHooks();
   }
 
   function safeISOFromSec(sec) {
@@ -65,11 +134,15 @@
   const BADGE_ID = "fb-update-badge-top";
   const STYLE_ID_FB = "croco-featurebase-style";
 
-  // state
-  let launcherVisible = true;
-  let messengerBooted = false;
-  let changelogInitialized = false;
-  let surveyWidgetInitialized = false;
+  // state (persist across reinjections)
+  const FB_STATE = (window.__CROCO_FEATUREBASE__ ||= {
+    launcherVisible: true,
+    messengerBooted: false,
+    changelogInitialized: false,
+    surveyWidgetInitialized: false,
+    observer: null,
+    mountScheduled: false,
+  });
 
   function ensureFeaturebaseQueueStub() {
     if (typeof window.Featurebase === "function") return;
@@ -79,24 +152,28 @@
   }
 
   async function initFeaturebaseSDK() {
-    try {
-      ensureFeaturebaseQueueStub();
-      await loadScript("https://do.featurebase.app/js/sdk.js", { id: "featurebase-sdk" });
+    if (FB_STATE.sdkPromise) return FB_STATE.sdkPromise;
+    FB_STATE.sdkPromise = (async () => {
+      try {
+        ensureFeaturebaseQueueStub();
+        await loadScriptOnce("https://do.featurebase.app/js/sdk.js", { id: "featurebase-sdk" });
 
-      // identify (safe)
-      window.Featurebase?.("identify", {
-        organization: FEATUREBASE_ORG,
-        email: ctx.email,
-        name: ctx.name,
-        userId: ctx.userId,
-        phone: ctx.phone,
-        locale: ctx.locale || "fr",
-      });
+        // identify (safe)
+        window.Featurebase?.("identify", {
+          organization: FEATUREBASE_ORG,
+          email: ctx.email,
+          name: ctx.name,
+          userId: ctx.userId,
+          phone: ctx.phone,
+          locale: ctx.locale || "fr",
+        });
 
-      log("Featurebase SDK loaded + identify ok");
-    } catch (e) {
-      warn("Featurebase SDK load error:", e);
-    }
+        log("Featurebase SDK loaded + identify ok");
+      } catch (e) {
+        warn("Featurebase SDK load error:", e);
+      }
+    })();
+    return FB_STATE.sdkPromise;
   }
 
   function injectFeaturebaseStyles() {
@@ -138,7 +215,7 @@
   }
 
   function bootMessenger() {
-    if (messengerBooted || !launcherVisible) return;
+    if (FB_STATE.messengerBooted || !FB_STATE.launcherVisible) return;
     if (typeof window.Featurebase !== "function") return;
 
     try {
@@ -150,14 +227,14 @@
         theme: "light",
         language: ctx.locale || "fr",
       });
-      messengerBooted = true;
+      FB_STATE.messengerBooted = true;
     } catch (e) {
       warn("Featurebase boot error:", e);
     }
   }
 
   function initChangelog() {
-    if (changelogInitialized) return;
+    if (FB_STATE.changelogInitialized) return;
     if (typeof window.Featurebase !== "function") return;
 
     try {
@@ -185,14 +262,14 @@
           }
         }
       );
-      changelogInitialized = true;
+      FB_STATE.changelogInitialized = true;
     } catch (e) {
       warn("Featurebase changelog init error:", e);
     }
   }
 
   function initSurveyWidget() {
-    if (surveyWidgetInitialized) return;
+    if (FB_STATE.surveyWidgetInitialized) return;
     if (typeof window.Featurebase !== "function") return;
 
     try {
@@ -206,7 +283,7 @@
           locale: ctx.locale || "fr",
         },
         (err) => {
-          if (!err) surveyWidgetInitialized = true;
+          if (!err) FB_STATE.surveyWidgetInitialized = true;
         }
       );
     } catch (e) {
@@ -247,22 +324,22 @@
     `;
 
     btn.onclick = () => {
-      if (launcherVisible) {
+      if (FB_STATE.launcherVisible) {
         try {
           window.Featurebase?.("shutdown");
         } catch (_) {}
 
-        launcherVisible = false;
-        messengerBooted = false;
+        FB_STATE.launcherVisible = false;
+        FB_STATE.messengerBooted = false;
 
         // autoriser un vrai "re-init" après shutdown
-        changelogInitialized = false;
-        surveyWidgetInitialized = false;
+        FB_STATE.changelogInitialized = false;
+        FB_STATE.surveyWidgetInitialized = false;
 
         btn.title = "Afficher le launcher";
         btn.style.background = "#9ca3af";
       } else {
-        launcherVisible = true;
+        FB_STATE.launcherVisible = true;
 
         bootMessenger();
         initChangelog();
@@ -277,12 +354,11 @@
   }
 
   // Mount (SPA safe + throttled)
-  let fbScheduled = false;
   const scheduleFeaturebaseMount = () => {
-    if (fbScheduled) return;
-    fbScheduled = true;
+    if (FB_STATE.mountScheduled) return;
+    FB_STATE.mountScheduled = true;
     requestAnimationFrame(() => {
-      fbScheduled = false;
+      FB_STATE.mountScheduled = false;
 
       injectFeaturebaseStyles();
       const controls = getHeaderControls();
@@ -291,7 +367,7 @@
       addChangelogButton(controls);
       addChatButton(controls);
 
-      if (!launcherVisible) return;
+      if (!FB_STATE.launcherVisible) return;
 
       bootMessenger();
       initChangelog();
@@ -301,21 +377,16 @@
 
   function initFeaturebaseUI() {
     scheduleFeaturebaseMount();
-    new MutationObserver(scheduleFeaturebaseMount).observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
 
-    ["pushState", "replaceState"].forEach((fn) => {
-      const orig = history[fn];
-      history[fn] = function () {
-        const r = orig.apply(this, arguments);
-        scheduleFeaturebaseMount();
-        return r;
-      };
-    });
+    if (!FB_STATE.observer) {
+      FB_STATE.observer = new MutationObserver(scheduleFeaturebaseMount);
+      FB_STATE.observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+      });
+    }
 
-    window.addEventListener("load", scheduleFeaturebaseMount);
+    onRouteChange(() => scheduleFeaturebaseMount());
   }
 
   // ============================================================
@@ -348,95 +419,111 @@
   }
 
   async function initLocalize() {
-    try {
-      ensureLocalizeStub();
-      await loadScript("https://global.localizecdn.com/localize.js", { id: "localize-sdk" });
+    if (INIT_STATE.localizePromise) return INIT_STATE.localizePromise;
+    INIT_STATE.localizePromise = (async () => {
+      try {
+        ensureLocalizeStub();
+        await loadScriptOnce("https://global.localizecdn.com/localize.js", { id: "localize-sdk" });
 
-      window.Localize?.initialize?.({
-        key: "d4s5PHXt6AYW1",
-        rememberLanguage: true,
-      });
+        window.Localize?.initialize?.({
+          key: "d4s5PHXt6AYW1",
+          rememberLanguage: true,
+        });
 
-      log("Localize initialized");
-    } catch (e) {
-      warn("Localize init error:", e);
-    }
+        log("Localize initialized");
+      } catch (e) {
+        warn("Localize init error:", e);
+      }
+    })();
+    return INIT_STATE.localizePromise;
   }
 
   // ============================================================
   // 3) PROFITWELL (deprecated — mais si tu veux le garder)
   // ============================================================
   async function initProfitwell() {
+    if (INIT_STATE.profitwellPromise) return INIT_STATE.profitwellPromise;
     // Si tu veux le désactiver définitivement: return;
-    try {
-      const AUTH = "4ae6190f8f5ef7d4183dd1edd49e7f65";
-      await loadScript(`https://public.profitwell.com/js/profitwell.js?auth=${encodeURIComponent(AUTH)}`, {
-        id: "profitwell-js",
-      });
+    INIT_STATE.profitwellPromise = (async () => {
+      try {
+        const AUTH = "4ae6190f8f5ef7d4183dd1edd49e7f65";
+        await loadScriptOnce(`https://public.profitwell.com/js/profitwell.js?auth=${encodeURIComponent(AUTH)}`, {
+          id: "profitwell-js",
+        });
 
-      if (typeof window.profitwell === "function" && ctx.email) {
-        window.profitwell("start", { user_email: ctx.email });
-        log("Profitwell started");
+        if (typeof window.profitwell === "function" && ctx.email) {
+          window.profitwell("start", { user_email: ctx.email });
+          log("Profitwell started");
+        }
+      } catch (e) {
+        warn("Profitwell init error:", e);
       }
-    } catch (e) {
-      warn("Profitwell init error:", e);
-    }
+    })();
+    return INIT_STATE.profitwellPromise;
   }
 
   // ============================================================
   // 4) AMPLITUDE (core + replay + engagement)
   // ============================================================
   async function initAmplitude() {
-    try {
-      const API_KEY = "ad1137f2178733c908603358ed257639";
-
-      await loadScript(`https://cdn.amplitude.com/script/${API_KEY}.js`, { id: "amplitude-core" });
-
-      // session replay plugin
+    if (INIT_STATE.amplitudePromise) return INIT_STATE.amplitudePromise;
+    INIT_STATE.amplitudePromise = (async () => {
       try {
-        if (window.sessionReplay?.plugin && window.amplitude?.add) {
-          window.amplitude.add(window.sessionReplay.plugin({ sampleRate: 1 }));
-        }
-      } catch (e) {
-        warn("Amplitude sessionReplay plugin error:", e);
-      }
+        const API_KEY = "ad1137f2178733c908603358ed257639";
 
-      // init
-      if (window.amplitude?.init) {
-        window.amplitude.init(API_KEY, ctx.userId || undefined, {
-          autocapture: true,
-          fetchRemoteConfig: true,
+        const corePromise = loadScriptOnce(`https://cdn.amplitude.com/script/${API_KEY}.js`, { id: "amplitude-core" });
+        const engagementPromise = loadScriptOnce(`https://cdn.amplitude.com/script/${API_KEY}.engagement.js`, {
+          id: "amplitude-engagement",
         });
-      }
 
-      // identify
-      try {
-        if (window.amplitude?.Identify && window.amplitude?.identify) {
-          const id = new window.amplitude.Identify();
-          if (ctx.name) id.set("name", ctx.name);
-          if (ctx.email) id.set("email", ctx.email);
-          if (ctx.phone) id.set("phone", ctx.phone);
-          id.setOnce("created_at", safeISOFromSec(ctx.createdAtSec));
-          window.amplitude.identify(id);
+        await corePromise;
+
+        // session replay plugin
+        try {
+          if (window.sessionReplay?.plugin && window.amplitude?.add) {
+            window.amplitude.add(window.sessionReplay.plugin({ sampleRate: 1 }));
+          }
+        } catch (e) {
+          warn("Amplitude sessionReplay plugin error:", e);
         }
-      } catch (e) {
-        warn("Amplitude identify error:", e);
-      }
 
-      // engagement plugin
-      await loadScript(`https://cdn.amplitude.com/script/${API_KEY}.engagement.js`, { id: "amplitude-engagement" });
-      try {
-        if (window.engagement?.plugin && window.amplitude?.add) {
-          window.amplitude.add(window.engagement.plugin());
+        // init
+        if (window.amplitude?.init) {
+          window.amplitude.init(API_KEY, ctx.userId || undefined, {
+            autocapture: true,
+            fetchRemoteConfig: true,
+          });
         }
-      } catch (e) {
-        warn("Amplitude engagement plugin error:", e);
-      }
 
-      log("Amplitude initialized");
-    } catch (e) {
-      warn("Amplitude init error:", e);
-    }
+        // identify
+        try {
+          if (window.amplitude?.Identify && window.amplitude?.identify) {
+            const id = new window.amplitude.Identify();
+            if (ctx.name) id.set("name", ctx.name);
+            if (ctx.email) id.set("email", ctx.email);
+            if (ctx.phone) id.set("phone", ctx.phone);
+            id.setOnce("created_at", safeISOFromSec(ctx.createdAtSec));
+            window.amplitude.identify(id);
+          }
+        } catch (e) {
+          warn("Amplitude identify error:", e);
+        }
+
+        await engagementPromise;
+        try {
+          if (window.engagement?.plugin && window.amplitude?.add) {
+            window.amplitude.add(window.engagement.plugin());
+          }
+        } catch (e) {
+          warn("Amplitude engagement plugin error:", e);
+        }
+
+        log("Amplitude initialized");
+      } catch (e) {
+        warn("Amplitude init error:", e);
+      }
+    })();
+    return INIT_STATE.amplitudePromise;
   }
 
   // ============================================================
@@ -1021,21 +1108,12 @@
     };
 
     const CROCO = (window.__CROCO_PATCHER__ ||= {
-      once: new Set(),
       lastHref: location.href,
       scheduled: false,
       observer: null,
       dividerRetryTimer: null,
       dividerRetryTries: 0,
     });
-
-    function once(key, fn) {
-      if (CROCO.once.has(key)) return;
-      CROCO.once.add(key);
-      try {
-        fn();
-      } catch (_) {}
-    }
 
     function schedule(fn) {
       if (!CFG.perf.useRafThrottle) {
@@ -1192,7 +1270,7 @@
     }
 
     function installRedirectorsOnce() {
-      once("redirectors", () => {
+      once("patcher:redirectors", () => {
         const ytId = CFG.youtube.ytId;
 
         const origOpen = window.open;
@@ -1262,32 +1340,19 @@
       installRedirectorsOnce();
       schedule(applyAll);
 
-      once("observer", () => {
+      once("patcher:observer", () => {
         CROCO.observer = new MutationObserver(() => schedule(applyAll));
         CROCO.observer.observe(document.documentElement, { childList: true, subtree: true });
       });
 
-      once("route-hooks", () => {
-        const fireIfChanged = () => {
-          if (CROCO.lastHref !== location.href) {
-            CROCO.lastHref = location.href;
-            schedule(applyAll);
-          }
-        };
-
-        ["pushState", "replaceState"].forEach((fn) => {
-          const orig = history[fn];
-          history[fn] = function () {
-            const r = orig.apply(this, arguments);
-            setTimeout(fireIfChanged, 0);
-            return r;
-          };
-        });
-
-        window.addEventListener("popstate", fireIfChanged);
-        window.addEventListener("hashchange", fireIfChanged);
-        window.addEventListener("load", () => schedule(applyAll));
+      onRouteChange(() => {
+        if (CROCO.lastHref !== location.href) {
+          CROCO.lastHref = location.href;
+          schedule(applyAll);
+        }
       });
+
+      window.addEventListener("load", () => schedule(applyAll));
     }
 
     boot();
@@ -1301,6 +1366,7 @@
 
     const FAVICON_URL =
       "https://storage.googleapis.com/msgsndr/0XeqHZvwfH59pwE9Y5ZY/media/652299259996f385301e1f33.png";
+    const FAV = (window.__CROCO_FAVICON__ ||= { observer: null, scheduled: false });
 
     function setFavicon() {
       const head = document.head || document.getElementsByTagName("head")[0];
@@ -1318,30 +1384,24 @@
 
     setFavicon();
 
-    let scheduled = false;
     const schedule = () => {
-      if (scheduled) return;
-      scheduled = true;
+      if (FAV.scheduled) return;
+      FAV.scheduled = true;
       requestAnimationFrame(() => {
-        scheduled = false;
+        FAV.scheduled = false;
         setFavicon();
       });
     };
 
-    new MutationObserver(schedule).observe(document.documentElement, {
-      childList: true,
-      subtree: true,
-    });
+    if (!FAV.observer) {
+      FAV.observer = new MutationObserver(schedule);
+      FAV.observer.observe(document.documentElement, {
+        childList: true,
+        subtree: true,
+      });
+    }
 
-    ["pushState", "replaceState"].forEach((fn) => {
-      const orig = history[fn];
-      history[fn] = function () {
-        const r = orig.apply(this, arguments);
-        schedule();
-        return r;
-      };
-    });
-
+    onRouteChange(() => schedule());
     window.addEventListener("load", schedule);
   })();
 
@@ -1352,19 +1412,15 @@
     log("bundle loaded", new Date().toISOString(), ctx);
 
     // 1) Featurebase: SDK + identify puis UI
-    await initFeaturebaseSDK();
+    const featurebasePromise = initFeaturebaseSDK();
+
+    // 2-4) Lancer en parallèle les SDK annexes
+    const others = Promise.allSettled([initLocalize(), initProfitwell(), initAmplitude()]);
+
+    await featurebasePromise;
     initFeaturebaseUI();
-
-    // 2) Localize
-    initLocalize();
-
-    // 3) Profitwell (si tu le gardes)
-    initProfitwell();
-
-    // 4) Amplitude
-    initAmplitude();
+    await others;
   }
 
   main();
 })();
-```
