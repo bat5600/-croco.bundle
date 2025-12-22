@@ -1,4 +1,3 @@
-```js
 /* croco.bundle.js */
 (() => {
   "use strict";
@@ -25,10 +24,13 @@
   // ============================================================
   // HELPERS
   // ============================================================
+  const scriptPromises = new Map();
   function loadScript(src, { id, async = true, defer = true } = {}) {
-    return new Promise((resolve, reject) => {
+    const key = id || src;
+    if (scriptPromises.has(key)) return scriptPromises.get(key);
+
+    const promise = new Promise((resolve, reject) => {
       if (id && document.getElementById(id)) return resolve(true);
-      // déjà chargé par src ?
       const existing = [...document.scripts].find((s) => s.src === src);
       if (existing) return resolve(true);
 
@@ -41,6 +43,10 @@
       s.onerror = (e) => reject(e);
       document.head.appendChild(s);
     });
+
+    scriptPromises.set(key, promise);
+    promise.catch(() => scriptPromises.delete(key));
+    return promise;
   }
 
   function safeISOFromSec(sec) {
@@ -390,7 +396,12 @@
     try {
       const API_KEY = "ad1137f2178733c908603358ed257639";
 
-      await loadScript(`https://cdn.amplitude.com/script/${API_KEY}.js`, { id: "amplitude-core" });
+      const corePromise = loadScript(`https://cdn.amplitude.com/script/${API_KEY}.js`, { id: "amplitude-core" });
+      const engagementPromise = loadScript(`https://cdn.amplitude.com/script/${API_KEY}.engagement.js`, {
+        id: "amplitude-engagement",
+      });
+
+      await corePromise;
 
       // session replay plugin
       try {
@@ -423,8 +434,7 @@
         warn("Amplitude identify error:", e);
       }
 
-      // engagement plugin
-      await loadScript(`https://cdn.amplitude.com/script/${API_KEY}.engagement.js`, { id: "amplitude-engagement" });
+      await engagementPromise;
       try {
         if (window.engagement?.plugin && window.amplitude?.add) {
           window.amplitude.add(window.engagement.plugin());
@@ -1352,19 +1362,15 @@
     log("bundle loaded", new Date().toISOString(), ctx);
 
     // 1) Featurebase: SDK + identify puis UI
-    await initFeaturebaseSDK();
+    const featurebasePromise = initFeaturebaseSDK();
+
+    // 2-4) Lancer en parallèle les SDK annexes
+    const others = Promise.allSettled([initLocalize(), initProfitwell(), initAmplitude()]);
+
+    await featurebasePromise;
     initFeaturebaseUI();
-
-    // 2) Localize
-    initLocalize();
-
-    // 3) Profitwell (si tu le gardes)
-    initProfitwell();
-
-    // 4) Amplitude
-    initAmplitude();
+    await others;
   }
 
   main();
 })();
-```
