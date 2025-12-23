@@ -239,6 +239,10 @@ div.hl_login--body {
   border-color: var(--loginBtnHover);
   color: #fff;
 }
+.hl_login .btn.btn-blue:focus-visible {
+  outline: 2px solid var(--loginBtnHover);
+  outline-offset: 2px;
+}
 
 .hl_login button {
   background-color: var(--login-button-background-color);
@@ -248,6 +252,10 @@ div.hl_login--body {
 .hl_login .hover\:bg-curious-blue-600:hover,
 .hl_login button:hover {
   background-color: var(--login-button-background-hover-color) !important;
+}
+.hl_login button:focus-visible {
+  outline: 2px solid var(--login-button-text-color);
+  outline-offset: 2px;
 }
 
 /* =========================
