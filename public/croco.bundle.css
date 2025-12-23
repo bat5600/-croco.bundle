@@ -1,0 +1,311 @@
+
+/* =========================
+   VARIABLES GLOBALES
+   ========================= */
+:root {
+  --font-family-base: "Plus Jakarta Sans", "Helvetica Neue", Arial, sans-serif;
+
+  /* Palette primary Croco */
+  --primary-25:  #f6fef9;
+  --primary-50:  #ecfdf3;
+  --primary-100: #d1fadf;
+  --primary-200: #a6f4c5;
+  --primary-300: #6ce9a6;
+  --primary-400: #32d583;
+  --primary-500: #12b76a;
+  --primary-600: #039855;
+  --primary-700: #027a48;
+  --primary-800: #05603a;
+  --primary-900: #054f31;
+
+  /* Login */
+  --loginBtnColor: #42984f;
+  --loginBtnHover: #42984f;
+  --bodyBgColor: #fff;
+  --login-button-background-color: #00EB79;
+  --login-button-background-hover-color: #3bffa0;
+  --login-button-text-color: #1d3a2f;
+}
+
+/* =========================
+   BASE TYPO
+   ========================= */
+html, body, #app {
+  font-family: var(--font-family-base) !important;
+}
+
+.font-sans,
+.hl-text-lg-medium,
+.hl-text-sm-regular,
+.hl-text-sm-medium,
+.launchpad-title,
+.hr-data-table__body .hr-data-table__body-cell,
+#hr-ellipsis-id span {
+  font-family: var(--font-family-base) !important;
+}
+
+.font-medium,
+.hl-text-lg-medium,
+.hl-text-sm-medium {
+  font-weight: 600 !important;
+}
+
+.span-line-clamp-2 { font-weight: 500 !important; }
+
+/* =========================
+   HIDE (menus / widgets / tabs)
+   ========================= */
+#tb_gokollab,
+#localize-widget,
+#onboard-whatsapp-help,
+#sb_launchpad,
+#sb_app-marketplace,
+a#sb_conversation_ai_settings_v2,
+a#sb_ai_agent_settings,
+a#sb_knowledge-base-settings,
+a#sb_conversations_providers {
+  display: none !important;
+}
+
+/* =========================
+   SIDEBAR V2
+   ========================= */
+#sidebar-v2 {
+  background: #F3FFF5 !important;
+}
+
+/* séparateur / section */
+.transition-slowest .flex-col .lg\:justify-between {
+  background-color: #4d8d4d !important;
+}
+
+/* blocs “span” (settings) */
+#sb_other-settings .w-full span,
+#sb_business-services .w-full span,
+#sb_my-business .w-full span,
+.overflow-x-hidden .cursor-text span,
+.transition-slowest .flex-col .overflow-hidden > .cursor-pointer {
+  background-color: #F3FFF5 !important;
+}
+
+/* item actif / hover */
+body[data-theme="default"] .sidebar-v2-location #sidebar-v2 .hl_nav-header nav a.active,
+body[data-theme="default"] .sidebar-v2-location #sidebar-v2 .hl_nav-header-without-footer nav a.active,
+body[data-theme="default"] .sidebar-v2-location #sidebar-v2 .hl_nav-header nav a:hover,
+body[data-theme="default"] .sidebar-v2-location #sidebar-v2 .hl_nav-header-without-footer nav a:hover {
+  background-color: #00EB79 !important;
+}
+
+/* divider actif */
+body[data-theme="default"] .sidebar-v2-location #sidebar-v2 .hl_nav-header-without-footer nav a.active.divider,
+body[data-theme="default"] .sidebar-v2-location #sidebar-v2 .hl_nav-header nav a.active.divider {
+  background-color: #F3FFF5 !important;
+}
+
+/* icons + opacity + text */
+body[data-theme="default"] .sidebar-v2-location #sidebar-v2 .hl_nav-header nav a img {
+  filter: invert(1);
+}
+body[data-theme="default"] .sidebar-v2-location #sidebar-v2 .hl_nav-header nav a,
+body[data-theme="default"] .sidebar-v2-location #sidebar-v2 .hl_nav-settings nav a,
+body[data-theme="default"] .sidebar-v2-location #sidebar-v2 .hl_nav-header-without-footer nav a {
+  opacity: 1 !important;
+}
+body[data-theme="default"] .sidebar-v2-location #sidebar-v2 .hl_nav-header nav a .nav-title,
+body[data-theme="default"] .sidebar-v2-location #sidebar-v2 .hl_nav-header-without-footer nav a .nav-title {
+  color: #1d3a2f !important;
+}
+
+/* =========================
+   GLOBAL SEARCH
+   ========================= */
+#globalSearchOpener { background-color: #dddddda8 !important; }
+#globalSearchOpener .justify-start .search-placeholder,
+#globalSearchOpener .justify-start .search-icon {
+  color: #1d3a2f59 !important;
+}
+
+/* =========================
+   DASHBOARD HEADINGS
+   ========================= */
+.hl_dashboard--matters-added .card-body h3,
+.hl_dashboard--pipeline-value .card-body h3,
+.hl_dashboard--conversion-rate .card-body h3,
+.hl_dashboard--matters-added .card-header h2,
+.hl_dashboard--pipeline-value .card-header h2,
+.hl_dashboard--conversion-rate .card-header h2,
+.hl_dashboard--need-action > div > div > .card-header h2,
+.task-list-card .card-header h2 {
+  font-weight: 600 !important;
+}
+
+/* =========================
+   GUIDED TOURS (Userflow)
+   ========================= */
+div#userflow-ui div.userflowjs-launcher {
+  background: linear-gradient(90deg, rgba(0,235,232,0) 0%, rgba(0,235,165,0) 36%, rgba(0,235,121,0) 100%) !important;
+  outline: 0px #ffffff !important;
+  color: #1d3a2f;
+  border-width: 2px;
+  border-style: dashed;
+  font-size: 12px !important;
+}
+
+/* =========================
+   WHATSAPP
+   ========================= */
+.phoneIntegrationApp .bg-white { padding-left: 30px !important; }
+
+/* =========================
+   LOGIN PAGE
+   ========================= */
+.hl_login {
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/highlevel-backend.appspot.com/o/location%2F3WajUBzHFZ72vq6QGWIS%2Fimages%2F8b834445-c09d-4ce5-8492-8595fe7f4788.png?alt=media") !important;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  margin-top: -82px !important;
+  height: 100vh;
+}
+
+.hl_login--header {
+  background: transparent !important;
+  border-bottom: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 20px !important;
+}
+
+div.hl_login--body {
+  max-width: 450px !important;
+  width: 100% !important;
+  background: var(--bodyBgColor) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 80px rgba(0,0,0,.08);
+}
+
+.hl_login--body .card {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.hl_login--body .card .card-body {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.hl_login .form-control {
+  background: #fff !important;
+  font-size: .875rem;
+  color: #2a3135;
+  border: 1px solid #bdbdbd !important;
+  border-radius: 5px !important;
+  padding: 10px !important;
+}
+
+.hl_login--body .login-card-heading {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.hl_login--body .heading2 {
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.hl_login .button-holder.form-group { margin: 10px auto !important; }
+
+.hl_login .btn.btn-blue,
+.hl_login .btn.btn-blue:active,
+.hl_login .btn.btn-blue:focus {
+  background-color: var(--loginBtnColor);
+  border-color: var(--loginBtnColor);
+  color: #fff;
+  transition: .3s ease-in;
+}
+
+.hl_login .btn.btn-blue:hover {
+  background-color: var(--loginBtnHover);
+  border-color: var(--loginBtnHover);
+  color: #fff;
+}
+
+.hl_login button {
+  background-color: var(--login-button-background-color);
+  color: var(--login-button-text-color);
+  min-height: 55px;
+}
+.hl_login .hover\:bg-curious-blue-600:hover,
+.hl_login button:hover {
+  background-color: var(--login-button-background-hover-color) !important;
+}
+
+/* =========================
+   LOADER
+   ========================= */
+.hl-loader-info {
+  color: #0a8a33 !important;
+}
+
+/* ============================================================
+   FUTUR / EN PAUSE — règles désactivées (à activer plus tard)
+   -> Pour activer : enlève commentaires  *\
+   ============================================================ */
+
+/* --- WhatsApp : masquer “En savoir plus” sur l’essai ---
+#whatsapp-settings .text-xs span{
+  display:none !important;
+}
+#whatsapp-settings div .text-xs{
+  display:none !important;
+}
+#whatsapp-settings a span{
+  visibility:hidden;
+  display:none;
+}
+*/
+
+/* --- Désactiver onglet webinaires (si tu le remets plus tard) ---
+#tb_webinars{
+  display: none !important;
+}
+*/
+
+/* --- Désactiver AI Agent (si besoin) ---
+a[id="sb_AI Agents"]{
+  display:none !important;
+}
+*/
+
+
+/* =========================
+   CROCO THEME OVERRIDE (LAST)
+   ========================= */
+:root,
+:root body,
+body,
+body[data-theme],
+body[data-theme="default"],
+.sidebar-v2-location {
+  --primary-25:  #f6fef9 !important;
+  --primary-50:  #ecfdf3 !important;
+  --primary-100: #d1fadf !important;
+  --primary-200: #a6f4c5 !important;
+  --primary-300: #6ce9a6 !important;
+  --primary-400: #32d583 !important;
+  --primary-500: #12b76a !important;
+  --primary-600: #039855 !important;
+  --primary-700: #027a48 !important;
+  --primary-800: #05603a !important;
+  --primary-900: #054f31 !important;
+}
