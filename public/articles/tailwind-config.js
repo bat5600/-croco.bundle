@@ -1,7 +1,8 @@
 // tailwind-config.js
-// IMPORTANT : ce fichier doit être chargé AVANT https://cdn.tailwindcss.com
+// Safe BEFORE loading https://cdn.tailwindcss.com
 
-tailwind.config = {
+window.tailwind = window.tailwind || {};
+window.tailwind.config = {
   theme: {
     extend: {
       fontFamily: {
@@ -15,7 +16,7 @@ tailwind.config = {
           200: "#a7f3d0",
           300: "#6ee7b7",
           400: "#34d399",
-          500: "#10b981", // Le vert "Croco"
+          500: "#10b981",
           600: "#059669",
           700: "#047857",
           800: "#065f46",
