@@ -11,3 +11,4 @@
   window.addEventListener("scroll", updateProgressBar, { passive: true });
   window.addEventListener("load", updateProgressBar);
 })();
+
