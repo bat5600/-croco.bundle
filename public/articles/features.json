@@ -1,0 +1,26 @@
+[
+  {
+    "tab": "orchestrer",
+    "category": "CRM & données",
+    "items": [
+      "Contacts illimités",
+      "Champs personnalisés illimités (rich text inclus)",
+      "Recherche avancée",
+      "Recherche Regex",
+      "Smart Lists & segmentation avancée",
+      "Lead Scoring automatisé"
+    ]
+  },
+  {
+    "tab": "diffuser",
+    "category": "Inbox omnichannel",
+    "items": [
+      "SMS bidirectionnel",
+      "Email bidirectionnel",
+      "WhatsApp Business",
+      "Instagram DM",
+      "Live Chat",
+      "Réponses rapides"
+    ]
+  }
+]
