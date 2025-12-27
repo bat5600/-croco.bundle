@@ -1,203 +1,650 @@
-[
-  {
-    "tab": "orchestrer",
-    "category": "CRM & gestion des contacts",
-    "items": [
-      "Contacts illimités",
-      "Champs personnalisés illimités (texte enrichi inclus)",
-      "Valeurs personnalisées illimitées",
-      "Objets personnalisés (Custom Objects)",
-      "Fiche entreprise (objet Société)",
-      "Relations personnalisées entre contacts",
-      "Recherche avancée multi-champs",
-      "Recherche par expressions régulières (Regex)",
-      "Listes intelligentes dynamiques",
-      "Tags personnalisables",
-      "Scoring de leads automatisé",
-      "Personnalisation dynamique des contenus"
-    ]
-  },
-  {
-    "tab": "orchestrer",
-    "category": "Communication unifiée (omni-canal)",
-    "items": [
-      "Boîte de réception unifiée",
-      "Nouvelle expérience de conversations",
-      "SMS bidirectionnels",
-      "Emails bidirectionnels",
-      "WhatsApp Business",
-      "Facebook Messenger",
-      "Messages Instagram",
-      "Messages Google Business",
-      "Chat en direct",
-      "Webchat intelligent",
-      "Chat de groupe (mobile)",
-      "Réponses rapides",
-      "Gestion de plusieurs numéros SMS",
-      "Éditeur de messages plein écran",
-      "Raccourcis clavier avancés"
-    ]
-  },
-  {
-    "tab": "orchestrer",
-    "category": "Téléphonie & gestion des appels",
-    "items": [
-      "Système téléphonique natif intégré",
-      "Appels entrants et sortants",
-      "Appels depuis mobile",
-      "Enregistrement des appels",
-      "Suivi des appels (Call Tracking)",
-      "Routage des appels & serveur vocal (IVR)",
-      "Numérotation automatique (Power Dialer)",
-      "Appels en conférence",
-      "Message chuchoté avant appel",
-      "Détection d’appels connectés",
-      "SMS automatique après appel manqué",
-      "Messagerie vocale",
-      "Messagerie vocale vers email",
-      "Messagerie vocale vers SMS",
-      "Dépôt automatique de message vocal",
-      "Prise de notes en temps réel",
-      "Planification de rendez-vous pendant l’appel",
-      "Gestion des délais d’attente entrants",
-      "Statuts d’appels détaillés"
-    ]
-  },
-  {
-    "tab": "orchestrer",
-    "category": "Pipelines & opportunités",
-    "items": [
-      "Pipelines illimités",
-      "Pipelines par campagne",
-      "Opportunités illimitées",
-      "Parcours client automatisé",
-      "Avancement automatique des leads",
-      "Visualisation en temps réel",
-      "Vue en liste des opportunités",
-      "Liaison avec devis et factures"
-    ]
-  },
-  {
-    "tab": "convertir",
-    "category": "Calendriers & réservations",
-    "items": [
-      "Calendriers illimités",
-      "Calendrier simple",
-      "Répartition automatique des rendez-vous (Round Robin)",
-      "Réservations de cours collectifs",
-      "Réservations d’équipe",
-      "Menus de services synchronisés",
-      "Paiement à la réservation",
-      "Paiements récurrents",
-      "Réservations multi-calendriers assistées par IA",
-      "Gestion avancée des disponibilités",
-      "Synchronisation Google, Outlook et Teams",
-      "Synchronisation intelligente des conflits",
-      "Support multi-utilisateurs",
-      "Notifications de rendez-vous personnalisables",
-      "Relances et suivis automatisés"
-    ]
-  },
-  {
-    "tab": "diffuser",
-    "category": "Email marketing",
-    "items": [
-      "Envoi d’emails en masse",
-      "Campagnes automatisées",
-      "Programmation intelligente des emails",
-      "Envoi optimisé par intelligence artificielle",
-      "Optimisation de l’heure d’envoi par contact",
-      "Éditeur visuel Drag & Drop",
-      "Éditeur HTML",
-      "Blocs de contenu réutilisables",
-      "Plus de 350 modèles d’emails",
-      "Gestion des abonnements et désabonnements",
-      "Liens déclencheurs",
-      "Contenu conditionnel",
-      "Statistiques détaillées",
-      "Synchronisation Gmail & Outlook"
-    ]
-  },
-  {
-    "tab": "diffuser",
-    "category": "SMS marketing",
-    "items": [
-      "SMS bidirectionnels illimités",
-      "Campagnes SMS automatisées",
-      "Paiement par SMS (Text-to-Pay)",
-      "Rappels automatiques",
-      "Messages prédéfinis",
-      "Gestion multi-numéros",
-      "Conformité réglementaire (A2P / TCPA)",
-      "Profil d’entreprise vérifié"
-    ]
-  },
-  {
-    "tab": "creer",
-    "category": "Sites web & blogs",
-    "items": [
-      "Sites web illimités",
-      "Constructeur Drag & Drop",
-      "Modèles par secteur d’activité",
-      "Hébergement de domaines",
-      "WordPress natif optimisé",
-      "Créateur de blog intégré",
-      "Référencement avancé (SEO)"
-    ]
-  },
-  {
-    "tab": "creer",
-    "category": "Funnels & tunnels de vente",
-    "items": [
-      "Funnels illimités",
-      "Modèles de tunnels prêts à l’emploi",
-      "Funnels assistés par IA",
-      "Funnels pour webinaires",
-      "Pages de paiement en 1 ou 2 étapes",
-      "Formulaires de commande",
-      "Importation de pages existantes"
-    ]
-  },
-  {
-    "tab": "ai",
-    "category": "Employés IA & automatisation intelligente",
-    "items": [
-      "Chatbots IA personnalisés",
-      "IA conversationnelle par SMS",
-      "Routage intelligent par intention",
-      "Standard téléphonique IA 24/7",
-      "Prise de rendez-vous automatisée",
-      "Analyse du sentiment client",
-      "Réponses automatiques aux avis",
-      "Détection des faux avis",
-      "Création et gestion de multiples agents IA"
-    ]
-  },
-  {
-    "tab": "orchestrer",
-    "category": "Sécurité, équipe & notifications",
-    "items": [
-      "Journal d’audit",
-      "Chiffrement des données",
-      "Permissions par rôle",
-      "Gestion multi-équipes",
-      "Gestion des tâches",
-      "Suivi d’activité",
-      "Notifications en temps réel",
-      "Notifications email, SMS et application"
-    ]
-  },
-  {
-    "tab": "orchestrer",
-    "category": "Application mobile",
-    "items": [
-      "Interface moderne",
-      "Mode sombre",
-      "Recherche universelle",
-      "Gestion des appels et messages",
-      "Gestion des pipelines",
-      "Centre de paiements",
-      "Application mobile en marque blanche"
-    ]
-  }
-]
+{
+  "version": "premium-1.0",
+  "updatedAt": "2025-12-28",
+  "tabs": [
+    {
+      "id": "creer",
+      "label": "Créer",
+      "icon": "fa-solid fa-pen-ruler",
+      "rank": 10,
+      "highlights": ["2.0"],
+      "aliases": ["create", "build", "site", "page", "landing", "lp", "builder", "éditeur", "construction"],
+      "groups": [
+        {
+          "id": "sites-blogs",
+          "category": "Sites web & blogs",
+          "icon": "fa-solid fa-globe",
+          "rank": 10,
+          "highlights": ["2.0"],
+          "aliases": ["website", "site", "blog", "wordpress", "wp", "seo", "référencement", "sitemap", "canonical", "meta", "alt"],
+          "items": [
+            "Sites web illimités",
+            "Constructeur Drag & Drop",
+            "Blocs et sections réutilisables",
+            "Modèles par secteur d’activité",
+            "Hébergement et domaines",
+            "SSL automatique",
+            "Blog intégré",
+            "Référencement avancé (balises, sitemap, canonical, alt)",
+            "Importation depuis WordPress (migration)",
+            "Optimisation mobile et responsive",
+            "Performance optimisée (pages rapides)",
+            "Gestion multi-domaines"
+          ]
+        },
+        {
+          "id": "funnels",
+          "category": "Funnels & tunnels de vente",
+          "icon": "fa-solid fa-layer-group",
+          "rank": 20,
+          "highlights": ["2.0", "PRO"],
+          "aliases": ["funnel", "tunnel", "clickfunnels", "cf", "checkout", "order form", "landing", "vsl", "webinar funnel"],
+          "items": [
+            "Funnels illimités",
+            "Modèles de tunnels prêts à l’emploi",
+            "Pages de capture et pages de vente",
+            "Pages de paiement en 1 ou 2 étapes",
+            "Formulaires de commande",
+            "Upsell / Downsell / Cross-sell",
+            "Order Bump",
+            "Importation de pages (URL / image / capture)",
+            "Tests A/B sur pages et étapes",
+            "Tracking UTM & champs cachés",
+            "Funnels webinaires (inscription + live + replay)",
+            "Redirections conditionnelles (selon actions/score)"
+          ]
+        },
+        {
+          "id": "formulaires-quiz-qr",
+          "category": "Formulaires, quiz & QR codes",
+          "icon": "fa-solid fa-clipboard-question",
+          "rank": 30,
+          "highlights": ["NEW"],
+          "aliases": ["form", "forms", "survey", "sondage", "quiz", "score", "branching", "logic", "qr", "qrcode"],
+          "items": [
+            "Créateur de formulaires",
+            "Créateur de sondages",
+            "Champs illimités",
+            "Logique conditionnelle",
+            "Quiz interactifs",
+            "Logique arborescente (branching)",
+            "Scoring et paliers (tiers)",
+            "Pages de résultats personnalisées",
+            "Analytique des formulaires/quiz",
+            "Vente basée sur score (segmentation)",
+            "Générateur de QR codes natif",
+            "QR codes modifiables après impression",
+            "Export QR (PNG / SVG / PDF)",
+            "Statistiques de scan QR"
+          ]
+        },
+        {
+          "id": "ecommerce",
+          "category": "E-commerce & catalogue produits",
+          "icon": "fa-solid fa-store",
+          "rank": 40,
+          "highlights": ["2.0"],
+          "aliases": ["shop", "store", "ecommerce", "e-shop", "stripe", "paypal", "product", "inventory", "stock", "variant", "collection"],
+          "items": [
+            "Vente de produits physiques et digitaux",
+            "Abonnements et paiements récurrents",
+            "Variantes (taille, couleur, etc.)",
+            "Gestion des stocks",
+            "Collections manuelles et intelligentes",
+            "Importation de produits depuis Stripe",
+            "Coupons et promotions",
+            "Taxes automatiques (TVA)",
+            "Paiements partiels et paiements anticipés",
+            "Gestion des commandes",
+            "Emails transactionnels automatisés",
+            "Page panier optimisée conversion"
+          ]
+        },
+        {
+          "id": "cours-memberships-communaute",
+          "category": "Cours, memberships & communautés",
+          "icon": "fa-solid fa-graduation-cap",
+          "rank": 50,
+          "highlights": ["BETA", "PRO"],
+          "aliases": ["course", "cours", "lms", "membership", "communauté", "community", "skool", "circle", "progress", "certificat"],
+          "items": [
+            "Cours illimités",
+            "Modules et leçons",
+            "Modèles de cours",
+            "Suivi de progression",
+            "Certificats automatisés",
+            "Contenu progressif (drip)",
+            "Espaces membres (membership)",
+            "Communautés illimitées",
+            "Chat communautaire",
+            "Vidéo en direct intégrée (selon module)",
+            "Accès mobile pour apprenants",
+            "Gestion des accès et droits par produit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diffuser",
+      "label": "Diffuser",
+      "icon": "fa-solid fa-paper-plane",
+      "rank": 20,
+      "highlights": ["PRO"],
+      "aliases": ["send", "broadcast", "marketing", "email", "sms", "whatsapp", "social", "dm", "inbox"],
+      "groups": [
+        {
+          "id": "email-marketing",
+          "category": "Email marketing",
+          "icon": "fa-solid fa-envelope",
+          "rank": 10,
+          "highlights": ["2.0"],
+          "aliases": ["email", "emails", "newsletter", "campaign", "sequence", "drip", "deliverability", "ip", "gmail", "outlook"],
+          "items": [
+            "Envoi d’emails en masse",
+            "Campagnes automatisées",
+            "Séquences email",
+            "Programmation intelligente (drip)",
+            "Optimisation de l’heure d’envoi par contact (IA)",
+            "Éditeur Drag & Drop",
+            "Éditeur HTML",
+            "Blocs de contenu réutilisables",
+            "Plus de 350 modèles d’emails",
+            "Contenu conditionnel",
+            "Liens déclencheurs",
+            "Gestion abonnements / désabonnements",
+            "Statistiques détaillées",
+            "Synchronisation Gmail & Outlook"
+          ]
+        },
+        {
+          "id": "sms-whatsapp",
+          "category": "SMS, WhatsApp & messages",
+          "icon": "fa-brands fa-whatsapp",
+          "rank": 20,
+          "highlights": ["NEW"],
+          "aliases": ["sms", "text", "whatsapp", "wa", "a2p", "10dlc", "tcpa", "text2pay", "message"],
+          "items": [
+            "SMS bidirectionnels",
+            "Campagnes SMS automatisées",
+            "Paiement par SMS (Text-to-Pay)",
+            "Rappels automatiques",
+            "Messages prédéfinis",
+            "Gestion multi-numéros",
+            "Conformité A2P 10DLC (enregistrement marque/campagne)",
+            "Conformité TCPA",
+            "Profil d’entreprise vérifié"
+          ]
+        },
+        {
+          "id": "social-planner",
+          "category": "Social media & planification",
+          "icon": "fa-solid fa-share-nodes",
+          "rank": 30,
+          "highlights": ["PRO"],
+          "aliases": ["social", "planner", "scheduler", "instagram", "tiktok", "linkedin", "facebook", "gmb", "google my business", "utm"],
+          "items": [
+            "Publications illimitées",
+            "Multi-plateformes (Facebook, Instagram, TikTok, LinkedIn, X, Google Business)",
+            "Bibliothèque de modèles de contenu",
+            "Raccourcisseur de liens",
+            "Ajout automatique des UTM",
+            "Gestion des médias",
+            "Calendrier éditorial",
+            "Validation et approbation en équipe (selon plan)"
+          ]
+        },
+        {
+          "id": "webinar-live",
+          "category": "Live & webinaires",
+          "icon": "fa-solid fa-video",
+          "rank": 40,
+          "highlights": ["NEW"],
+          "aliases": ["webinar", "live", "replay", "zoom", "room", "chat", "popup", "offer"],
+          "items": [
+            "Pages d’inscription webinaire",
+            "Salle de live intégrée",
+            "Chat modéré",
+            "Offres pop-up en direct",
+            "Replay automatique",
+            "Webinaire evergreen (simulation)",
+            "Relances automatisées avant/après live",
+            "Suivi des présences et engagement"
+          ]
+        },
+        {
+          "id": "reputation",
+          "category": "Réputation & avis",
+          "icon": "fa-solid fa-star",
+          "rank": 50,
+          "highlights": ["IA"],
+          "aliases": ["reviews", "avis", "google reviews", "facebook reviews", "yext", "listing", "reputation", "e-réputation"],
+          "items": [
+            "Demande automatique d’avis",
+            "Avis Google & Facebook centralisés",
+            "Widgets d’avis",
+            "Gestion des fiches (Listings) via connecteur",
+            "Réponses assistées par IA (selon module)",
+            "Détection spam / faux avis (selon module)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "convertir",
+      "label": "Convertir",
+      "icon": "fa-solid fa-hand-holding-dollar",
+      "rank": 30,
+      "highlights": ["2.0"],
+      "aliases": ["sell", "convert", "checkout", "payment", "invoice", "devis", "rdv", "calendar", "booking"],
+      "groups": [
+        {
+          "id": "paiements-checkout",
+          "category": "Paiements & checkout",
+          "icon": "fa-solid fa-cart-shopping",
+          "rank": 10,
+          "highlights": ["2.0", "PRO"],
+          "aliases": ["payment", "paiement", "stripe", "paypal", "nmi", "authorize", "order", "checkout", "oto", "upsell", "downsell"],
+          "items": [
+            "Stripe, PayPal, NMI, Authorize.net",
+            "Paiements sécurisés",
+            "Paiements partiels",
+            "Paiements anticipés",
+            "Paiements récurrents",
+            "Checkout optimisé conversion",
+            "Upsell 1 clic",
+            "Downsell",
+            "Cross-sell",
+            "Order Bump",
+            "Codes promo et réductions",
+            "Taxes automatiques (TVA)",
+            "Liens de paiement (vente hors site)"
+          ]
+        },
+        {
+          "id": "facturation",
+          "category": "Facturation (devis & factures)",
+          "icon": "fa-solid fa-file-invoice-dollar",
+          "rank": 20,
+          "highlights": ["PRO"],
+          "aliases": [
+            "facture",
+            "factures",
+            "devis",
+            "invoice",
+            "invoices",
+            "estimate",
+            "estimates",
+            "quote",
+            "quotes",
+            "billing",
+            "late fees",
+            "relance paiement"
+          ],
+          "items": [
+            "Devis",
+            "Factures",
+            "Conversion devis → facture",
+            "Envoi automatisé",
+            "Frais de retard",
+            "Période de grâce",
+            "Factures programmées",
+            "Paiement en ligne depuis facture",
+            "Historique et statut des paiements"
+          ]
+        },
+        {
+          "id": "calendriers",
+          "category": "Calendriers & réservations",
+          "icon": "fa-solid fa-calendar-check",
+          "rank": 30,
+          "highlights": ["2.0"],
+          "aliases": [
+            "rdv",
+            "rendez-vous",
+            "calendar",
+            "calendly",
+            "booking",
+            "reservation",
+            "round robin",
+            "collective",
+            "class booking",
+            "google calendar",
+            "outlook",
+            "teams"
+          ],
+          "items": [
+            "Calendriers illimités",
+            "Calendrier simple",
+            "Répartition automatique des rendez-vous (Round Robin)",
+            "Réservations de cours collectifs",
+            "Réservations d’équipe",
+            "Menus de services synchronisés",
+            "Paiement à la réservation",
+            "Paiements récurrents",
+            "Gestion avancée des disponibilités",
+            "Synchronisation Google / Outlook / Teams",
+            "Synchronisation bidirectionnelle",
+            "Gestion des conflits de calendriers",
+            "Notifications de rendez-vous personnalisables",
+            "Relances et suivis automatisés"
+          ]
+        },
+        {
+          "id": "affiliation",
+          "category": "Affiliation & partenariats",
+          "icon": "fa-solid fa-handshake",
+          "rank": 40,
+          "highlights": ["NEW"],
+          "aliases": ["affiliate", "affiliation", "partner", "partenaire", "commission", "tracking", "lien affilié"],
+          "items": [
+            "Création de programmes partenaires",
+            "Liens de tracking",
+            "Tableau de bord affilié",
+            "Calcul automatisé des commissions",
+            "Attribution des ventes",
+            "Périodes et règles de commission"
+          ]
+        },
+        {
+          "id": "pubs",
+          "category": "Publicités & acquisition",
+          "icon": "fa-solid fa-bullhorn",
+          "rank": 50,
+          "highlights": ["PRO"],
+          "aliases": ["ads", "publicité", "facebook ads", "meta", "google ads", "reporting", "lookalike", "audience"],
+          "items": [
+            "Gestion Google Ads",
+            "Gestion Meta (Facebook/Instagram)",
+            "Audiences & Lookalike",
+            "Tableaux de bord publicitaires",
+            "Suivi des performances",
+            "Attribution (selon configuration)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orchestrer",
+      "label": "Orchestrer",
+      "icon": "fa-solid fa-network-wired",
+      "rank": 40,
+      "highlights": ["PRO"],
+      "aliases": ["crm", "workflows", "automation", "pipeline", "inbox", "team", "tasks", "api", "webhook"],
+      "groups": [
+        {
+          "id": "inbox",
+          "category": "Boîte de réception & conversations",
+          "icon": "fa-solid fa-inbox",
+          "rank": 10,
+          "highlights": ["2.0"],
+          "aliases": ["inbox", "messages", "conversation", "chat", "sms", "email", "dm", "messenger", "whatsapp"],
+          "items": [
+            "Boîte de réception unifiée",
+            "Expérience de conversations améliorée",
+            "Réponses rapides",
+            "Composer plein écran",
+            "Raccourcis clavier avancés",
+            "Chat de groupe sur mobile",
+            "Multi-canaux : SMS, Email, WhatsApp, Instagram, Messenger, Google Business",
+            "Historique complet des échanges"
+          ]
+        },
+        {
+          "id": "crm",
+          "category": "CRM & gestion des contacts",
+          "icon": "fa-solid fa-address-book",
+          "rank": 20,
+          "highlights": ["PRO"],
+          "aliases": ["contacts", "crm", "custom fields", "tags", "segments", "smart lists", "lead scoring", "regex"],
+          "items": [
+            "Contacts illimités",
+            "Champs personnalisés illimités (texte enrichi inclus)",
+            "Valeurs personnalisées illimitées",
+            "Objets personnalisés (Custom Objects)",
+            "Fiche entreprise (objet Société)",
+            "Relations personnalisées entre contacts",
+            "Recherche avancée multi-champs",
+            "Recherche par expressions régulières (Regex)",
+            "Listes intelligentes dynamiques",
+            "Tags personnalisables",
+            "Scoring de leads automatisé",
+            "Personnalisation dynamique des contenus"
+          ]
+        },
+        {
+          "id": "workflows",
+          "category": "Automatisations & workflows",
+          "icon": "fa-solid fa-bolt",
+          "rank": 30,
+          "highlights": ["2.0", "IA"],
+          "aliases": ["workflow", "automation", "if else", "condition", "webhook", "zapier", "make", "google sheets", "slack"],
+          "items": [
+            "Éditeur visuel de workflows",
+            "Automatisation multi-canal",
+            "Déclencheurs multiples",
+            "Conditions (if/else)",
+            "Délais et timers",
+            "Actions personnalisées",
+            "Webhooks",
+            "Connexion Google Sheets",
+            "Notifications Slack",
+            "Liens déclencheurs",
+            "Onboarding client automatisé",
+            "Création automatique de tâches",
+            "Rebilling avec marge (markup) (selon configuration)"
+          ]
+        },
+        {
+          "id": "pipelines",
+          "category": "Pipelines & opportunités",
+          "icon": "fa-solid fa-diagram-project",
+          "rank": 40,
+          "highlights": ["PRO"],
+          "aliases": ["pipeline", "deal", "opportunity", "opportunité", "kanban", "stages", "crm pipeline"],
+          "items": [
+            "Pipelines illimités",
+            "Pipelines par campagne",
+            "Opportunités illimitées",
+            "Avancement automatique des leads",
+            "Vue kanban et vue liste",
+            "Visualisation en temps réel",
+            "Liaison opportunités ↔ devis/factures",
+            "Automatisation du parcours client"
+          ]
+        },
+        {
+          "id": "telephonie",
+          "category": "Téléphonie & gestion des appels",
+          "icon": "fa-solid fa-phone",
+          "rank": 50,
+          "highlights": ["PRO"],
+          "aliases": ["phone", "telephony", "calls", "ivr", "dialer", "voicemail", "call tracking", "gbp call"],
+          "items": [
+            "Système téléphonique natif intégré",
+            "Appels entrants et sortants",
+            "Appels depuis mobile",
+            "Enregistrement des appels",
+            "Suivi des appels (Call Tracking)",
+            "Suivi des appels Google Business",
+            "Routage des appels & serveur vocal (IVR)",
+            "Numérotation automatique (Power Dialer)",
+            "Appels en conférence",
+            "Message chuchoté avant appel",
+            "SMS automatique après appel manqué",
+            "Messagerie vocale",
+            "Messagerie vocale vers email",
+            "Messagerie vocale vers SMS",
+            "Dépôt automatique de message vocal",
+            "Prise de notes en temps réel",
+            "Planification de rendez-vous pendant l’appel"
+          ]
+        },
+        {
+          "id": "reporting",
+          "category": "Analytique & tableaux de bord",
+          "icon": "fa-solid fa-chart-line",
+          "rank": 60,
+          "highlights": ["PRO"],
+          "aliases": ["analytics", "reporting", "dashboard", "kpi", "attribution", "ab test", "widgets"],
+          "items": [
+            "Tableaux de bord personnalisables",
+            "Widgets avancés",
+            "Attribution (selon configuration)",
+            "Rapports programmés",
+            "Tableaux multi-pages",
+            "Branding des dashboards",
+            "Tests A/B",
+            "Widgets pour objets personnalisés"
+          ]
+        },
+        {
+          "id": "integrations",
+          "category": "Intégrations, API & marketplace",
+          "icon": "fa-solid fa-plug",
+          "rank": 70,
+          "highlights": ["PRO"],
+          "aliases": ["api", "webhooks", "zapier", "make", "marketplace", "openai", "deepl", "notion", "airtable", "clickup"],
+          "items": [
+            "Marketplace d’applications",
+            "API v1 et v2",
+            "Webhooks",
+            "Connecteurs Zapier & Make",
+            "Intégrations OpenAI et DeepL",
+            "Intégrations Notion, ClickUp, Airtable",
+            "Intégrations WhatsApp, WordPress, WooCommerce"
+          ]
+        },
+        {
+          "id": "securite-equipe",
+          "category": "Sécurité, équipe & notifications",
+          "icon": "fa-solid fa-shield-halved",
+          "rank": 80,
+          "highlights": ["PRO"],
+          "aliases": ["security", "permissions", "roles", "audit", "team", "tasks", "notifications", "multi-location"],
+          "items": [
+            "Journal d’audit",
+            "Chiffrement des données",
+            "Permissions par rôle",
+            "Gestion multi-équipes",
+            "Gestion multi-localisations",
+            "Gestion des tâches",
+            "Assignations et responsables",
+            "Automatisation des tâches",
+            "Suivi d’activité",
+            "Notifications en temps réel",
+            "Notifications email, SMS, application et bureau"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "Croco AI",
+      "icon": "fa-solid fa-wand-magic-sparkles",
+      "rank": 50,
+      "highlights": ["BETA", "IA"],
+      "aliases": ["ai", "ia", "chatgpt", "agent", "voice ai", "assistant", "bot", "automation ai"],
+      "groups": [
+        {
+          "id": "conversation-ai",
+          "category": "IA conversationnelle",
+          "icon": "fa-solid fa-robot",
+          "rank": 10,
+          "highlights": ["BETA", "NEW"],
+          "aliases": ["chatbot", "bot", "chat", "sms ai", "intention", "routing", "sentiment", "multibot"],
+          "items": [
+            "Chat IA sur site",
+            "IA par SMS",
+            "Gestion multi-bots",
+            "Routage intelligent par intention",
+            "Reconnaissance d’image et d’audio (selon module)",
+            "Détection du sentiment client",
+            "Actions personnalisées via IA (selon configuration)"
+          ]
+        },
+        {
+          "id": "voice-ai",
+          "category": "IA vocale (téléphonie)",
+          "icon": "fa-solid fa-headset",
+          "rank": 20,
+          "highlights": ["BETA"],
+          "aliases": ["voice ai", "call ai", "phone ai", "receptionist", "ivr ai", "booking ai"],
+          "items": [
+            "Standard téléphonique IA 24/7",
+            "Appels entrants et sortants assistés par IA",
+            "Prise de rendez-vous automatisée",
+            "Voix multilingues",
+            "Qualification automatique des demandes"
+          ]
+        },
+        {
+          "id": "workflow-ai",
+          "category": "IA dans les workflows",
+          "icon": "fa-solid fa-gears",
+          "rank": 30,
+          "highlights": ["IA", "PRO"],
+          "aliases": ["workflow ai", "automation ai", "sentiment", "decision", "webhook ai", "chatgpt action"],
+          "items": [
+            "Décisions intelligentes dans les automatisations",
+            "Analyse de sentiment dans les workflows",
+            "Étapes IA personnalisées",
+            "Actions IA via webhooks (selon configuration)"
+          ]
+        },
+        {
+          "id": "review-ai",
+          "category": "IA pour les avis",
+          "icon": "fa-solid fa-star",
+          "rank": 40,
+          "highlights": ["IA"],
+          "aliases": ["review ai", "avis ai", "google reviews", "reply ai", "spam review", "fake review"],
+          "items": [
+            "Réponses automatiques personnalisées aux avis",
+            "Filtrage des avis suspects (selon module)",
+            "Détection spam / faux avis (selon module)"
+          ]
+        },
+        {
+          "id": "content-ai",
+          "category": "IA de contenu",
+          "icon": "fa-solid fa-pen-nib",
+          "rank": 50,
+          "highlights": ["BETA"],
+          "aliases": ["content ai", "copywriting", "emails", "blog", "posts", "social content", "generator"],
+          "items": [
+            "Génération de textes pour emails",
+            "Génération de contenus pour blog",
+            "Génération de posts social media",
+            "Réécriture et amélioration de textes"
+          ]
+        },
+        {
+          "id": "image-ai",
+          "category": "IA d’images",
+          "icon": "fa-solid fa-image",
+          "rank": 60,
+          "highlights": ["BETA"],
+          "aliases": ["image ai", "generator", "visual", "illustration", "stock", "creative"],
+          "items": [
+            "Génération d’images uniques",
+            "Visuels libres de droits",
+            "Idées de créas pour publicités (selon usage)"
+          ]
+        },
+        {
+          "id": "traduction",
+          "category": "Traduction assistée par IA",
+          "icon": "fa-solid fa-language",
+          "rank": 70,
+          "highlights": ["BETA"],
+          "aliases": ["translation", "translate", "deepl", "langues", "multilingual", "fr", "en"],
+          "items": [
+            "Traduction instantanée des pages",
+            "Traduction des emails",
+            "Traduction des contenus marketing"
+          ]
+        }
+      ]
+    }
+  ]
+}
