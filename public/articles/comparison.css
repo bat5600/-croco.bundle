@@ -1,25 +1,26 @@
-/* public/articles/comparaison.css */
+/* =========================
+   CrocoClick Comparison – Custom CSS
+   (Complète Tailwind)
+========================= */
 
-/* Progress bar */
 .progress-bar {
   height: 4px;
+  background: linear-gradient(90deg, #10b981, #34d399);
   width: 0%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
   transition: width 0.1s;
-  background: linear-gradient(90deg, #10b981, #34d399);
 }
 
-/* Background grid helper (tu l’utilises sur le hero) */
 .bg-grid {
   background-size: 40px 40px;
   mask-image: linear-gradient(to bottom, transparent, 5%, white, 95%, transparent);
   -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
 }
 
-/* Comparaison tables */
+/* Tables de comparaison */
 .comparison-row:nth-child(even) {
   background-color: #f8fafc;
 }
@@ -40,7 +41,7 @@
   font-size: 1.1rem;
 }
 
-/* Accordion rows */
+/* Accordion */
 .hidden-row {
   display: none;
 }
@@ -52,4 +53,9 @@
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* (Optionnel) Meilleur ressenti sur le bouton */
+.cc-table-toggle-btn {
+  user-select: none;
 }
