@@ -1,26 +1,210 @@
 [
   {
     "tab": "orchestrer",
-    "category": "CRM & données",
+    "category": "CRM & gestion des contacts",
     "items": [
       "Contacts illimités",
       "Champs personnalisés illimités (rich text inclus)",
-      "Recherche avancée",
+      "Custom Values illimités",
+      "Objets personnalisés (Custom Objects)",
+      "Objet Company (données entreprises)",
+      "Relations personnalisées entre contacts",
+      "Recherche avancée (jusqu’à 6 champs personnalisés)",
       "Recherche Regex",
       "Smart Lists & segmentation avancée",
-      "Lead Scoring automatisé"
+      "Tags personnalisables",
+      "Lead Scoring automatisé",
+      "Personnalisation dynamique du contenu"
     ]
   },
   {
     "tab": "diffuser",
-    "category": "Inbox omnichannel",
+    "category": "Communication unifiée (Omnichannel)",
     "items": [
+      "Tableau de conversations unifié",
+      "Nouvelle Conversations Experience",
       "SMS bidirectionnel",
       "Email bidirectionnel",
       "WhatsApp Business",
+      "Facebook Messenger",
       "Instagram DM",
+      "Google Business Messages",
       "Live Chat",
-      "Réponses rapides"
+      "Webchat intelligent",
+      "Group Chat (mobile)",
+      "Réponses rapides",
+      "Multi-numéros SMS",
+      "Composer plein écran",
+      "Raccourcis clavier avancés"
+    ]
+  },
+  {
+    "tab": "orchestrer",
+    "category": "Téléphonie & Call Management",
+    "items": [
+      "Système téléphonique natif (LC-Phone)",
+      "Appels entrants / sortants",
+      "Appels mobiles",
+      "Enregistrement d’appels",
+      "Call tracking & GBP Call Tracking",
+      "Call routing & IVR",
+      "Power Dialer",
+      "Conférences téléphoniques",
+      "Whisper Message",
+      "Missed Call Text Back",
+      "Voicemail",
+      "Voicemail-to-email",
+      "Voicemail-to-text",
+      "Notes en temps réel pendant appel",
+      "Planification de RDV pendant appel"
+    ]
+  },
+  {
+    "tab": "orchestrer",
+    "category": "Pipelines & opportunités",
+    "items": [
+      "Pipelines illimités",
+      "Pipelines par campagne",
+      "Opportunités illimitées",
+      "Automatisation du parcours client",
+      "Progression automatique des leads",
+      "Visualisation temps réel",
+      "Vue liste des opportunités",
+      "Lien avec devis & factures"
+    ]
+  },
+  {
+    "tab": "convertir",
+    "category": "Calendriers & réservations",
+    "items": [
+      "Calendriers illimités",
+      "Simple Calendar",
+      "Round Robin",
+      "Class Booking",
+      "Collective Booking",
+      "Menus de services synchronisés",
+      "Paiement à la réservation",
+      "Paiements récurrents",
+      "Gestion fine des disponibilités",
+      "Synchronisation Google / Outlook / Teams",
+      "One-way, Two-way & Smart Sync",
+      "Conflict Calendars",
+      "Support multi-utilisateurs",
+      "Notifications RDV (Email / SMS / In-App)",
+      "Follow-up automatisé"
+    ]
+  },
+  {
+    "tab": "diffuser",
+    "category": "Email marketing",
+    "items": [
+      "Envoi d’emails en masse",
+      "Campagnes séquencées",
+      "Drip scheduling intelligent",
+      "Smart Send (IA)",
+      "Optimisation horaire par contact",
+      "Éditeur Drag & Drop",
+      "HTML Builder",
+      "Snippets réutilisables",
+      "Gestion abonnements / désabonnements",
+      "Trigger Links",
+      "Conditional content",
+      "Statistiques intégrées",
+      "Gmail & Outlook Sync (bidirectionnel)"
+    ]
+  },
+  {
+    "tab": "diffuser",
+    "category": "SMS marketing",
+    "items": [
+      "SMS bidirectionnels",
+      "Campagnes automatisées",
+      "Text2Pay",
+      "Rappels automatiques",
+      "Snippets SMS",
+      "Multi-numéros par campagne",
+      "A2P 10DLC (Brand + Campaign Registration)",
+      "TCPA compliance"
+    ]
+  },
+  {
+    "tab": "creer",
+    "category": "Sites web, funnels & blog",
+    "items": [
+      "Sites illimités",
+      "Builder Drag & Drop",
+      "Templates par niches",
+      "Hébergement domaine + SSL",
+      "WordPress natif (option)",
+      "Blog Builder",
+      "SEO avancé (canonical, meta, alt, sitemap)",
+      "Funnels illimités",
+      "Templates pré-construits",
+      "Funnels webinaires",
+      "Checkout 1 ou 2 étapes",
+      "Order Form",
+      "Import URL / image / screenshot"
+    ]
+  },
+  {
+    "tab": "creer",
+    "category": "Formulaires, quiz & QR codes",
+    "items": [
+      "Form Builder",
+      "Survey Builder",
+      "Champs illimités",
+      "Conditional Logic",
+      "Lead Forms",
+      "Inline embed",
+      "Quiz Builder",
+      "Branching Logic",
+      "Scoring & Tiers",
+      "Pages de résultats",
+      "Analytics",
+      "QR Codes natifs",
+      "Export PNG / SVG / PDF",
+      "Analytics de scan"
+    ]
+  },
+  {
+    "tab": "ai",
+    "category": "Croco AI (AI Employee)",
+    "items": [
+      "Chat & SMS IA",
+      "Multi-bots",
+      "Intention routing",
+      "Image & audio recognition",
+      "Voice AI (réceptionniste 24/7)",
+      "Appels entrants/sortants automatisés",
+      "Réservations automatiques",
+      "Voix multilingues",
+      "Sentiment detection",
+      "Actions IA dans workflows",
+      "Analyse de sentiment dans automatisations",
+      "Actions ChatGPT personnalisées",
+      "Review AI (réponses automatiques aux avis)",
+      "Détection spam / faux avis"
+    ]
+  },
+  {
+    "tab": "convertir",
+    "category": "Paiements, facturation & produits",
+    "items": [
+      "Stripe / PayPal / NMI / Authorize.net",
+      "Paiements sécurisés",
+      "Paiements partiels",
+      "Paiements anticipés",
+      "Paiements récurrents",
+      "Invoices",
+      "Estimates",
+      "Conversion Estimate → Invoice",
+      "Late fees",
+      "Grace period",
+      "Scheduled invoices",
+      "Produits physiques, digitaux, abonnements",
+      "Variants",
+      "Inventory tracking",
+      "Import Stripe"
     ]
   }
 ]
