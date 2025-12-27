@@ -23,13 +23,6 @@ export default {
           900: "#064e3b"
         }
       }
-    },
-    typography: {
-      sm: {
-        css: {
-          fontSize: "0.8rem"
-        }
-      }
     }
   },
   plugins: [require("@tailwindcss/typography")]
