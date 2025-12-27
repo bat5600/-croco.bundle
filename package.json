@@ -2,11 +2,11 @@
   "name": "croco-bundle",
   "private": true,
   "type": "module",
+  "scripts": {
+    "build": "npx tailwindcss -c public/articles/tailwind.config.js -i public/articles/input.css -o public/articles/croco-article.css --minify"
+  },
   "devDependencies": {
     "tailwindcss": "^3.4.0",
     "@tailwindcss/typography": "^0.5.0"
-  },
-  "scripts": {
-    "build": "node public/articles/build-tailwind.js"
   }
 }
