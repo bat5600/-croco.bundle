@@ -49,3 +49,71 @@
     }
   };
 })();
+
+/* ===== Sticky Sidebar (GHL safe) ===== */
+(function () {
+  const TOP = 128;
+  let raf = null;
+
+  function run() {
+    const aside = document.getElementById("cc-aside");
+    const inner = document.getElementById("cc-aside-inner");
+    const article = document.getElementById("cc-article");
+    if (!aside || !inner || !article) return;
+
+    if (window.innerWidth < 1024) {
+      inner.style.position = "";
+      inner.style.top = "";
+      inner.style.left = "";
+      inner.style.width = "";
+      inner.style.transform = "";
+      return;
+    }
+
+    const articleRect = article.getBoundingClientRect();
+    const asideRect = aside.getBoundingClientRect();
+
+    const left = asideRect.left;
+    const width = asideRect.width;
+
+    const articleBottomY = articleRect.bottom + window.scrollY;
+    const scrollY = window.scrollY;
+    const fixedTopY = scrollY + TOP;
+    const innerHeight = inner.offsetHeight;
+
+    const stopY = articleBottomY - innerHeight;
+
+    if (fixedTopY >= stopY) {
+      inner.style.position = "absolute";
+      inner.style.left = "";
+      inner.style.width = width + "px";
+      inner.style.top = (stopY - (asideRect.top + scrollY)) + "px";
+      inner.style.transform = "";
+    } else if (articleRect.top <= TOP) {
+      inner.style.position = "fixed";
+      inner.style.top = TOP + "px";
+      inner.style.left = left + "px";
+      inner.style.width = width + "px";
+      inner.style.transform = "translateZ(0)";
+    } else {
+      inner.style.position = "";
+      inner.style.top = "";
+      inner.style.left = "";
+      inner.style.width = "";
+      inner.style.transform = "";
+    }
+  }
+
+  function onScroll() {
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      raf = null;
+      run();
+    });
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  window.addEventListener("load", run);
+  setTimeout(run, 250);
+})();
