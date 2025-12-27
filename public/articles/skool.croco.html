@@ -1,0 +1,491 @@
+<!-- 
+    OPTIMISATION GHL - ARTICLE CROCOCLICK VS SKOOL
+    Type: Content Pillar / Comparatif "Deep Dive"
+    Focus: Communauté, Migration & Pricing Réel
+    Mise à jour : Octobre 2025
+-->
+
+<!-- 1. SEO AVANCÉ (SCHEMA JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "CrocoClick VS Skool : Pourquoi comparer l'incomparable ? (Mise à jour 2025)",
+      "image": "https://ui-avatars.com/api/?name=VS&background=10b981&color=fff&size=512",
+      "author": {
+        "@type": "Organization",
+        "name": "La CrocoTeam",
+        "url": "https://crococlick.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CrocoClick",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://crococlick.com/favicon.png"
+        }
+      },
+      "datePublished": "2024-10-01",
+      "dateModified": "2025-10-15",
+      "description": "Skool est une superbe 'feature'. CrocoClick est un Business OS complet qui INCLUT cette feature. Découvrez l'importateur Skool en 1 clic et le vrai coût des transactions."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Est-ce que l'expérience communauté de CrocoClick vaut celle de Skool ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, car elle s'en inspire directement. Vous retrouvez le même design épuré, les fils de discussion, la gamification et les classements. Sauf qu'ici, tout est connecté à votre CRM et vos emails."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment fonctionne l'importateur Skool vers CrocoClick ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est un outil magique en 1 clic. Vous connectez votre compte Skool, et CrocoClick aspire tout : vos canaux, vos posts, l'historique des conversations et vos membres. La migration se fait en quelques minutes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels sont les frais cachés de Skool ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Skool coûte 99$/mois PAR groupe. Si vous avez 3 programmes, c'est 297$/mois. De plus, Skool prend des frais de transaction (2.9% + 30cts) sur vos ventes."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- 2. DEPENDANCES (CSS & FONTS) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://croco-bundle.vercel.app/articles/croco-article.css?v=123">
+<link rel="stylesheet" href="https://croco-bundle.vercel.app/articles/comparison.css?v=123">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
+
+<!-- 3. CONTENU DE L'ARTICLE -->
+
+<!-- Barre de progression (Masquée sur mobile) -->
+<div class="progress-bar hidden md:block" id="progressBar"></div>
+
+<!-- Header / Hero Section -->
+<header class="relative pt-16 pb-20 lg:pt-24 lg:pb-32 bg-white overflow-hidden">
+    <div class="absolute inset-0 bg-grid-pattern bg-grid opacity-60"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-left">
+        <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
+            
+            <!-- Colonne Gauche : Texte Hero -->
+            <div class="lg:col-span-7 relative">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-700 text-xs font-bold uppercase tracking-wide mb-6 animate-pulse">
+                    <span class="w-2 h-2 rounded-full bg-brand-500"></span>
+                    Mise à jour Octobre 2025
+                </div>
+                <h1 class="text-4xl tracking-tight font-display font-extrabold text-slate-900 sm:text-5xl md:text-6xl mb-8 leading-[1.1]">
+                    CrocoClick vs <span class="text-slate-400 decoration-4 decoration-brand-200 underline underline-offset-4">Skool</span><br> 
+                    <span class="text-brand-600">On compare l'incomparable ?</span>
+                </h1>
+                <p class="mt-4 max-w-md mx-auto text-lg md:text-xl text-slate-600 md:mt-5 md:max-w-3xl lg:mx-0 leading-relaxed font-light">
+                    Soyons honnêtes : Skool est une superbe <em>feature</em> (fonctionnalité). CrocoClick est un système complet qui <strong>inclut</strong> cette feature. <br>
+                    Est-ce que ça vaut le coup de payer 99$/mois juste pour une communauté, alors que vous pouvez tout avoir au même endroit ?
+                </p>
+                
+                <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center text-sm text-slate-500">
+                    <div class="flex items-center gap-3 bg-white pl-1 pr-4 py-1.5 rounded-full border border-slate-200 shadow-sm">
+                        <img src="https://storage.googleapis.com/msgsndr/0XeqHZvwfH59pwE9Y5ZY/media/694195221a3264ae42d74ff4.png" alt="Auteur" class="w-8 h-8 rounded-full">
+                        <span>Par <strong>La CrocoTeam</strong></span>
+                    </div>
+                    <span class="hidden sm:inline text-slate-300">|</span>
+                    <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock"></i> 22 min de lecture</span>
+                </div>
+            </div>
+
+            <!-- Colonne Droite : Visuel Comparatif Flottant -->
+            <div class="mt-16 lg:mt-0 lg:col-span-5 relative hidden lg:block">
+                <!-- Blob décoratif -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-brand-200/30 blur-3xl rounded-full"></div>
+                
+                <!-- Carte Comparative -->
+                <div class="relative bg-white rounded-2xl shadow-2xl p-6 border border-slate-100 transform rotate-2 hover:rotate-0 transition duration-500 cursor-default group">
+                    <div class="flex justify-between items-center mb-6 border-b pb-4">
+                        <div class="text-center w-1/2 border-r">
+                            <div class="font-display font-bold text-2xl text-brand-600 group-hover:scale-110 transition duration-300">CrocoClick</div>
+                            <div class="text-xs text-brand-600/70 font-bold uppercase mt-1 tracking-wider">Le Paquebot</div>
+                        </div>
+                        <div class="text-center w-1/2 opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-70 transition duration-300">
+                            <div class="font-display font-bold text-2xl text-slate-600">Skool</div>
+                            <div class="text-xs text-slate-400 uppercase mt-1">Le Salon VIP</div>
+                        </div>
+                    </div>
+                    <div class="space-y-5">
+                         <!-- Barre 1 : Experience Commu -->
+                         <div class="space-y-1">
+                            <div class="flex justify-between text-xs font-semibold text-slate-700">
+                                <span>Expérience Communauté</span>
+                                <span class="text-slate-500">Kif-Kif (Similaire)</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden flex relative">
+                                <!-- Croco -->
+                                <div class="bg-brand-500 h-2.5 rounded-l-full" style="width: 50%"></div>
+                                <!-- Skool -->
+                                <div class="bg-slate-400 h-2.5 rounded-r-full" style="width: 50%"></div>
+                            </div>
+                        </div>
+                        <!-- Barre 2 : Le Reste (Funnels/CRM) -->
+                        <div class="space-y-1">
+                            <div class="flex justify-between text-xs font-semibold text-slate-700">
+                                <span>Tout le reste (Funnels, Email, CRM)</span>
+                                <span class="text-brand-600">Croco écrase</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden flex">
+                                <div class="bg-brand-500 h-2.5 rounded-full shadow-lg shadow-brand-500/50" style="width: 98%"></div>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden flex opacity-40 mt-1">
+                                <div class="bg-slate-500 h-1.5 rounded-full" style="width: 2%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Badge flottant -->
+                    <div class="absolute -bottom-5 -right-5 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-xl text-sm font-bold flex items-center gap-2 transform group-hover:scale-105 transition">
+                        <i class="fa-solid fa-trophy text-yellow-400"></i>
+                        OS Complet
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<!-- Contenu Principal -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="lg:grid lg:grid-cols-12 lg:gap-16">
+        
+        <!-- Colonne Article (Gauche) -->
+        <article id="cc-article" class="lg:col-span-8">
+            
+            <!-- VERDICT RAPIDE (TL;DR) -->
+            <div class="bg-gradient-to-br from-brand-50/80 to-white border border-brand-200 rounded-2xl p-8 mb-12 shadow-lg shadow-brand-100/50 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-brand-100 rounded-bl-full opacity-50"></div>
+                <h3 class="flex items-center gap-2 text-brand-900 font-display font-extrabold text-xl mb-4 relative">
+                    <i class="fa-solid fa-bolt text-yellow-500"></i> Le Verdict Rapide
+                </h3>
+                <div class="text-slate-700 text-lg mb-6 leading-relaxed relative space-y-4">
+                    <p>
+                        Comparer CrocoClick et Skool, c'est comme comparer un <strong>iPhone</strong> (CrocoClick) et une <strong>application de messagerie</strong> (Skool). L'application fait très bien son travail, mais elle ne remplace pas le téléphone.
+                    </p>
+                    <p>
+                        <strong class="bg-brand-100 text-brand-800 px-1 rounded">La réalité est simple :</strong> CrocoClick intègre un module communauté qui s'inspire directement de Skool. C'est la même expérience utilisateur, mais connectée à tout votre business.
+                    </p>
+                    <p>
+                        Si vous avez déjà une communauté sur Skool, nous avons une bonne nouvelle : <strong>l'importateur magique en 1 clic</strong> vous attend.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Introduction Editoriale -->
+            <div class="prose prose-slate prose-sm md:prose-lg max-w-none">
+                <p>
+                    Skool est une plateforme magnifique. Minimaliste, fluide, gamifiée. C'est l'endroit parfait pour discuter. Mais un business, ce n'est pas juste discuter. C'est vendre, facturer, relancer, closer, automatiser.
+                </p>
+                <p>
+                    La question n'est pas "Lequel est le meilleur ?", mais <strong>"Voulez-vous payer 99$/mois juste pour une fonctionnalité, ou pour un écosystème complet ?"</strong>.
+                </p>
+
+                <!-- SECTION 1: ZOOM SUR LA COMMUNAUTÉ -->
+                <h2 id="community-zoom" class="flex items-center gap-4 text-3xl mt-16">
+                    <span class="flex items-center justify-center w-12 h-12 rounded-xl bg-slate-900 text-white text-xl shadow-lg">1</span>
+                    Zoom Communauté : La copie parfaite ?
+                </h2>
+                
+                <p>
+                    C'est le point crucial. Beaucoup d'utilisateurs restent sur Skool car ils aiment le design et l'ergonomie. Ils pensent que CrocoClick est "juste un constructeur de tunnel" et que l'aspect communauté sera moche ou compliqué.
+                </p>
+                <p class="font-bold text-xl text-brand-700">Faux. Regardons la vérité en face :</p>
+                
+                <div class="grid md:grid-cols-2 gap-6 my-8 not-prose">
+                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                        <h4 class="font-bold text-slate-800 mb-2">Ce que vous aimez chez Skool</h4>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Fil d'actualité simple (Feed)</li>
+                            <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Cours dans l'onglet "Classroom"</li>
+                            <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Gamification (Niveaux, Points)</li>
+                            <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Calendrier d'événements</li>
+                            <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Application Mobile</li>
+                        </ul>
+                    </div>
+                    <div class="bg-brand-50 p-6 rounded-xl border border-brand-200">
+                        <h4 class="font-bold text-brand-800 mb-2">Ce que vous avez chez CrocoClick</h4>
+                        <ul class="space-y-2 text-sm text-brand-900">
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i><strong>Exactement la même chose.</strong></li>
+                            <li><i class="fa-solid fa-plus text-brand-500 mr-2"></i>Automatisations connectées au CRM</li>
+                            <li><i class="fa-solid fa-plus text-brand-500 mr-2"></i>Déblocage de bonus par email</li>
+                            <li><i class="fa-solid fa-plus text-brand-500 mr-2"></i>Vente d'accès via Funnels complexes</li>
+                            <li><i class="fa-solid fa-plus text-brand-500 mr-2"></i>Groupes illimités (sans payer plus)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p>
+                    CrocoClick ne s'en cache pas : le module communauté s'inspire des meilleurs standards du marché (dont Skool). L'expérience élève est identique. <strong>Vos membres ne verront pas la différence.</strong> Mais vous, vous verrez la différence sur votre compte en banque et votre organisation.
+                </p>
+
+                 <!-- BLOC FEATURE IMPORTATEUR -->
+                 <div class="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 text-white shadow-xl my-12 not-prose relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 -mr-10 -mt-10 w-40 h-40 bg-white opacity-10 rounded-full blur-2xl group-hover:scale-125 transition duration-700"></div>
+                    <div class="relative z-10">
+                        <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md rounded-full px-3 py-1 text-xs font-bold mb-4 border border-white/20">
+                            <i class="fa-solid fa-wand-magic-sparkles text-yellow-300"></i> Nouvelle Feature
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">L'Importateur Skool en 1 Clic 🪄</h3>
+                        <p class="text-indigo-100 mb-6 max-w-2xl">
+                            Vous avez peur de perdre vos posts, vos membres ou votre historique en changeant d'outil ? <br>
+                            Fini le stress. CrocoClick dispose d'un outil d'importation officiel. Vous connectez votre compte Skool, et <strong>en quelques minutes, tout est transféré</strong> : membres, niveaux, posts, commentaires. C'est transparent.
+                        </p>
+                        <a href="https://help.crococlick.com" target="_blank" class="inline-block bg-white text-indigo-700 font-bold px-6 py-3 rounded-lg hover:bg-indigo-50 transition shadow-lg">
+                            Voir la démo du transfert →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SECTION 2: LE COMPARATIF TECHNIQUE (Condensé) -->
+                <h2 id="comparatif" class="flex items-center gap-4 text-3xl mb-8">
+                    <span class="flex items-center justify-center w-12 h-12 rounded-xl bg-slate-900 text-white text-xl shadow-lg">2</span>
+                    Le reste du Business (Là où Skool s'arrête)
+                </h2>
+                <p>
+                    C'est ici que la comparaison s'arrête et que le massacre commence. Skool est une île déserte. CrocoClick est un continent.
+                </p>
+
+                <!-- TABLEAUX COMPARATIFS -->
+                <div class="space-y-8 mt-8">
+
+                    <!-- ROUND: BUSINESS & VENTE -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden" id="table-biz">
+                        <div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex items-center justify-between">
+                            <h3 class="font-display font-bold text-xl text-slate-800 m-0">🥊 Round Business : Vente & Marketing</h3>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="text-xs font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200 bg-white">
+                                        <th class="px-6 py-4 w-1/2">Fonctionnalité</th>
+                                        <th class="px-6 py-4 text-center w-1/4 text-brand-700 bg-brand-50/30">CrocoClick</th>
+                                        <th class="px-6 py-4 text-center w-1/4 text-slate-600">Skool</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-sm">
+                                    <tr class="comparison-row border-b border-slate-100">
+                                        <td class="px-6 py-4 font-medium text-slate-900">Constructeur de Funnels de Vente</td>
+                                        <td class="px-6 py-4 text-center bg-brand-50/10"><i class="fa-solid fa-check check-icon"></i></td>
+                                        <td class="px-6 py-4 text-center"><i class="fa-solid fa-xmark cross-icon"></i></td>
+                                    </tr>
+                                    <tr class="comparison-row border-b border-slate-100">
+                                        <td class="px-6 py-4 font-medium text-slate-900">Email Marketing & SMS</td>
+                                        <td class="px-6 py-4 text-center bg-brand-50/10"><i class="fa-solid fa-check check-icon"></i></td>
+                                        <td class="px-6 py-4 text-center"><i class="fa-solid fa-xmark cross-icon"></i></td>
+                                    </tr>
+                                    <tr class="comparison-row border-b border-slate-100">
+                                        <td class="px-6 py-4 font-medium text-slate-900">CRM & Pipelines</td>
+                                        <td class="px-6 py-4 text-center bg-brand-50/10"><i class="fa-solid fa-check check-icon"></i></td>
+                                        <td class="px-6 py-4 text-center"><i class="fa-solid fa-xmark cross-icon"></i></td>
+                                    </tr>
+                                    <tr class="comparison-row border-b border-slate-100">
+                                        <td class="px-6 py-4 font-medium text-slate-900">Upsells, Order Bumps, Abonnements complexes</td>
+                                        <td class="px-6 py-4 text-center bg-brand-50/10"><i class="fa-solid fa-check check-icon"></i></td>
+                                        <td class="px-6 py-4 text-center"><span class="text-xs text-slate-500">Abo simple uniquement</span></td>
+                                    </tr>
+                                     <tr class="comparison-row border-b border-slate-100">
+                                        <td class="px-6 py-4 font-medium text-slate-900">Automatisations (Workflows)</td>
+                                        <td class="px-6 py-4 text-center bg-brand-50/10"><i class="fa-solid fa-check check-icon"></i></td>
+                                        <td class="px-6 py-4 text-center"><i class="fa-solid fa-xmark cross-icon"></i></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mt-6 text-sm italic text-slate-500">
+                    * Pour avoir ces fonctionnalités avec Skool, vous devrez payer ClickFunnels ($97) + ActiveCampaign ($50) + Calendly ($15) + Zapier ($20). Faites le calcul.
+                </p>
+
+            </div>
+
+            <!-- SECTION 5: LE VRAI PRICING -->
+            <div class="prose prose-slate prose-sm md:prose-lg max-w-none mt-16">
+                <h2 id="pricing" class="flex items-center gap-4 text-3xl mb-8">
+                    <span class="flex items-center justify-center w-12 h-12 rounded-xl bg-slate-900 text-white text-xl shadow-lg">3</span>
+                    La vérité sur les Prix (Attention aux frais cachés)
+                </h2>
+
+                <p>C'est souvent là que la désillusion arrive. Le prix affiché n'est pas toujours le prix payé.</p>
+                
+                <div class="grid md:grid-cols-2 gap-8 mt-8 not-prose">
+                    
+                    <!-- Carte Prix Skool -->
+                    <div class="border border-slate-200 rounded-2xl p-6 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-slate-300"></div>
+                        <h3 class="font-bold text-2xl text-slate-700 mb-2">Skool</h3>
+                        <div class="text-4xl font-extrabold text-slate-900 mb-1">99 $ <span class="text-base font-normal text-slate-500">/ mois</span></div>
+                        <div class="text-xs font-bold uppercase text-red-500 mb-6 tracking-wide">PAR GROUPE</div>
+                        
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start text-sm text-slate-600">
+                                <i class="fa-solid fa-triangle-exclamation text-red-500 mt-1 mr-2"></i>
+                                <span><strong>Frais de transaction :</strong> 2.9% + 30¢ sur chaque vente.</span>
+                            </li>
+                            <li class="flex items-start text-sm text-slate-600">
+                                <i class="fa-solid fa-triangle-exclamation text-red-500 mt-1 mr-2"></i>
+                                <span><strong>Multi-groupes :</strong> Si vous avez 3 formations distinctes = 297$/mois.</span>
+                            </li>
+                            <li class="flex items-start text-sm text-slate-600">
+                                <i class="fa-solid fa-triangle-exclamation text-red-500 mt-1 mr-2"></i>
+                                <span><strong>Coût Outils Tiers :</strong> +200$/mois minimum pour avoir des emails et des funnels.</span>
+                            </li>
+                        </ul>
+                        <div class="bg-slate-100 p-3 rounded-lg text-center text-sm font-bold text-slate-600">
+                            Coût réel > 350$/mois
+                        </div>
+                    </div>
+
+                    <!-- Carte Prix Croco -->
+                    <div class="border border-brand-200 bg-brand-50/30 rounded-2xl p-6 relative overflow-hidden shadow-lg">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-brand-500"></div>
+                        <h3 class="font-bold text-2xl text-brand-700 mb-2">CrocoClick</h3>
+                        <div class="text-4xl font-extrabold text-brand-900 mb-1">97 € <span class="text-base font-normal text-brand-500">/ mois</span></div>
+                        <div class="text-xs font-bold uppercase text-brand-600 mb-6 tracking-wide">TOUT ILLIMITÉ</div>
+                        
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start text-sm text-brand-800">
+                                <i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i>
+                                <span><strong>Frais de transaction :</strong> 0% (Vous payez juste Stripe directement).</span>
+                            </li>
+                            <li class="flex items-start text-sm text-brand-800">
+                                <i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i>
+                                <span><strong>Groupes Illimités :</strong> Créez 1, 10 ou 50 communautés pour le même prix.</span>
+                            </li>
+                            <li class="flex items-start text-sm text-brand-800">
+                                <i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i>
+                                <span><strong>Zéro Outil Tiers :</strong> Tout est inclus.</span>
+                            </li>
+                        </ul>
+                        <div class="bg-brand-100 p-3 rounded-lg text-center text-sm font-bold text-brand-800">
+                            Coût réel = 97€/mois
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SECTION 5: CONCLUSION -->
+            <div class="mt-20 mb-20">
+                <h2 id="verdict" class="text-3xl font-display font-extrabold text-slate-900 mb-8 flex items-center gap-4">
+                    <span class="flex items-center justify-center w-12 h-12 rounded-xl bg-slate-900 text-white text-xl shadow-lg"><i class="fa-solid fa-gavel"></i></span>
+                    Le Verdict : Ça vaut le coup de tester
+                </h2>
+
+                <p class="text-lg text-slate-700 mb-8 leading-relaxed">
+                    Si vous adorez l'interface de Skool mais que vous vous sentez limité par le manque de fonctionnalités marketing, ou que la facture commence à piquer avec les frais par groupe : <strong>testez CrocoClick.</strong>
+                </p>
+                <p class="text-lg text-slate-700 mb-8 leading-relaxed">
+                    Grâce à l'importateur, vous ne risquez rien. Vous pouvez dupliquer votre communauté Skool dans CrocoClick en quelques minutes, voir si ça vous plaît, et décider ensuite.
+                </p>
+
+                <div class="bg-brand-900 text-white p-8 rounded-3xl shadow-2xl relative overflow-hidden text-center group">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-brand-500 rounded-full blur-[100px] opacity-20 group-hover:opacity-30 transition duration-700"></div>
+                    <h3 class="text-2xl font-bold text-white mb-4 relative z-10">
+                        Prêt à upgrader votre Communauté ?
+                    </h3>
+                    <p class="text-brand-100 mb-8 relative z-10 max-w-2xl mx-auto">
+                        Essayez gratuitement pendant 14 jours. Importez votre Skool. Connectez vos emails. Voyez la puissance d'un vrai OS Business.
+                    </p>
+                    
+                    <a href="https://crococlick.com/pricing" class="inline-flex items-center justify-center bg-white text-brand-900 font-bold py-4 px-8 rounded-xl hover:bg-brand-50 transition shadow-lg transform hover:-translate-y-1 relative z-10">
+                        Démarrer l'essai gratuit (14 jours)
+                    </a>
+                    <p class="text-xs mt-4 text-brand-400 opacity-80 relative z-10">Importateur Skool inclus • Satisfait ou remboursé</p>
+                </div>
+            </div>
+
+            <!-- FAQ SEO -->
+            <div class="border-t border-slate-200 pt-16">
+                <h3 class="font-display font-bold text-2xl mb-8">Questions Fréquentes (FAQ)</h3>
+                <div class="space-y-4">
+                    <details class="group bg-white border border-slate-200 rounded-xl p-4 cursor-pointer">
+                        <summary class="flex items-center justify-between font-bold text-slate-800 list-none">
+                            L'expérience "communauté" est-elle vraiment aussi bien que Skool ?
+                            <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-slate-400"></i></span>
+                        </summary>
+                        <div class="mt-4 text-slate-600 leading-relaxed text-sm">
+                            Honnêtement ? Oui. C'est la même structure : Feed, Classroom, Calendar, Leaderboard. Si vous aimez Skool, vous aimerez CrocoClick.
+                        </div>
+                    </details>
+                    
+                    <details class="group bg-white border border-slate-200 rounded-xl p-4 cursor-pointer">
+                        <summary class="flex items-center justify-between font-bold text-slate-800 list-none">
+                            Comment fonctionne l'importateur Skool ?
+                            <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-slate-400"></i></span>
+                        </summary>
+                        <div class="mt-4 text-slate-600 leading-relaxed text-sm">
+                            C'est une extension Chrome dédiée fournie par CrocoClick. Vous la lancez sur votre onglet Skool, elle "scanne" votre groupe et recrée tout à l'identique dans CrocoClick (Posts, Membres, Formations). C'est bluffant.
+                        </div>
+                    </details>
+
+                    <details class="group bg-white border border-slate-200 rounded-xl p-4 cursor-pointer">
+                        <summary class="flex items-center justify-between font-bold text-slate-800 list-none">
+                            Est-ce que je paye des frais de transaction chez CrocoClick ?
+                            <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-slate-400"></i></span>
+                        </summary>
+                        <div class="mt-4 text-slate-600 leading-relaxed text-sm">
+                            Non. Contrairement à Skool qui prend un pourcentage, CrocoClick ne prend rien. Vous connectez votre Stripe, et vous payez uniquement les frais bancaires standard de Stripe.
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- Sidebar (Droite) -->
+        <aside id="cc-aside" class="hidden lg:block lg:col-span-4 pl-8">
+            <div id="cc-aside-inner" class="sticky top-32 space-y-8">
+                
+                <!-- Widget Sommaire -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                    <h4 class="font-bold text-slate-900 mb-4 flex items-center gap-2 text-sm uppercase tracking-wider"><i class="fa-solid fa-list-ul text-brand-500"></i> Sommaire</h4>
+                    <nav class="space-y-1">
+                        <a href="#community-zoom" class="block text-slate-600 hover:text-brand-700 hover:bg-brand-50 font-medium rounded-lg px-3 py-2.5 text-sm transition">1. Le Zoom Communauté</a>
+                        <a href="#comparatif" class="block text-slate-600 hover:text-brand-700 hover:bg-brand-50 font-medium rounded-lg px-3 py-2.5 text-sm transition">2. Le Reste du Business</a>
+                        <a href="#pricing" class="block text-slate-600 hover:text-brand-700 hover:bg-brand-50 font-medium rounded-lg px-3 py-2.5 text-sm transition">3. La Vérité sur le Prix</a>
+                        <a href="#verdict" class="block text-slate-600 hover:text-brand-700 hover:bg-brand-50 font-medium rounded-lg px-3 py-2.5 text-sm transition">Verdict</a>
+                    </nav>
+                </div>
+
+                <!-- Widget Promo -->
+                <div class="bg-gradient-to-br from-brand-600 to-brand-800 rounded-3xl shadow-xl shadow-brand-900/20 p-8 text-white text-center relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-white opacity-10 rounded-full group-hover:scale-150 transition duration-700 blur-2xl"></div>
+                    <div class="inline-block bg-white/20 backdrop-blur-md rounded-full px-4 py-1 text-xs font-bold mb-6 border border-white/20 shadow-sm">
+                        <i class="fa-solid fa-wand-magic-sparkles mr-1 text-yellow-300"></i> Migration Facile
+                    </div>
+                    <h3 class="font-display font-bold text-2xl mb-2">Importez votre Skool</h3>
+                    <p class="text-brand-100 text-sm mb-8 leading-relaxed">Utilisez notre outil d'importation gratuit et récupérez vos posts et membres en 1 clic.</p>
+                    <a href="https://crococlick.com/pricing" class="w-full inline-block bg-white text-brand-700 font-bold py-3.5 rounded-xl hover:bg-brand-50 transition shadow-lg transform hover:-translate-y-0.5">
+                       Tester l'importateur
+                    </a>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<!-- JS Local -->
+<script src="https://croco-bundle.vercel.app/articles/comparison.js?v=123" defer></script>
