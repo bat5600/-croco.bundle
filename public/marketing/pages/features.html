@@ -143,18 +143,18 @@
     </section>
 
     <!-- MAIN FEATURES SECTION -->
-<section class="py-20 bg-slate-50 min-h-screen">
+<section id="features" class="py-20 bg-slate-50 min-h-[40vh] scroll-mt-32">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Category Tabs -->
     <div class="sticky top-24 z-40 py-4 mb-12 flex justify-center">
       <div class="bg-white/80 backdrop-blur-md p-2 rounded-full border border-white/50 shadow-lg shadow-slate-200/50 inline-flex overflow-x-auto hide-scrollbar max-w-full">
-        <button @click="activeTab = 'creer'; $el.scrollIntoView({behavior: 'smooth', block: 'nearest'})" :class="activeTab === 'creer' ? 'active' : 'text-slate-500'" class="tab-btn px-6 py-3 rounded-full border border-transparent font-bold text-sm flex items-center gap-2 whitespace-nowrap"><i class="fa-solid fa-pen-ruler"></i> Créer</button>
-        <button @click="activeTab = 'diffuser'; $el.scrollIntoView({behavior: 'smooth', block: 'nearest'})" :class="activeTab === 'diffuser' ? 'active' : 'text-slate-500'" class="tab-btn px-6 py-3 rounded-full border border-transparent font-bold text-sm flex items-center gap-2 whitespace-nowrap"><i class="fa-solid fa-paper-plane"></i> Diffuser</button>
-        <button @click="activeTab = 'convertir'; $el.scrollIntoView({behavior: 'smooth', block: 'nearest'})" :class="activeTab === 'convertir' ? 'active' : 'text-slate-500'" class="tab-btn px-6 py-3 rounded-full border border-transparent font-bold text-sm flex items-center gap-2 whitespace-nowrap"><i class="fa-solid fa-hand-holding-dollar"></i> Convertir</button>
-        <button @click="activeTab = 'orchestrer'; $el.scrollIntoView({behavior: 'smooth', block: 'nearest'})" :class="activeTab === 'orchestrer' ? 'active' : 'text-slate-500'" class="tab-btn px-6 py-3 rounded-full border border-transparent font-bold text-sm flex items-center gap-2 whitespace-nowrap"><i class="fa-solid fa-network-wired"></i> Orchestrer</button>
-        <button @click="activeTab = 'ai'; $el.scrollIntoView({behavior: 'smooth', block: 'nearest'})" :class="activeTab === 'ai' ? 'active' : 'text-slate-500'" class="tab-btn px-6 py-3 rounded-full border border-transparent font-bold text-sm flex items-center gap-2 whitespace-nowrap"><i class="fa-solid fa-wand-magic-sparkles"></i> Croco AI</button>
-      </div>
+        <button @click="activeTab='creer'; $nextTick(()=>document.getElementById('features')?.scrollIntoView({behavior:'smooth',block:'start'}));" :class="activeTab==='creer'?'active':'text-slate-500'" class="tab-btn px-6 py-3 rounded-full border border-transparent font-bold text-sm flex items-center gap-2 whitespace-nowrap"><i class="fa-solid fa-pen-ruler"></i> Créer</button>
+        <button @click="activeTab='diffuser'; $nextTick(()=>document.getElementById('features')?.scrollIntoView({behavior:'smooth',block:'start'}));" :class="activeTab==='diffuser'?'active':'text-slate-500'" class="tab-btn px-6 py-3 rounded-full border border-transparent font-bold text-sm flex items-center gap-2 whitespace-nowrap"><i class="fa-solid fa-paper-plane"></i> Diffuser</button>
+        <button @click="activeTab='convertir'; $nextTick(()=>document.getElementById('features')?.scrollIntoView({behavior:'smooth',block:'start'}));" :class="activeTab==='convertir'?'active':'text-slate-500'" class="tab-btn px-6 py-3 rounded-full border border-transparent font-bold text-sm flex items-center gap-2 whitespace-nowrap"><i class="fa-solid fa-hand-holding-dollar"></i> Convertir</button>
+        <button @click="activeTab='orchestrer'; $nextTick(()=>document.getElementById('features')?.scrollIntoView({behavior:'smooth',block:'start'}));" :class="activeTab==='orchestrer'?'active':'text-slate-500'" class="tab-btn px-6 py-3 rounded-full border border-transparent font-bold text-sm flex items-center gap-2 whitespace-nowrap"><i class="fa-solid fa-network-wired"></i> Orchestrer</button>
+        <button @click="activeTab='ai'; $nextTick(()=>document.getElementById('features')?.scrollIntoView({behavior:'smooth',block:'start'}));" :class="activeTab==='ai'?'active':'text-slate-500'" class="tab-btn px-6 py-3 rounded-full border border-transparent font-bold text-sm flex items-center gap-2 whitespace-nowrap"><i class="fa-solid fa-wand-magic-sparkles"></i> Croco AI</button>
+    </div>
     </div>
 
     <!-- TAB: CRÉER -->
@@ -1043,9 +1043,10 @@ CATALOGUE EXHAUSTIF (JSON)
                                 text-croco-700 font-extrabold text-xs
                                 hover:bg-croco-100 transition"
                             @click="
-                            activeTab = m.tab;
-                            $nextTick(() => window.scrollTo({ top: 0, behavior: 'smooth' }))
-                            "
+                                activeTab = m.tab;
+                                $nextTick(() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
+                                "
+
                         >
                             <span x-text="m.tab"></span>
                             <span class="opacity-70">•</span>

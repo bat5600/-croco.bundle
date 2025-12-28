@@ -87,7 +87,23 @@
             "Task management complet",
             "Assignations & suivi",
             "Notifications : in-app, email, SMS, desktop, mobile",
-            "Temps réel"
+            "Temps réel",
+            "Dashboards personnalisés",
+            "KPIs en temps réel",
+            "Rapports sur-mesure"
+          ]
+        },
+        {
+          "id": "app-admin",
+          "category": "Application admin",
+          "rank": 50,
+          "icon": "fa-solid fa-mobile-screen",
+          "highlights": ["MOBILE"],
+          "aliases": ["app admin", "mobile admin"],
+          "items": [
+            "Gestion du business sur mobile",
+            "Accès CRM mobile",
+            "Notifications push"
           ]
         }
       ]
@@ -146,7 +162,9 @@
             "Conditional content",
             "Trigger Links",
             "Stats intégrées",
-            "Sync Gmail & Outlook bidirectionnel"
+            "Sync Gmail & Outlook bidirectionnel",
+            "IP dédiée (option)",
+            "Optimisation de la délivrabilité email"
           ]
         },
         {
@@ -178,6 +196,12 @@
           "items": [
             "Publications illimitées",
             "Multi-plateformes",
+            "Publication Facebook",
+            "Publication Instagram (posts, reels, stories)",
+            "Publication TikTok",
+            "Publication LinkedIn",
+            "Publication Twitter (X)",
+            "Publication Google My Business",
             "Templates de contenu",
             "UTM tracking",
             "Link shortener"
@@ -197,7 +221,21 @@
             "Replay automatique",
             "Mode evergreen (simulation)"
           ]
+        },
+        {
+          "id": "auto-dm",
+          "category": "Automatisation réseaux sociaux",
+          "rank": 45,
+          "icon": "fa-solid fa-robot",
+          "highlights": ["AUTO"],
+          "aliases": ["auto dm", "instagram dm", "facebook dm", "reponse auto"],
+          "items": [
+            "Réponses automatiques Instagram",
+            "Réponses automatiques Facebook",
+            "Qualification automatique des prospects"
+          ]
         }
+
       ]
     },
     {
@@ -208,6 +246,27 @@
       "highlights": ["REVENU"],
       "aliases": ["paiements", "checkout", "facturation", "invoice", "devis", "estimates", "ads", "publicites"],
       "groups": [
+        {
+          "id": "calendrier",
+          "category": "Calendrier & réservation",
+          "rank": 15,
+          "icon": "fa-solid fa-calendar-check",
+          "highlights": ["2.0"],
+          "aliases": ["calendrier", "booking", "calendly", "round robin"],
+          "items": [
+            "Synchronisation Google Calendar",
+            "Synchronisation Outlook",
+            "Synchronisation Microsoft Teams",
+            "Synchronisation Icloud Calendar",
+            "Intégration Zoom",
+            "Intégration Google Meet",
+            "Intégration Teams",
+            "Pages de réservation personnalisées",
+            "Paiement à la réservation",
+            "Round Robin (équipes)",
+            "Rappels automatiques"
+          ]
+        },
         {
           "id": "paiements",
           "category": "Paiements",
@@ -247,12 +306,15 @@
           "highlights": ["E-COM"],
           "aliases": ["produits", "catalogue", "inventory", "variants", "collections", "import stripe", "saas pricing", "abonnements"],
           "items": [
-            "Produits physiques, digitaux, abonnements",
-            "Variantes",
-            "Inventory tracking",
+            "Vente de produits physiques",
+            "Vente de produits digitaux",
+            "Vente d'abonnements / memberships",
+            "Gestion des stocks",
+            "Variantes (taille, couleur, options)",
+            "Collections produits",
+            "Gestion des expéditions",
             "Collections manuelles & smart",
-            "Import Stripe",
-            "Pricing avancé SaaS"
+            "Import Stripe"
           ]
         },
         {
@@ -270,6 +332,20 @@
             "Order bumps",
             "Checkout 1 ou 2 étapes",
             "Order form"
+          ]
+        },
+        {
+          "id": "affiliation",
+          "category": "Affiliation",
+          "rank": 60,
+          "icon": "fa-solid fa-handshake",
+          "highlights": ["PARTENAIRES"],
+          "aliases": ["affiliation", "affiliate", "commission"],
+          "items": [
+            "Création de programmes d'affiliation",
+            "Liens de tracking affilié",
+            "Tableau de bord affilié",
+            "Calcul automatique des commissions"
           ]
         },
         {
@@ -307,11 +383,35 @@
           "items": [
             "Sites illimités",
             "Builder drag & drop",
+            "Landing pages dynamiques",
+            "Blogs complets intégrés",
+            "Performances ultra-rapides (pages optimisées)",
             "Templates par niches",
-            "Hébergement domaine",
-            "WordPress natif (Rocket.net)"
+            "Achat de domaine en 1-clic",
+            "Hébergement domaine sécurisé",
+            "Gestion DNS intégrée",
+            "SSL automatique gratuit",
+            "WordPress natif (option)"
           ]
         },
+        {
+          "id": "formations-elearning",
+          "category": "Formations & E-learning",
+          "rank": 35,
+          "icon": "fa-solid fa-graduation-cap",
+          "highlights": ["ILLIMITÉ"],
+          "aliases": ["formation", "elearning", "cours", "modules", "quiz", "certificat", "drip"],
+          "items": [
+            "Hébergement vidéo illimité et sécurisé",
+            "Création de cours et modules",
+            "Quiz intégrés",
+            "Devoirs",
+            "Certificats automatiques",
+            "Drip content (déblocage au groutte à goutte)",
+            "Accès sécurisé par utilisateur"
+          ]
+        },
+
         {
           "id": "blog-seo",
           "category": "Blog & SEO",
@@ -333,6 +433,7 @@
           "aliases": ["funnels", "tunnel", "templates", "webinar funnel", "import url", "screenshot", "image"],
           "items": [
             "Funnels illimités",
+            "Import de funnels ClickFunnels en 1 clic",
             "Templates pré-construits",
             "Funnels IA",
             "Funnels webinaires",
@@ -359,6 +460,33 @@
             "Pages de résultats",
             "Analytics",
             "Vente basée sur score"
+          ]
+        },
+        {
+          "id": "media-library",
+          "category": "Bibliothèque média",
+          "rank": 60,
+          "icon": "fa-solid fa-images",
+          "highlights": ["ILLIMITÉ"],
+          "aliases": ["media", "images", "videos", "stock", "unsplash"],
+          "items": [
+            "Stockage média illimité",
+            "Intégration Unsplash",
+            "Gestion centralisée images & vidéos"
+          ]
+        },
+        {
+          "id": "app-mobile",
+          "category": "Applications mobiles",
+          "rank": 70,
+          "icon": "fa-solid fa-mobile-screen",
+          "highlights": ["MOBILE"],
+          "aliases": ["app mobile", "ios", "android", "white label"],
+          "items": [
+            "Application mobile apprenants iOS",
+            "Application mobile apprenants Android",
+            "Accès aux formations sur mobile",
+            "Votre app sur-mesure en marque blanche (option)"
           ]
         },
         {
@@ -398,6 +526,18 @@
             "Multi-bots",
             "Intention routing",
             "Reconnaissance image & audio"
+          ]
+        },
+        {
+          "id": "content-image-ai",
+          "category": "Création de contenu IA",
+          "rank": 15,
+          "icon": "fa-solid fa-pen-nib",
+          "highlights": ["GEN AI"],
+          "aliases": ["content ai", "image ai", "generation"],
+          "items": [
+            "Génération de contenu texte (emails, blogs, posts)",
+            "Génération d’images IA libres de droits"
           ]
         },
         {
