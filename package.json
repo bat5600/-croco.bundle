@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "npx tailwindcss -c public/articles/tailwind.config.js -i public/articles/input.css -o public/articles/croco-article.css --minify"
+    "build": "npx tailwindcss -c public/marketing/config/tailwind.config.js -i public/marketing/styles/input.css -o public/marketing/assets/css/croco-article.css --minify"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.0",
