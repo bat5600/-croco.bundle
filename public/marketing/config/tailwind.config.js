@@ -20,8 +20,14 @@ export default {
           600: "#059669",
           700: "#047857",
           800: "#065f46",
-          900: "#064e3b"
+          900: "#064e3b",
+          950: "#022c22",
         }
+      },
+      backgroundImage: {
+        // utilisé par bg-grid-pattern dans ton HTML features
+        "grid-pattern":
+          "linear-gradient(to right, #f0fdf4 1px, transparent 1px), linear-gradient(to bottom, #f0fdf4 1px, transparent 1px)"
       }
     }
   },
