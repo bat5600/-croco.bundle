@@ -166,62 +166,78 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- HERO: Sites & Funnels -->
-                    <div class="col-span-1 md:col-span-2 row-span-2 bg-white rounded-[2rem] p-8 border border-slate-100 bento-card relative overflow-hidden group min-h-[420px]">
-                        <!-- Stretched link -->
-                        <a :href="linkTo('sitesFunnels')"
-                            :target="linkTarget('sitesFunnels')"
-                            rel="noopener noreferrer"
-                            class="absolute inset-0 z-10 cursor-pointer"
-                            aria-label="Constructeur de Sites et Funnels avancé">
-                        </a>
-                        <!-- Content -->
-                        <div class="relative z-10 h-full flex flex-col">
-                            <div class="icon-box w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6 transition-all duration-300">
-                                <i class="fa-solid fa-layer-group text-3xl"></i>
-                            </div>
-                            <h3 class="text-3xl font-bold text-slate-900 mb-4">Sites & Funnels Illimités</h3>
-                            <p class="text-lg text-slate-600 leading-relaxed mb-6">Le constructeur le plus puissant. Importez vos funnels ClickFunnels en 1 clic. Créez des sites vitrines ultra-rapides, des landing pages dynamiques et des blogs complets.</p>
-                            <div class="flex flex-wrap gap-2 mt-auto">
-                                <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-xs font-bold">500+ Templates</span>
-                                <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-xs font-bold">Hébergement WP (Option)</span>
-                                <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-xs font-bold">Import ClickFunnels</span>
-                            </div>
+                    <a
+                    :href="linkTo('sitesFunnels')"
+                    :target="linkTarget('sitesFunnels')"
+                    rel="noopener noreferrer"
+                    aria-label="Constructeur de Sites et Funnels avancé"
+                    class="col-span-1 md:col-span-2 row-span-2 bg-white rounded-[2rem] p-8 border border-slate-100 bento-card overflow-hidden group min-h-[420px] block cursor-pointer"
+                    >
+                    <!-- Content -->
+                    <div class="h-full flex flex-col">
+                        <div class="icon-box w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6 transition-all duration-300">
+                        <i class="fa-solid fa-layer-group text-3xl"></i>
+                        </div>
+
+                        <h3 class="text-3xl font-bold text-slate-900 mb-4">Sites & Funnels Illimités</h3>
+
+                        <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                        Le constructeur le plus puissant. Importez vos funnels ClickFunnels en 1 clic. Créez des sites vitrines ultra-rapides,
+                        des landing pages dynamiques et des blogs complets.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-xs font-bold">500+ Templates</span>
+                        <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-xs font-bold">Hébergement WP (Option)</span>
+                        <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-xs font-bold">Import ClickFunnels</span>
                         </div>
                     </div>
+                    </a>
+
 
                     <!-- HERO: E-Shop -->
-                    <div class="col-span-1 md:col-span-2 bg-white rounded-[2rem] p-8 border border-slate-100 bento-card group">
-                        <!-- Stretched link -->
-                        <a :href="linkTo('eShop')"
-                            :target="linkTarget('eShop')"
-                            rel="noopener noreferrer"
-                            class="absolute inset-0 z-10 cursor-pointer"
-                            aria-label="E-Shop Complet">
-                        </a>
-                        <!-- Content -->    
+                    <a
+                        :href="linkTo('eShop')"
+                        :target="linkTarget('eShop')"
+                        rel="noopener noreferrer"
+                        aria-label="E-Shop Complet"
+                        class="col-span-1 md:col-span-2 bg-white rounded-[2rem] p-8 border border-slate-100 bento-card group block cursor-pointer"
+                        >
                         <div class="icon-box w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 mb-6">
                             <i class="fa-solid fa-store text-2xl"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-slate-900 mb-2">E-Shop Complet</h3>
-                        <p class="text-slate-600 mb-4">Vendez produits physiques et digitaux. Gestion des stocks, variantes (taille/couleur), collections et expéditions.</p>
-                    </div>
+
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">
+                            E-Shop Complet
+                        </h3>
+
+                        <p class="text-slate-600 mb-4">
+                            Vendez produits physiques et digitaux. Gestion des stocks, variantes (taille/couleur), collections et expéditions.
+                        </p>
+                    </a>
+
 
                     <!-- HERO: Formations -->
-                    <div class="col-span-1 md:col-span-2 bg-white rounded-[2rem] p-8 border border-slate-100 bento-card group">
-                        <!-- Stretched link -->
-                        <a :href="linkTo('formations')"
-                            :target="linkTarget('formations')"
-                            rel="noopener noreferrer"
-                            class="absolute inset-0 z-10 cursor-pointer"
-                            aria-label="Formations & E-learning">
-                        </a>
-                        <!-- Content -->
-                         <div class="icon-box w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600 mb-6">
+                    <a
+                        :href="linkTo('formations')"
+                        :target="linkTarget('formations')"
+                        rel="noopener noreferrer"
+                        aria-label="Formations & E-learning"
+                        class="col-span-1 md:col-span-2 bg-white rounded-[2rem] p-8 border border-slate-100 bento-card group block cursor-pointer"
+                        >
+                        <div class="icon-box w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600 mb-6">
                             <i class="fa-solid fa-graduation-cap text-2xl"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Formations & E-learning</h3>
-                        <p class="text-slate-600 mb-4">Hébergement vidéo illimité et sécurisé. Cours, Quiz, Devoirs, Certificats automatiques et Drip content (déblocage temporel).</p>
-                    </div>
+
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">
+                            Formations & E-learning
+                        </h3>
+
+                        <p class="text-slate-600 mb-4">
+                            Hébergement vidéo illimité et sécurisé. Cours, Quiz, Devoirs, Certificats automatiques et Drip content (déblocage temporel).
+                        </p>
+                    </a>
+
 
                     <!-- Features Grid -->
                     <div class="col-span-1 bg-white rounded-[2rem] p-6 border border-slate-100 bento-card group">
