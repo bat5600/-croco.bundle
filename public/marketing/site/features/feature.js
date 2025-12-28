@@ -21,7 +21,7 @@
 
 (function () {
   // === Config ===
-  const DEFAULT_JSON_URL = "https://croco-bundle.vercel.app/site/pages/feature/data/features.json";
+  const DEFAULT_JSON_URL = "https://croco-bundle.vercel.app/marketing/site/features/data/features.json";
 
   // Normalise une chaîne pour la recherche
   function norm(str) {
