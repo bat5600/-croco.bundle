@@ -3,7 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "npx tailwindcss -c public/marketing/config/tailwind.config.js -i public/marketing/styles/input.css -o public/marketing/assets/css/croco-article.css --minify"
+    "build:article": "npx tailwindcss -c public/marketing/config/tailwind.config.js -i public/marketing/styles/input.css -o public/marketing/assets/css/croco-article.css --minify",
+    "build:features": "npx tailwindcss -c public/marketing/config/tailwind.config.js -i public/marketing/styles/input-features.css -o public/marketing/assets/css/features.css --minify",
+    "build": "npm run build:article && npm run build:features"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.0",
