@@ -517,7 +517,7 @@
       loading: true,
       error: "",
       search: "",
-      globalSearch: true, // ✅ recherche sur tout le catalogue
+      globalSearch: false, // ✅ recherche sur tout le catalogue
 
       // Phrase post-recherche infructueuse (à afficher conditionnellement)
             matchingTabs() {
