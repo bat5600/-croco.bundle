@@ -82,6 +82,19 @@
         [x-cloak] { display: none !important; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      /* ultra léger "noise" premium */
+        .hero-noise{
+        background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+        }
+      /* fade progressif à droite + en bas (comme ClickUp) */
+        .cc-fade-mask {
+            -webkit-mask-image: linear-gradient(to right, #000 78%, transparent 100%),
+                                linear-gradient(to bottom, #000 78%, transparent 100%);
+            -webkit-mask-composite: source-in;
+            mask-image: linear-gradient(to right, #000 78%, transparent 100%),
+                        linear-gradient(to bottom, #000 78%, transparent 100%);
+            mask-composite: intersect;
+        }
     </style>
 </head>
 <body
@@ -107,62 +120,216 @@
 
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-white border-b border-slate-100">
-        <div class="absolute inset-0 bg-grid-pattern bg-[size:40px_40px] opacity-60"></div>
-        <div class="absolute top-20 right-0 w-[500px] h-[500px] bg-croco-200 rounded-full blur-[120px] opacity-40 -z-10 animate-pulse"></div>
-        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-emerald-200 rounded-full blur-[100px] opacity-40 -z-10"></div>
+    <!-- HERO (Premium / Product-first / Config feel) -->
+<section class="relative pt-28 pb-14 lg:pt-36 lg:pb-20 overflow-hidden bg-white border-b border-slate-100">
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <h1 class="text-5xl lg:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-8">
-                Tout ce dont vous avez besoin.<br>
-                <span class="text-gradient">Et même plus.</span>
-            </h1>
-            <p class="text-xl text-slate-500 max-w-2xl mx-auto mb-10 leading-relaxed">
-                Remplacez Kajabi, ClickFunnels, Calendly, ActiveCampaign et 15 autres outils par une seule plateforme surpuissante.
-            </p>
+  <!-- background -->
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 bg-grid-pattern bg-[size:48px_48px] opacity-40"></div>
+    <div class="absolute -top-32 -right-32 w-[520px] h-[520px] bg-croco-200/60 rounded-full blur-[120px]"></div>
+    <div class="absolute -bottom-32 -left-32 w-[520px] h-[520px] bg-emerald-200/50 rounded-full blur-[120px]"></div>
+    <div class="absolute inset-0 opacity-[0.03] hero-noise pointer-events-none"></div>
+  </div>
 
-            <!-- Interactive Checklist -->
-            <div class="max-w-5xl mx-auto mb-10">
-                <div class="flex flex-wrap justify-center gap-3 md:gap-4">
-                    <template x-for="item in ['Funnels Illimités', 'Formations', 'App Mobile', 'CRM', 'Emailing', 'SMS', 'Automatisations', 'E-Shop', 'Calendrier', 'Avis IA']">
-                        <button @click="toggleNeed(item)" :class="selectedNeeds.includes(item) ? 'bg-croco-600 text-white border-croco-600 ring-2 ring-croco-200 shadow-lg transform scale-105' : 'bg-white text-slate-600 border-gray-200 hover:border-croco-300 hover:shadow-md'" class="px-5 py-3 rounded-xl border font-medium transition-all duration-200 flex items-center gap-2 text-sm select-none">
-                            <i class="fa-solid fa-check" :class="selectedNeeds.includes(item) ? 'text-white' : 'text-slate-300'"></i>
-                            <span x-text="item"></span>
-                        </button>
-                    </template>
-                </div>
-            </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
 
-            <div class="transition-all duration-500" :class="selectedNeeds.length > 0 ? 'opacity-100 translate-y-0' : 'opacity-100 translate-y-0'">
-               <div class="text-center">
-                <a
-                    href="https://crococlick.com/etape-1-essential"
-                    class="inline-flex items-center justify-center px-10 py-5 bg-slate-900 text-white text-lg font-bold rounded-2xl shadow-xl hover:bg-slate-800 hover:scale-105 transition duration-300 gap-3"
-                >
-                    <span>Démarrer l'essai gratuit</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
+      <!-- LEFT -->
+      <div class="lg:col-span-6">
 
+        <!-- pills -->
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+          
 
-            </div>
+          <a
+            href="#features"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 bg-white/80 backdrop-blur font-extrabold text-sm text-slate-800 hover:bg-white transition"
+          >
+            Découvrir CrocoClick
+            <i class="fa-solid fa-chevron-right text-slate-400 text-xs"></i>
+          </a>
         </div>
-    </section>
+
+        <!-- headline -->
+        <h1 class="text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.04]">
+          Une seule plateforme.
+          <br>
+          <span class="text-gradient">Tout votre business.</span>
+        </h1>
+
+        <!-- sub -->
+        <p class="text-l text-slate-600 mt-5 max-w-xl leading-relaxed">
+          Funnels, CRM, automatisations, calendrier, paiements, e-learning, messagerie…
+          Tout est là pour vous faire gagner du temps, de l'argent et de l'efficacité.
+        </p>
+
+        <!-- proof -->
+        <div class="mt-6 flex flex-wrap gap-3">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/80 border border-slate-200 backdrop-blur">
+            <span class="font-extrabold text-slate-900">+120</span>
+            <span class="text-slate-600 text-sm font-bold">modules</span>
+          </div>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/80 border border-slate-200 backdrop-blur">
+            <i class="fa-solid fa-gift text-croco-700"></i>
+            <span class="text-slate-600 text-sm font-bold">CrocoPack offert</span>
+          </div>
+        </div>
+
+        <!-- CTAs -->
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a
+            href="https://crococlick.com/etape-1-essential"
+            class="inline-flex items-center justify-center px-8 py-4 bg-slate-900 text-white text-lg font-extrabold rounded-2xl shadow-xl hover:bg-slate-800 hover:scale-[1.02] transition duration-300 gap-3"
+          >
+            Démarrer l’essai gratuit
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+          <a
+            href="https://crococlick.com/demo"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-7 py-4 rounded-2xl border border-slate-200 bg-white/80 backdrop-blur text-slate-900 text-lg font-extrabold hover:bg-white transition gap-3"
+          >
+            Voir une démo
+            <i class="fa-solid fa-play text-slate-400"></i>
+          </a>
+
+          <div class="text-sm text-slate-500 font-semibold">
+            14 jours gratuits. Annulable quand vous voulez.
+          </div>
+        </div>
+
+        
+      </div>
+    <!-- Image -->
+   <div class="lg:col-span-6 relative">
+        <!-- glow doux derrière (optionnel, tu peux enlever) -->
+        <div class="absolute -inset-10 bg-croco-200/35 blur-[90px] rounded-[3rem]"></div>
+
+        <!-- pas de frame / pas de carte -->
+        <div class="relative overflow-visible">
+            <img
+            src="https://storage.googleapis.com/msgsndr/0XeqHZvwfH59pwE9Y5ZY/media/69516e8aee1047d8950604df.png"
+            alt="Aperçu CrocoClick"
+            class="
+                w-[165%] max-w-none
+                h-[420px] lg:h-[560px]
+                object-contain
+                object-left
+                select-none pointer-events-none
+            "
+            loading="lazy"
+            decoding="async"
+            />
+        </div>
+</div>
+
+</div>
+
+
+</section>
+
 
     <!-- MAIN FEATURES SECTION -->
 <section id="features" class="py-20 bg-slate-50 min-h-[40vh] scroll-mt-32">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <!-- Category Tabs -->
-    <div class="sticky top-24 z-40 py-4 mb-12 flex justify-center">
-      <div class="bg-white/80 backdrop-blur-md p-2 rounded-full border border-white/50 shadow-lg shadow-slate-200/50 inline-flex overflow-x-auto hide-scrollbar max-w-full">
-        <button @click="activeTab='creer'; $nextTick(()=>document.getElementById('features')?.scrollIntoView({behavior:'smooth',block:'start'}));" :class="activeTab==='creer'?'active':'text-slate-500'" class="tab-btn px-6 py-3 rounded-full border border-transparent font-bold text-sm flex items-center gap-2 whitespace-nowrap"><i class="fa-solid fa-pen-ruler"></i> Créer</button>
-        <button @click="activeTab='diffuser'; $nextTick(()=>document.getElementById('features')?.scrollIntoView({behavior:'smooth',block:'start'}));" :class="activeTab==='diffuser'?'active':'text-slate-500'" class="tab-btn px-6 py-3 rounded-full border border-transparent font-bold text-sm flex items-center gap-2 whitespace-nowrap"><i class="fa-solid fa-paper-plane"></i> Diffuser</button>
-        <button @click="activeTab='convertir'; $nextTick(()=>document.getElementById('features')?.scrollIntoView({behavior:'smooth',block:'start'}));" :class="activeTab==='convertir'?'active':'text-slate-500'" class="tab-btn px-6 py-3 rounded-full border border-transparent font-bold text-sm flex items-center gap-2 whitespace-nowrap"><i class="fa-solid fa-hand-holding-dollar"></i> Convertir</button>
-        <button @click="activeTab='orchestrer'; $nextTick(()=>document.getElementById('features')?.scrollIntoView({behavior:'smooth',block:'start'}));" :class="activeTab==='orchestrer'?'active':'text-slate-500'" class="tab-btn px-6 py-3 rounded-full border border-transparent font-bold text-sm flex items-center gap-2 whitespace-nowrap"><i class="fa-solid fa-network-wired"></i> Orchestrer</button>
-        <button @click="activeTab='ai'; $nextTick(()=>document.getElementById('features')?.scrollIntoView({behavior:'smooth',block:'start'}));" :class="activeTab==='ai'?'active':'text-slate-500'" class="tab-btn px-6 py-3 rounded-full border border-transparent font-bold text-sm flex items-center gap-2 whitespace-nowrap"><i class="fa-solid fa-wand-magic-sparkles"></i> Croco AI</button>
+    <!-- Category Tabs (centered desktop / scroll mobile) -->
+<div class="sticky top-24 z-40 py-4 mb-12 flex justify-center">
+  <div class="relative w-full max-w-4xl px-2 sm:px-0">
+
+    <!-- fades mobile uniquement -->
+    <div class="pointer-events-none absolute left-2 top-0 h-full w-10 bg-gradient-to-r from-slate-50 to-transparent rounded-l-full lg:hidden"></div>
+    <div class="pointer-events-none absolute right-2 top-0 h-full w-10 bg-gradient-to-l from-slate-50 to-transparent rounded-r-full lg:hidden"></div>
+
+    <div
+      class="
+        bg-white/80 backdrop-blur-md
+        p-1.5 sm:p-2
+        rounded-full border border-white/50
+        shadow-lg shadow-slate-200/50
+
+        flex lg:justify-center
+        gap-1
+
+        overflow-x-auto lg:overflow-visible
+        hide-scrollbar
+        snap-x snap-mandatory lg:snap-none
+      "
+    >
+
+      <!-- TAB -->
+      <button
+        @click="activeTab='creer'"
+        :class="activeTab==='creer'?'active':'text-slate-500'"
+        class="tab-btn snap-start
+               px-3 py-2 text-xs
+               sm:px-4 sm:py-2.5 sm:text-sm
+               lg:px-6 lg:py-3
+               rounded-full font-extrabold flex items-center gap-2 whitespace-nowrap"
+      >
+        <i class="fa-solid fa-pen-ruler hidden sm:inline-block"></i>
+        Créer
+      </button>
+
+      <button
+        @click="activeTab='diffuser'"
+        :class="activeTab==='diffuser'?'active':'text-slate-500'"
+        class="tab-btn snap-start
+               px-3 py-2 text-xs
+               sm:px-4 sm:py-2.5 sm:text-sm
+               lg:px-6 lg:py-3
+               rounded-full font-extrabold flex items-center gap-2 whitespace-nowrap"
+      >
+        <i class="fa-solid fa-paper-plane hidden sm:inline-block"></i>
+        Diffuser
+      </button>
+
+      <button
+        @click="activeTab='convertir'"
+        :class="activeTab==='convertir'?'active':'text-slate-500'"
+        class="tab-btn snap-start
+               px-3 py-2 text-xs
+               sm:px-4 sm:py-2.5 sm:text-sm
+               lg:px-6 lg:py-3
+               rounded-full font-extrabold flex items-center gap-2 whitespace-nowrap"
+      >
+        <i class="fa-solid fa-hand-holding-dollar hidden sm:inline-block"></i>
+        Convertir
+      </button>
+
+      <button
+        @click="activeTab='orchestrer'"
+        :class="activeTab==='orchestrer'?'active':'text-slate-500'"
+        class="tab-btn snap-start
+               px-3 py-2 text-xs
+               sm:px-4 sm:py-2.5 sm:text-sm
+               lg:px-6 lg:py-3
+               rounded-full font-extrabold flex items-center gap-2 whitespace-nowrap"
+      >
+        <i class="fa-solid fa-network-wired hidden sm:inline-block"></i>
+        Orchestrer
+      </button>
+
+      <button
+        @click="activeTab='ai'"
+        :class="activeTab==='ai'?'active':'text-slate-500'"
+        class="tab-btn snap-start
+               px-3 py-2 text-xs
+               sm:px-4 sm:py-2.5 sm:text-sm
+               lg:px-6 lg:py-3
+               rounded-full font-extrabold flex items-center gap-2 whitespace-nowrap"
+      >
+        <i class="fa-solid fa-wand-magic-sparkles hidden sm:inline-block"></i>
+        Croco AI
+      </button>
+
     </div>
-    </div>
+  </div>
+</div>
+
+
 
     <!-- TAB: CRÉER -->
     <div x-show="activeTab === 'creer'" x-transition.opacity.duration.500ms>
@@ -188,7 +355,7 @@
 
             <h3 class="text-3xl font-bold text-slate-900 mb-4">Sites & Funnels Illimités</h3>
 
-            <p class="text-lg text-slate-600 leading-relaxed mb-6">
+            <p class="text-sm text-lg text-slate-600 leading-relaxed mb-6">
               Le constructeur le plus puissant. Importez vos funnels ClickFunnels en 1 clic. Créez des sites vitrines ultra-rapides,
               des landing pages dynamiques et des blogs complets.
             </p>
@@ -215,7 +382,7 @@
 
           <h3 class="text-2xl font-bold text-slate-900 mb-2">E-Shop Complet</h3>
 
-          <p class="text-slate-600 mb-4">
+          <p class="text-sm text-slate-600 mb-4">
             Vendez produits physiques et digitaux. Gestion des stocks, variantes (taille/couleur), collections et expéditions.
           </p>
         </a>
@@ -234,7 +401,7 @@
 
           <h3 class="text-2xl font-bold text-slate-900 mb-2">Formations & E-learning</h3>
 
-          <p class="text-slate-600 mb-4">
+          <p class="text-sm text-slate-600 mb-4">
             Hébergement vidéo illimité et sécurisé. Cours, Quiz, Devoirs, Certificats automatiques et Drip content (déblocage temporel).
           </p>
         </a>
@@ -376,7 +543,7 @@
             <i class="fa-solid fa-envelope text-2xl"></i>
           </div>
           <h3 class="text-2xl font-bold text-slate-900 mb-2">Email Marketing Avancé</h3>
-          <p class="text-slate-600 mb-4">
+          <p class="text-sm text-slate-600 mb-4">
             Campagnes, Séquences auto, Builder Drag & Drop. Délivrabilité top tier avec IP Dédiée (option). Relance automatique des "non-ouverts".
           </p>
         </a>
@@ -393,7 +560,7 @@
             <i class="fa-solid fa-share-nodes text-2xl"></i>
           </div>
           <h3 class="text-2xl font-bold text-slate-900 mb-2">Planificateur Social Media</h3>
-          <p class="text-slate-600 mb-4">
+          <p class="text-sm text-slate-600 mb-4">
             Postez partout en 1 clic : Facebook, Instagram (Reels & Stories), TikTok, LinkedIn, Twitter (X) et Google My Business.
           </p>
           <div class="flex gap-3 text-2xl text-slate-400">
@@ -416,7 +583,7 @@
               <i class="fa-solid fa-video text-2xl"></i>
             </div>
             <h3 class="text-3xl font-bold mb-3">CrocoLive™ <span class="text-sm bg-white text-red-600 px-2 py-0.5 rounded ml-2 align-middle">NEW</span></h3>
-            <p class="text-white/90 text-lg mb-4">
+            <p class="text-sm text-white/90 text-lg mb-4">
               Webinaires live intégrés. Pages d'inscription, salle de live, chat modéré, offres popup en direct et replay automatique. Adieu Zoom.
             </p>
           </div>
@@ -534,7 +701,7 @@
             <span class="bg-croco-50 text-croco-700 px-3 py-1 rounded-full text-xs font-bold">2.0</span>
           </div>
           <h3 class="text-2xl font-bold text-slate-900 mb-3">Panier d'Achat Intelligent</h3>
-          <p class="text-slate-600 mb-4">Boostez votre panier moyen : Upsell 1-clic, Downsell, Cross-sell, OTO et Order Bumps. Design optimisé conversion.</p>
+          <p class="text-sm text-slate-600 mb-4">Boostez votre panier moyen : Upsell 1-clic, Downsell, Cross-sell, OTO et Order Bumps. Design optimisé conversion.</p>
           <div class="flex gap-4 opacity-60">
             <i class="fa-brands fa-stripe text-2xl"></i>
             <i class="fa-brands fa-paypal text-2xl"></i>
@@ -554,7 +721,7 @@
             <i class="fa-solid fa-calendar-check text-2xl"></i>
           </div>
           <h3 class="text-2xl font-bold text-slate-900 mb-2">Calendrier 2.0</h3>
-          <p class="text-slate-600 mb-4">Remplace Calendly. Synchronisation bi-directionnelle (Google/Outlook/Teams). Paiement à la réservation, Round Robin (équipe) et rappels automatiques.</p>
+          <p class="text-sm text-slate-600 mb-4">Remplace Calendly. Synchronisation bi-directionnelle (Google/Outlook/Teams). Paiement à la réservation, Round Robin (équipe) et rappels automatiques.</p>
         </a>
 
         <!-- HERO: Affiliation -->
@@ -569,7 +736,7 @@
             <i class="fa-solid fa-handshake text-2xl"></i>
           </div>
           <h3 class="text-2xl font-bold text-slate-900 mb-2">Gestion Affiliation</h3>
-          <p class="text-slate-600 mb-4">Créez vos programmes partenaires. Liens de tracking, tableau de bord affilié et calcul des commissions automatisé.</p>
+          <p class="text-sm text-slate-600 mb-4">Créez vos programmes partenaires. Liens de tracking, tableau de bord affilié et calcul des commissions automatisé.</p>
         </a>
 
         <!-- Features (Convertir) -->
@@ -682,7 +849,7 @@
               <i class="fa-solid fa-inbox text-2xl"></i>
             </div>
             <h3 class="text-3xl font-bold mb-4">Inbox Unifié</h3>
-            <p class="text-slate-300 mb-6 text-lg leading-relaxed">Arrêtez de jongler. Tous vos messages arrivent ici : Email, SMS, WhatsApp, Instagram DM, Messenger, Appels et Webchat.</p>
+            <p class="text-sm text-slate-300 mb-6 text-lg leading-relaxed">Arrêtez de jongler. Tous vos messages arrivent ici : Email, SMS, WhatsApp, Instagram DM, Messenger, Appels et Webchat.</p>
             <div class="flex gap-4 opacity-50">
               <i class="fa-solid fa-envelope text-2xl"></i>
               <i class="fa-solid fa-comments text-2xl"></i>
@@ -704,7 +871,7 @@
             <i class="fa-solid fa-address-book text-2xl"></i>
           </div>
           <h3 class="text-2xl font-bold text-slate-900 mb-2">CRM Systémique</h3>
-          <p class="text-slate-600 mb-4">Contacts illimités. Smart Lists (segmentation dynamique), Lead Scoring automatique, Tags, Champs personnalisés et Historique d'activité complet.</p>
+          <p class="text-sm text-slate-600 mb-4">Contacts illimités. Smart Lists (segmentation dynamique), Lead Scoring automatique, Tags, Champs personnalisés et Historique d'activité complet.</p>
         </a>
 
         <!-- HERO: Workflows -->
@@ -719,7 +886,7 @@
             <i class="fa-solid fa-bolt text-2xl"></i>
           </div>
           <h3 class="text-2xl font-bold text-slate-900 mb-2">Automatisations (Workflows)</h3>
-          <p class="text-slate-600 mb-4">L'éditeur visuel le plus puissant. Déclencheurs multiples, conditions if/else, délais, webhooks. Tout est automatisable.</p>
+          <p class="text-sm text-slate-600 mb-4">L'éditeur visuel le plus puissant. Déclencheurs multiples, conditions if/else, délais, webhooks. Tout est automatisable.</p>
         </a>
 
         <!-- Features (Orchestrer) -->
@@ -814,7 +981,7 @@
               <i class="fa-solid fa-robot text-2xl"></i>
             </div>
             <h3 class="text-2xl font-bold mb-2">Chatbot ChatGPT Sur-Mesure</h3>
-            <p class="text-white/90 mb-4">Entraînez-le sur vos données. Il répond aux questions, qualifie les prospects et prend les rendez-vous pour vous, 24/7 sur votre site et par SMS.</p>
+            <p class="text-sm text-white/90 mb-4">Entraînez-le sur vos données. Il répond aux questions, qualifie les prospects et prend les rendez-vous pour vous, 24/7 sur votre site et par SMS.</p>
           </div>
         </a>
 
