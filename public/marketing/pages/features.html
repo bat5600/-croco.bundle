@@ -167,6 +167,14 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- HERO: Sites & Funnels -->
                     <div class="col-span-1 md:col-span-2 row-span-2 bg-white rounded-[2rem] p-8 border border-slate-100 bento-card relative overflow-hidden group min-h-[420px]">
+                        <!-- Stretched link -->
+                        <a :href="linkTo('sitesFunnels')"
+                            :target="linkTarget('sitesFunnels')"
+                            rel="noopener noreferrer"
+                            class="absolute inset-0 z-10 cursor-pointer"
+                            aria-label="Constructeur de Sites et Funnels avancé">
+                        </a>
+                        <!-- Content -->
                         <div class="relative z-10 h-full flex flex-col">
                             <div class="icon-box w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6 transition-all duration-300">
                                 <i class="fa-solid fa-layer-group text-3xl"></i>
@@ -183,6 +191,14 @@
 
                     <!-- HERO: E-Shop -->
                     <div class="col-span-1 md:col-span-2 bg-white rounded-[2rem] p-8 border border-slate-100 bento-card group">
+                        <!-- Stretched link -->
+                        <a :href="linkTo('eShop')"
+                            :target="linkTarget('eShop')"
+                            rel="noopener noreferrer"
+                            class="absolute inset-0 z-10 cursor-pointer"
+                            aria-label="E-Shop Complet">
+                        </a>
+                        <!-- Content -->    
                         <div class="icon-box w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 mb-6">
                             <i class="fa-solid fa-store text-2xl"></i>
                         </div>
@@ -192,6 +208,14 @@
 
                     <!-- HERO: Formations -->
                     <div class="col-span-1 md:col-span-2 bg-white rounded-[2rem] p-8 border border-slate-100 bento-card group">
+                        <!-- Stretched link -->
+                        <a :href="linkTo('formations')"
+                            :target="linkTarget('formations')"
+                            rel="noopener noreferrer"
+                            class="absolute inset-0 z-10 cursor-pointer"
+                            aria-label="Formations & E-learning">
+                        </a>
+                        <!-- Content -->
                          <div class="icon-box w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600 mb-6">
                             <i class="fa-solid fa-graduation-cap text-2xl"></i>
                         </div>

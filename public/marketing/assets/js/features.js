@@ -23,6 +23,45 @@
   // === Config ===
   const DEFAULT_JSON_URL = "https://croco-bundle.vercel.app/marketing/data/features.json";
 
+
+  // === Link Router (feature pages + help center) ===
+  const BASE = {
+    feature: "https://crococlick.com/fonctionnalites/",
+    help: "https://help.crococlick.com/fr/articles/",
+  };
+
+  // clé -> destination
+  // - type: "feature" | "help"
+  // - slug: le chemin après le domaine
+  // - ou url: url complète (override)
+  const CROCO_LINKS = {
+    
+    // LISTE (à compléter)
+    sitesFunnels: { type: "feature", slug: "funnels-sites" },
+    eShop: { type: "feature", slug: "eshop" },
+    formations: { type: "feature", slug: "formations-en-ligne" },
+
+    whatsapp: { type: "help", slug: "11112384" },
+
+  };
+
+  function linkTo(key) {
+    const entry = CROCO_LINKS[key];
+    if (!entry) return "#";
+    if (entry.url) return entry.url;
+
+    const base = BASE[entry.type];
+    if (!base) return "#";
+
+    return base + entry.slug;
+  }
+  
+  function linkTarget(key) {
+    const entry = CROCO_LINKS[key];
+    if (!entry) return "_self";
+    return entry.type === "help" ? "_blank" : "_self";
+  }
+
   // Normalise une chaîne pour la recherche
   function norm(str) {
     return (str || "")
@@ -154,6 +193,11 @@
     const cfg = opts || {};
 
     return {
+      // Links
+      linkTo,
+      linkTarget,
+      links: CROCO_LINKS,
+
       // State
       jsonUrl: cfg.jsonUrl || DEFAULT_JSON_URL,
       loading: true,
