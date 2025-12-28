@@ -59,3 +59,9 @@
 .cc-table-toggle-btn {
   user-select: none;
 }
+
+/* === CC PATCH: decision-guide spacing === */
+#decision-guide {
+    padding-left: 2rem; /* augmente l’espace entre la barre et le contenu */
+}
+
