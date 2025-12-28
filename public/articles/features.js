@@ -162,6 +162,7 @@
 
       // Alpine/HTML utilise déjà activeTab. On la définit si absente.
       activeTab: "creer",
+      previewlimit:3,
 
       // Data
       raw: null,
@@ -235,7 +236,7 @@
       visibleItems(group) {
         const items = group._items || group.items || [];
         if (this.isExpanded(group)) return items;
-        return items.slice(0, 10);
+        return items.slice(0, this.previewLimit);
       },
 
       // Compteurs
