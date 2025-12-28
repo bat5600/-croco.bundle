@@ -162,7 +162,7 @@
 
       // Alpine/HTML utilise déjà activeTab. On la définit si absente.
       activeTab: "creer",
-      previewlimit:3,
+      previewLimit:3,
 
       // Data
       raw: null,
