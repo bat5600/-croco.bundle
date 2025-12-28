@@ -506,6 +506,7 @@
     const cfg = opts || {};
 
     return {
+      
       // Links
       linkTo,
       linkTarget,
@@ -517,6 +518,29 @@
       error: "",
       search: "",
       globalSearch: true, // ✅ recherche sur tout le catalogue
+
+      // Phrase post-recherche infructueuse (à afficher conditionnellement)
+            matchingTabs() {
+        const q = (this.search || "").toLowerCase().trim();
+        if (!q) return [];
+
+        const matches = {};
+
+        for (const g of this.groups) {
+          const count = (g.items || []).filter(it =>
+            (it || "").toLowerCase().includes(q)
+          ).length;
+
+          if (count > 0) {
+            matches[g.tab] = (matches[g.tab] || 0) + count;
+          }
+        }
+
+        return Object.entries(matches)
+          .map(([tab, count]) => ({ tab, count }))
+          .filter(m => m.tab !== this.activeTab) // ⬅️ seulement les autres onglets
+          .sort((a, b) => b.count - a.count);
+      },
 
 
       // Alpine/HTML utilise déjà activeTab. On la définit si absente.

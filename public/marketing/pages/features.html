@@ -1021,9 +1021,42 @@ CATALOGUE EXHAUSTIF (JSON)
                 </div>
             </template>
 
-            <div class="text-slate-400 text-sm pt-2" x-show="filteredGroups().length === 0">
-                Aucune fonctionnalité trouvée pour cette recherche.
-            </div>
+                 <div
+                class="text-slate-500 text-sm pt-4"
+                x-show="filteredGroups().length === 0 && search"
+                >
+                <div>
+                    Aucune fonctionnalité trouvée dans
+                    <span class="font-extrabold" x-text="activeTab"></span>.
+                </div>
+
+                <template x-if="matchingTabs().length">
+                    <div class="mt-3">
+                    <div class="text-slate-400 text-xs mb-2">
+                        Mais disponible dans :
+                    </div>
+
+                    <div class="flex flex-wrap gap-2">
+                        <template x-for="m in matchingTabs()" :key="m.tab">
+                        <button
+                            class="px-3 py-2 rounded-xl bg-croco-50 border border-croco-100
+                                text-croco-700 font-extrabold text-xs
+                                hover:bg-croco-100 transition"
+                            @click="
+                            activeTab = m.tab;
+                            $nextTick(() => window.scrollTo({ top: 0, behavior: 'smooth' }))
+                            "
+                        >
+                            <span x-text="m.tab"></span>
+                            <span class="opacity-70">•</span>
+                            <span x-text="m.count"></span>
+                        </button>
+                        </template>
+                    </div>
+                    </div>
+                </template>
+                </div>
+
             </div>
 
 
