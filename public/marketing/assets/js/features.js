@@ -42,7 +42,7 @@
   // HERO CARDS
   sitesFunnels: { type: "feature", slug: "funnels-sites" },
   eShop: { type: "help", slug: "11142730" },
-  formations: { type: "help", slug: "10048760" },
+  formations: { type: "feature", slug: "formations-en-ligne" },
 
   // BENTO CARDS
   blogSEO: { type: "help", slug: "12040421" },
@@ -50,7 +50,7 @@
   formulaires: { type: "help", slug: "10083202" },
   mediaLibrary: { type: "help", slug: "10511791" },
   qrCodeDynamique: { type: "help", slug: "11798509" },
-  communautes: { type: "help", slug: "10506626" },
+  communautes: { type: "feature", slug: "communaute" },
   testsAB: { type: "help", slug: "11959197" },
   appMobile: { type: "help", slug: "10199388" },
 
@@ -73,6 +73,7 @@
 
   // HERO CARDS
   panierIntelligent: { type: "help", slug: "10034926" },
+  calendrier: { type: "feature", slug: "calendriers" },
   calendrierService: { type: "help", slug: "9979267" },
   gestionAffiliation: { type: "help", slug: "10331906" },
 
@@ -87,7 +88,7 @@
   // ==================== TAB: ORCHESTRER ====================
 
   // HERO CARDS
-  inboxUnifie: { type: "help", slug: "10526137" },
+  inboxUnifie: { type: "feature", slug: "inbox-unifiee" },
   crmSystemique: { type: "feature", slug: "crm" },
   automatisationsWorkflows: { type: "feature", slug: "automatisations" },
 
