@@ -37,12 +37,324 @@
   const CROCO_LINKS = {
     
     // LISTE (à compléter)
-    sitesFunnels: { type: "feature", slug: "funnels-sites" },
-    eShop: { type: "feature", slug: "eshop" },
-    formations: { type: "feature", slug: "formations-en-ligne" },
+    // ==================== TAB: CRÉER ====================
 
-    whatsapp: { type: "help", slug: "11112384" },
+  // HERO CARDS
+  sitesFunnels: { type: "feature", slug: "funnels-sites" },
+  eShop: { type: "help", slug: "11142730" },
+  formations: { type: "help", slug: "10048760" },
 
+  // BENTO CARDS
+  blogSEO: { type: "help", slug: "12040421" },
+  domainesDNS: { type: "help", slug: "10075044" },
+  formulaires: { type: "help", slug: "10083202" },
+  mediaLibrary: { type: "help", slug: "10511791" },
+  qrCodeDynamique: { type: "help", slug: "11798509" },
+  communautes: { type: "help", slug: "10506626" },
+  testsAB: { type: "help", slug: "11959197" },
+  appMobile: { type: "help", slug: "10199388" },
+
+  // ==================== TAB: DIFFUSER ====================
+
+  // HERO CARDS
+  emailMarketing: { type: "feature", slug: "email-sms-marketing" },
+  socialPlanner: { type: "feature", slug: "planificateur-social" },
+  crocoLive: { type: "feature", slug: "webinar-live" },
+
+  // BENTO CARDS
+  smsWhatsapp: { type: "help", slug: "11112384" },
+  eReputation: { type: "help", slug: "11798509" },
+  chatWidget: { type: "help", slug: "12310579" },
+  autoDM: { type: "help", slug: "10498095" },
+  webinarAuto: { type: "help", slug: "12339445" },
+  ipDediee: { type: "help", slug: "10075285" },
+
+  // ==================== TAB: CONVERTIR ====================
+
+  // HERO CARDS
+  panierIntelligent: { type: "help", slug: "10034926" },
+  calendrierService: { type: "help", slug: "9979267" },
+  gestionAffiliation: { type: "help", slug: "10331906" },
+
+  // BENTO CARDS
+  facturesDevis: { type: "help", slug: "10483189" },
+  gestionPublicites: { type: "help", slug: "10903301" },
+  codespromo: { type: "help", slug: "10283758" },
+  signatures: { type: "help", slug: "10174157" },
+  taxesAuto: { type: "help", slug: "11960095" },
+  liensPaiement: { type: "help", slug: "10034753" },
+
+  // ==================== TAB: ORCHESTRER ====================
+
+  // HERO CARDS
+  inboxUnifie: { type: "help", slug: "10526137" },
+  crmSystemique: { type: "feature", slug: "crm" },
+  automatisationsWorkflows: { type: "feature", slug: "automatisations" },
+
+  // BENTO CARDS
+  dashboards: { type: "help", slug: "11958660" },
+  appAdmin: { type: "help", slug: "10199388" },
+  apiWebhooks: { type: "help", slug: "10881987" },
+  leadScoring: { type: "help", slug: "10083155" },
+  callRecord: { type: "help", slug: "12644794" },
+  tracking: { type: "help", slug: "11397009" },
+  triggerLinks: { type: "help", slug: "10189148" },
+  equipes: { type: "help", slug: "10825268" },
+
+  // ==================== TAB: CROCO AI ====================
+
+  // HERO CARD + FEATURES
+  crocobotAI: { type: "feature", slug: "crocobot-ai" },
+  contentAI: { type: "help", slug: "10988781" },
+  imagesAI: { type: "help", slug: "10988781" },
+  workflowAI: { type: "help", slug: "10993609" },
+  reviewAI: { type: "help", slug: "11798386" },
+  voiceAI: { type: "help", slug: "10987862" },
+  agentStudio: { type: "help", slug: "11978723" },
+
+  // ==================== CATALOGUE COMPLET - CRÉER ====================
+
+  // Sites & Pages
+  sitesIllimites: { type: "help", slug: "11959197" },
+  builderDragDrop: { type: "help", slug: "10096735" },
+  templatesNiches: { type: "help", slug: "10602938" },
+  hebergementDomaine: { type: "help", slug: "10075044" },
+  wordpressNatif: { type: "help", slug: "11959197" },
+
+  // Blog & SEO
+  blogBuilder: { type: "help", slug: "12040421" },
+  seoAvance: { type: "help", slug: "11524968" },
+
+  // Funnels
+  funnelsIllimites: { type: "help", slug: "11458857" },
+  templatesPreConstructs: { type: "help", slug: "10602938" },
+  funnelsIA: { type: "help", slug: "12613457" },
+  funnelsWebinaires: { type: "help", slug: "11856603" },
+  importURL: { type: "help", slug: "7866984" },
+
+  // Formulaires, Quiz & Logique
+  formBuilder: { type: "help", slug: "10083202" },
+  surveyBuilder: { type: "help", slug: "10083287" },
+  champsIllimites: { type: "help", slug: "10083357" },
+  conditionalLogic: { type: "help", slug: "2648477" },
+  leadForms: { type: "help", slug: "10083202" },
+  inlineEmbed: { type: "help", slug: "11363316" },
+  quizBuilder: { type: "help", slug: "10806302" },
+  branchingLogic: { type: "help", slug: "2648477" },
+  scoringTiers: { type: "help", slug: "10807091" },
+  resultsPages: { type: "help", slug: "10807091" },
+  analyticsQuiz: { type: "help", slug: "11925514" },
+  venteScore: { type: "help", slug: "10806908" },
+
+  // QR Codes
+  generatricNative: { type: "help", slug: "11798509" },
+  qrTypes: { type: "help", slug: "11798509" },
+  personnalisationQR: { type: "help", slug: "11798509" },
+  exportQR: { type: "help", slug: "11798509" },
+  analyticsQR: { type: "help", slug: "11798509" },
+
+  // ==================== CATALOGUE COMPLET - DIFFUSER ====================
+
+  // Inbox Omnichannel
+  inboxUnifiee: { type: "help", slug: "10526137" },
+  conversationsExperience: { type: "help", slug: "10526137" },
+  smsBidirectionnel: { type: "help", slug: "11959134" },
+  emailBidirectionnel: { type: "help", slug: "10575248" },
+  whatsappBusiness: { type: "help", slug: "11109324" },
+  facebookMessenger: { type: "help", slug: "10525960" },
+  instagramDM: { type: "help", slug: "10498095" },
+  googleBusinessMessages: { type: "help", slug: "10526137" },
+  liveChat: { type: "help", slug: "12310579" },
+  webchatIntelligent: { type: "help", slug: "12310579" },
+  groupChat: { type: "help", slug: "10526137" },
+  reponsesRapides: { type: "help", slug: "10526137" },
+  multiNumerosSMS: { type: "help", slug: "11782205" },
+  composerFullscreen: { type: "help", slug: "10526137" },
+  raccourcisClavier: { type: "help", slug: "12613622" },
+
+  // Email Marketing
+  envoiMasse: { type: "help", slug: "11459185" },
+  campagnesSequencees: { type: "help", slug: "11458277" },
+  dripScheduling: { type: "help", slug: "11959134" },
+  smartSend: { type: "help", slug: "11959134" },
+  optimisationHoraire: { type: "help", slug: "11959134" },
+  editeurDragDrop: { type: "help", slug: "11959134" },
+  htmlBuilder: { type: "help", slug: "11959134" },
+  snippetsReutilisables: { type: "help", slug: "11959134" },
+  templates350: { type: "help", slug: "11959134" },
+  gestionAbonnements: { type: "help", slug: "10207520" },
+  conditionalContentEmail: { type: "help", slug: "12309320" },
+  statsIntegrees: { type: "help", slug: "11959134" },
+  syncGmailOutlook: { type: "help", slug: "10575248" },
+
+  // SMS Marketing
+  smsBidirectionnels: { type: "help", slug: "11959134" },
+  campaignesAutomatisees: { type: "help", slug: "11959134" },
+  text2Pay: { type: "help", slug: "11959134" },
+  rappelsAutomatiques: { type: "help", slug: "11452555" },
+  snippetsSMS: { type: "help", slug: "11959134" },
+  a2p10dlc: { type: "help", slug: "11782205" },
+  conformiteTCPA: { type: "help", slug: "10083104" },
+  businessProfileSMS: { type: "help", slug: "11782205" },
+
+  // Social & Diffusion
+  publicationsIllimitees: { type: "help", slug: "11452168" },
+  multiPlateformes: { type: "help", slug: "10083634" },
+  templatesContenu: { type: "help", slug: "11452168" },
+  utmTracking: { type: "help", slug: "11397009" },
+  linkShortener: { type: "help", slug: "10217584" },
+
+  // Live & Webinar
+  webinairesLive: { type: "help", slug: "12339445" },
+  salleChat: { type: "help", slug: "12339574" },
+  offresPopup: { type: "help", slug: "12339574" },
+  replayAutomatique: { type: "help", slug: "12750349" },
+  modeEvergreen: { type: "help", slug: "12339737" },
+
+  // ==================== CATALOGUE COMPLET - CONVERTIR ====================
+
+  // Paiements
+  stripePaiements: { type: "help", slug: "11959052" },
+  paypalIntegration: { type: "help", slug: "10506793" },
+  nmiIntegration: { type: "help", slug: "11959052" },
+  authorizeIntegration: { type: "help", slug: "11959052" },
+  paiementsSecurises: { type: "help", slug: "11959052" },
+  paiementsPartiels: { type: "help", slug: "10525985" },
+  paiementsAntcipes: { type: "help", slug: "10525985" },
+  paiementsRecurrents: { type: "help", slug: "12072281" },
+
+  // Facturation
+  invoices: { type: "help", slug: "10483189" },
+  estimates: { type: "help", slug: "10483189" },
+  conversionEstimate: { type: "help", slug: "10483189" },
+  lateFees: { type: "help", slug: "10483189" },
+  gracePeriod: { type: "help", slug: "10483189" },
+  scheduledInvoices: { type: "help", slug: "10483189" },
+
+  // Produits & Catalogue
+  produitsPhysiques: { type: "help", slug: "10111265" },
+  produitsDigitaux: { type: "help", slug: "11396871" },
+  produitsAbonnements: { type: "help", slug: "12072281" },
+  variantes: { type: "help", slug: "10111265" },
+  inventoryTracking: { type: "help", slug: "11142730" },
+  collectionsManuel: { type: "help", slug: "11142730" },
+  smartCollections: { type: "help", slug: "11142730" },
+  importStripe: { type: "help", slug: "11959052" },
+  pricingSaaS: { type: "help", slug: "10111265" },
+
+  // Checkout & Optimisation
+  upsell1click: { type: "help", slug: "10141193" },
+  downsell: { type: "help", slug: "10141193" },
+  crosssell: { type: "help", slug: "10283788" },
+  oto: { type: "help", slug: "10141193" },
+  orderBumps: { type: "help", slug: "10283788" },
+  checkoutOneStep: { type: "help", slug: "10034926" },
+  checkoutTwoSteps: { type: "help", slug: "10034926" },
+  orderForm: { type: "help", slug: "10141193" },
+
+  // Ads & Reporting
+  adsManager: { type: "help", slug: "10903301" },
+  googleAdsCampaigns: { type: "help", slug: "10903301" },
+  facebookAdsCampaigns: { type: "help", slug: "10903301" },
+  audiences: { type: "help", slug: "10903301" },
+  lookalike: { type: "help", slug: "10903301" },
+  reportingAds: { type: "help", slug: "11171672" },
+
+  // ==================== CATALOGUE COMPLET - ORCHESTRER ====================
+
+  // CRM & Données
+  contactsIllimites: { type: "help", slug: "11958934" },
+  champsRichText: { type: "help", slug: "10083357" },
+  valeursGlobales: { type: "help", slug: "10460903" },
+  objetsPersonnalises: { type: "help", slug: "10083357" },
+  fichesCompany: { type: "help", slug: "11958934" },
+  relationsContacts: { type: "help", slug: "11525380" },
+  rechercheAvancee: { type: "help", slug: "10083179" },
+  rechercheRegex: { type: "help", slug: "10083179" },
+  smartLists: { type: "help", slug: "10083179" },
+  tagsPersonnalisables: { type: "help", slug: "10083155" },
+  leadScoringAuto: { type: "help", slug: "10083155" },
+  personnalisationDynamique: { type: "help", slug: "10460903" },
+
+  // Pipelines & Opportunités
+  pipelinesIllimites: { type: "help", slug: "12017898" },
+  pipelinesCampagne: { type: "help", slug: "12017898" },
+  opportunitesIllimitees: { type: "help", slug: "11958951" },
+  progressionAuto: { type: "help", slug: "12017923" },
+  automatisationParcours: { type: "help", slug: "12019430" },
+  visualisationTempsReel: { type: "help", slug: "11958951" },
+  vueListeOpportunites: { type: "help", slug: "11958951" },
+  liaisonDevisFactures: { type: "help", slug: "10483189" },
+
+  // Workflows & Automatisation
+  builderVisuel: { type: "help", slug: "12613560" },
+  automatisationMultiCanal: { type: "help", slug: "11959156" },
+  declencheurConditions: { type: "help", slug: "11363511" },
+  actionsConditionnelles: { type: "help", slug: "11363445" },
+  webhooks: { type: "help", slug: "10881987" },
+  triggerLinksWorkflow: { type: "help", slug: "10207451" },
+  notificationsSlack: { type: "help", slug: "11189644" },
+  connexionGoogleSheets: { type: "help", slug: "10881987" },
+  onboardingClient: { type: "help", slug: "11959156" },
+  creationTaches: { type: "help", slug: "12410319" },
+  rebillingMarkup: { type: "help", slug: "11959156" },
+
+  // Sécurité, Équipe & Notifications
+  permissionsRole: { type: "help", slug: "10825268" },
+  auditLogs: { type: "help", slug: "10825268" },
+  encryption: { type: "help", slug: "11959052" },
+  multiLocalisation: { type: "help", slug: "10825268" },
+  taskManagement: { type: "help", slug: "12410319" },
+  assignations: { type: "help", slug: "12410319" },
+  notificationsComplet: { type: "help", slug: "11189644" },
+  tempsReel: { type: "help", slug: "11958660" },
+
+  // ==================== CATALOGUE COMPLET - CROCO AI ====================
+
+  // Conversation AI
+  chatSmsIA: { type: "help", slug: "10987958" },
+  multiBotsIA: { type: "help", slug: "11978723" },
+  intentionRouting: { type: "help", slug: "11978791" },
+  reconnaissanceImage: { type: "help", slug: "10988781" },
+  reconnaissanceAudio: { type: "help", slug: "10987862" },
+
+  // Voice AI
+  appelsEntrants: { type: "help", slug: "10987862" },
+  appelsSortants: { type: "help", slug: "10987862" },
+  reservationsAuto: { type: "help", slug: "10987862" },
+  voixMultilingues: { type: "help", slug: "10987862" },
+  sentimentDetection: { type: "help", slug: "10987862" },
+
+  // Workflow AI
+  actionsIA: { type: "help", slug: "11978581" },
+  analyseSentiment: { type: "help", slug: "11978581" },
+  webhooksIA: { type: "help", slug: "10993609" },
+  chatgptActions: { type: "help", slug: "11978646" },
+
+  // Review AI
+  reponseAutomatique: { type: "help", slug: "11791115" },
+  detectionSpam: { type: "help", slug: "11798386" },
+
+  // Agent Studio
+  deploiementAgents: { type: "help", slug: "11978723" },
+  marketplaceAgents: { type: "help", slug: "11978723" },
+
+  // ==================== ENTÊTE HÉRO (Checklist) ====================
+
+  funnelsIllimitesChecklist: { type: "help", slug: "11458857" },
+  formationsOnlineChecklist: { type: "help", slug: "10048760" },
+  appMobileChecklistFull: { type: "help", slug: "10199388" },
+  crmMainChecklist: { type: "help", slug: "11958934" },
+  emailingMainChecklist: { type: "help", slug: "11959134" },
+  smsMainChecklist: { type: "help", slug: "11959134" },
+  automatisationsChecklist: { type: "help", slug: "11959156" },
+  eShopMainChecklist: { type: "help", slug: "11142730" },
+  calendrierChecklist: { type: "help", slug: "11958984" },
+  avisIAChecklist: { type: "help", slug: "11798386" },
+
+  // ==================== HELP CENTER / SUPPORT ====================
+
+  whatsapp: { type: "help", slug: "11112384" },
   };
 
   function linkTo(key) {
@@ -203,6 +515,8 @@
       loading: true,
       error: "",
       search: "",
+      globalSearch: true, // ✅ recherche sur tout le catalogue
+
 
       // Alpine/HTML utilise déjà activeTab. On la définit si absente.
       activeTab: "creer",
@@ -285,64 +599,48 @@
 
       // Compteurs
       totalInTab() {
-        const tab = this.activeTab;
-        return this.groups
-          .filter((g) => g.tab === tab)
-          .reduce((sum, g) => sum + (g.items ? g.items.length : 0), 0);
-      },
+          const base = this.globalSearch
+            ? this.groups
+            : this.groups.filter(g => g.tab === this.activeTab);
+
+          return base.reduce((acc, g) => acc + ((g.items || []).length), 0);
+        },
+
 
       visibleCount() {
-        const tab = this.activeTab;
-        const q = norm(this.search);
-        if (!q) {
-          return this.totalInTab();
-        }
+          // nombre total de fonctionnalités visibles après filtre (search)
+          const groups = this.filteredGroups();
+          return groups.reduce((acc, g) => acc + ((g._items || g.items || []).length), 0);
+        },
 
-        // total filtré
-        return this.filteredGroups()
-          .filter((g) => g.tab === tab)
-          .reduce((sum, g) => sum + ((g._items || []).length || 0), 0);
-      },
 
       // Filtrage principal : groupe par groupe + recherche
       filteredGroups() {
-        const tab = this.activeTab;
-        const q = norm(this.search);
+        const q = (this.search || "").toLowerCase().trim();
 
-        // on clone les groupes (pour ne pas muter l'original)
-        const base = this.groups.filter((g) => g.tab === tab);
+        // Base : soit tout le catalogue, soit onglet actif seulement
+        const base = this.globalSearch
+          ? this.groups
+          : this.groups.filter(g => g.tab === this.activeTab);
 
+        // Pas de recherche -> pas de _items, on renvoie brut
         if (!q) {
-          return base.map((g) => ({ ...g, _items: g.items.slice() }));
+          return base.map(g => {
+            const copy = { ...g };
+            delete copy._items;
+            return copy;
+          });
         }
 
-        // Recherche : on matche dans rows (_search)
-        const matched = this.rows.filter((r) => r.tabId === tab && r._search.includes(q));
-
-        // Build map category -> items
-        const m = new Map();
-        for (const r of matched) {
-          const key = r.category;
-          if (!m.has(key)) m.set(key, new Set());
-          m.get(key).add(r.item);
-        }
-
-        const out = [];
-        for (const g of base) {
-          const set = m.get(g.category);
-          if (!set) continue;
-          const items = Array.from(set);
-          out.push({ ...g, _items: items });
-        }
-
-        // tri stable
-        out.sort((a, b) => {
-          if (a.groupRank !== b.groupRank) return a.groupRank - b.groupRank;
-          return a.category.localeCompare(b.category, "fr");
-        });
-
-        return out;
+        // Recherche -> filtre items, stocke en _items (pour "voir plus/moins" sur le subset)
+        return base
+          .map(g => {
+            const items = (g.items || []).filter(it => (it || "").toLowerCase().includes(q));
+            return { ...g, _items: items };
+          })
+          .filter(g => (g._items || []).length > 0);
       },
+
 
       // Expose: badge/hightlights & icon (si tu veux les afficher dans le template)
       groupIcon(group) {
