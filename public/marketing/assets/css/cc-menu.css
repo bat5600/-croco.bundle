@@ -1,0 +1,312 @@
+  #section-ZgRhtAGsiy {
+  z-index: 999999 !important;
+}
+
+  
+@media only screen and (min-width: 768px) {
+
+  /* La colonne doit laisser dépasser */
+  .depassement {
+    overflow: visible !important;
+    position: relative; /* nécessaire */
+  }
+
+  /* Le wrapper ne coupe rien */
+  .croco-media-wrapper {
+    position: relative;
+    overflow: visible !important;
+    border-radius: 18px;
+    padding: 10px;
+    background: rgba(255,255,255,0.5);
+  }
+
+  /* L’image garde sa taille logique */
+  .croco-media-wrapper img {
+    display: block;
+    width: 100%;       /* On ne casse PAS le layout */
+    height: auto;
+    object-fit: cover;
+
+    /* 👇 LE SECRET : translation hors de la colonne */
+    transform: scale(1.6) translateX(20%); /* agrandit visuellement l'image */
+    transform-origin: center;
+
+    /* Optionnel : zoom visuel sans changer la largeur logique */
+    /* scale(1.1) si tu veux plus de dépassement */
+  }
+
+  html, body {
+    overflow-x: hidden; /* sécurité pour éviter scroll horizontal */
+  }
+}
+
+
+
+  /*Fade sur Image*/
+  .fade-wrapper  {
+  display: block;
+  /* masque = centre opaque, bords transparents */
+  -webkit-mask-image: radial-gradient(circle at center,
+    rgba(0,0,0,1) 60%,
+    rgba(0,0,0,0) 100%
+  );
+  mask-image: radial-gradient(circle at center,
+    rgba(0,0,0,1) 60%,
+    rgba(0,0,0,0) 100%
+  );
+}
+
+  /*Dégradé côté pour texte */
+  .gradient-side H2 {
+  background-image: linear-gradient(
+    98deg,
+    #202020 43.06%,
+    #57735f 91.81%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* LE SECRET */
+  -webkit-text-fill-color: rgba(0,0,0,0);
+}
+  
+    .gradient-side-dark H2 {
+  background-image: linear-gradient(
+    98deg,
+    #ffffff 43.06%,
+    #ededed 91.81%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* LE SECRET */
+  -webkit-text-fill-color: rgba(0,0,0,0);
+}
+  
+/*Limite la taille max du menu*/
+  #row-zDc7SQmwdb{
+  max-width: 1200px;
+  width: 100%;
+}
+ /*Glassomorphism pour sticky menu*/ 
+#row-zDc7SQmwdb {
+  /* 1. AUGMENTER L'OPACITÉ : 
+     On passe à 0.85 (85% blanc). 
+     C'est assez blanc pour que le texte noir soit lisible sur fond noir.
+     C'est assez transparent pour voir les couleurs passer dessous. */
+  background-color: rgba(255, 255, 255, 0.80) !important;
+  
+  /* 2. LE SECRET : saturate(180%)
+     Cela intensifie les couleurs qui passent derrière le flou. 
+     Ça évite l'effet "laiteux/gris" et rend l'effet vibrant. */
+  backdrop-filter: saturate(280%) blur(20px);
+  -webkit-backdrop-filter: saturate(280%) blur(20px);
+  
+  /* 3. Bordure très fine */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  
+  /* 4. Ombre portée douce */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  
+  border-radius: 12px;
+}
+  /*FIN*/
+  
+  /* ESpace pour les bullets si classe est space-bullet */
+.space-bullet ul li {
+    margin-bottom: 10px !important;
+}
+  /*Espace pour les paragraphes si classe est space2 */
+ .space2 p {
+    margin-bottom: 5px !important;
+} 
+  
+  /* Media query pour desktop */
+  @media only screen and (min-width: 768px) {
+    /* Sticky Header */
+    #section-ZgRhtAGsiy {
+      position: fixed !important;
+      top: 50px !important;
+    left: 0 !important;   /* Colle le bord gauche à l'écran */
+    width: 100% !important; /* Force la largeur à 100% */
+    max-width: 100vw !important; /* Sécurité pour ne pas dépasser */
+    margin: 0 !important; /* Enlève les marges par défaut de GHL */
+    /* ---------------------------------------------------- */
+      z-index: 10;
+    
+    /* On ajoute une transition sur le "top" pour que ça glisse joliment */
+    transition: all 0.4s ease, top 0.4s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+    
+    #section-ZgRhtAGsiy.scrolled-mode {
+    top: 0 !important;
+    background-color: transparent !important; 
+    }
+  }
+  
+  
+    
+
+  /* Media query pour mobile */
+  @media only screen and (max-width: 768px) {
+    .image-feature-07O854WIUs,
+    .image-feature-ARXPx1Ywmq,
+    .image-feature-GrOQMX57eY,
+    .image-feature-itoxcewnRR,
+    .image-feature-aF5e8LiScv,
+    .image-feature-mml2WtKfWb,
+    .image-feature-KeKLFr_T2s div p {
+      width: 300px;
+    }
+  }
+  
+  /* Menu sur mobile*/
+  @media (max-width: 480px){
+  /* Le conteneur du logo + hamburger reste en row */
+  .menu-layout {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important; /* Logo à gauche, hamburger à droite */
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  /* Le menu UL devient une colonne */
+  .nav-menu-ul{
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    width: 100% !important;
+  }
+
+  .nav-menu-ul > li{
+    width: 100% !important;
+  }
+
+  .text-nowrap,
+  .nav-menu-ul .nav-menu-mobile{
+    white-space: normal !important;
+  }
+}
+
+
+  /* Texte en gras dégradé */
+  .highlighted2 strong {
+    background: linear-gradient(108deg, #0894FF, #C959DD 34%, #FF2E54 68%, #FF9004);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline;
+    font-weight: bold;
+  }
+
+  /* Texte en gras surligné en vert */
+  .highlighted3 strong {
+    background-color: #00ff94;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-weight: bold;
+    display: inline;
+  }
+
+  /* Dégradé animé pour les éléments en gras dans .highlighted4 */
+  .highlighted4 strong {
+    background: linear-gradient(108deg, 
+      #0ea068, 
+      #21e087, 
+      #0499F2, 
+      #0894FF, 
+      #C959DD,
+      #FF2E54, 
+      #FF9004
+    );
+    background-size: 200% 200%;
+    animation: gradientShift 5s ease infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline;
+    font-weight: bold;
+  }
+
+  /* Animation du gradient */
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Animation du gradient */
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Transformer le dernier lien du menu en CTA uniquement dans CE menu */
+#nav-menu-v2-AZgY1W6v-f .cc-cta {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.8rem !important;
+  margin-left: 1rem; /* environ 16px */
+  border-radius: 15px !important;
+  background: #00E676 !important;
+  color: #1d3a2f !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  box-shadow: 0 6px 18px rgba(0, 230, 118, .35) !important;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease !important;
+  line-height: 1 !important;
+  cursor: pointer;
+}
+
+#nav-menu-v2-AZgY1W6v-f .cc-cta:hover {
+  background: #00D36B !important;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0, 230, 118, .45) !important;
+}
+
+#nav-menu-v2-AZgY1W6v-f .cc-cta:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(0, 230, 118, .35) !important;
+}
+
+#nav-menu-v2-AZgY1W6v-f .cc-cta:focus-visible {
+  outline: 0;
+  box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 6px rgba(0, 230, 118, .65);
+}
+  
+    /*Reverse Column on Mobile*/
+  @media only screen and (max-width: 768px) {
+    .flex {
+        display: flex !important;
+        flex-wrap: wrap !important;
+    }
+
+    .column-1 {
+        order: 1;
+    }
+
+    .column-2 {
+        order: 2;
+    }
+}
