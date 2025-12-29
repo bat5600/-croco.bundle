@@ -1,0 +1,63 @@
+.cc-title{
+  font-family:'Plus Jakarta Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  font-size:52px;
+  font-weight:700;
+  color:#fff;
+  margin:0;
+  letter-spacing:-0.04em;
+  text-align:center;
+}
+
+@media (max-width:768px){ .cc-title{ font-size:32px; } }
+
+.cc-rotator{
+  display:inline-block;
+  position:relative;
+  line-height:1.2;
+}
+
+/* Réserve une hauteur stable pour éviter le CLS */
+.cc-rotator{
+  height:1.2em;
+  vertical-align:bottom;
+}
+
+/* Fallback visible instantanément */
+.cc-rotator__fallback{
+  display:inline-block;
+}
+
+/* Items “data” cachés tant que JS pas actif */
+.cc-rotator__items{
+  display:none;
+}
+
+.cc-highlight{
+  background:linear-gradient(108deg,
+    #0ea068 0%,
+    #21e087 30%,
+    #0499F2 55%,
+    #0894FF 55%,
+    #C959DD 70%,
+    #FF2E54 85%,
+    #FF9004 100%
+  );
+  background-size:200% 200%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+  font-weight:800;
+  animation:ccGradientShift 5s ease infinite;
+}
+
+@keyframes ccGradientShift{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* Motion respect */
+@media (prefers-reduced-motion: reduce){
+  .cc-highlight{ animation:none; }
+}
