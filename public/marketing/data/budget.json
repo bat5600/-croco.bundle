@@ -1,0 +1,43 @@
+{
+  "updated_at": "2025-12-31",
+  "chart": {
+    "type": "doughnut",
+    "center_label": "100%",
+    "center_subtitle": "Réinvesti"
+  },
+  "categories": [
+    {
+      "id": "human",
+      "label": "Humain",
+      "value": 45,
+      "color": "#10b981",
+      "description": "Salaires, équipe, support, opérations quotidiennes"
+    },
+    {
+      "id": "product",
+      "label": "Produit",
+      "value": 20,
+      "color": "#3b82f6",
+      "description": "Développement, UX, R&D, amélioration continue"
+    },
+    {
+      "id": "marketing",
+      "label": "Marketing",
+      "value": 25,
+      "color": "#fb923c",
+      "description": "Acquisition, contenu, partenariats, visibilité"
+    },
+    {
+      "id": "reserve",
+      "label": "Réserve",
+      "value": 10,
+      "color": "#94a3b8",
+      "description": "Sécurité financière, imprévus, stabilité long terme"
+    }
+  ],
+  "meta": {
+    "total": 100,
+    "currency": "EUR",
+    "display_values": "percent"
+  }
+}

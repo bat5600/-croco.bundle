@@ -1,0 +1,51 @@
+{
+  "updated_at": "2025-12-31",
+  "items": [
+    {
+      "id": 0,
+      "title": "Bilan Décembre : Refonte UX",
+      "date": "2024-12-31",
+      "display_date": "31 Décembre",
+      "img": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1600",
+      "type": "mp4",
+      "url": "https://www.w3schools.com/html/mov_bbb.mp4",
+      "tag": "Dernière sortie"
+    },
+    {
+      "id": 1,
+      "title": "Performance Serveur",
+      "date": "2024-11-30",
+      "display_date": "30 Novembre",
+      "img": "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1600",
+      "type": "mp4",
+      "url": "https://www.w3schools.com/html/mov_bbb.mp4"
+    },
+    {
+      "id": 2,
+      "title": "Roadmap 2025",
+      "date": "2024-10-31",
+      "display_date": "31 Octobre",
+      "img": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1600",
+      "type": "youtube",
+      "url": "dQw4w9WgXcQ"
+    },
+    {
+      "id": 3,
+      "title": "Nouveaux Recrutements",
+      "date": "2024-09-30",
+      "display_date": "30 Septembre",
+      "img": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1600",
+      "type": "mp4",
+      "url": "https://www.w3schools.com/html/mov_bbb.mp4"
+    },
+    {
+      "id": 4,
+      "title": "Lancement de la v2",
+      "date": "2024-08-31",
+      "display_date": "31 Août",
+      "img": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1600",
+      "type": "mp4",
+      "url": "https://www.w3schools.com/html/mov_bbb.mp4"
+    }
+  ]
+}
