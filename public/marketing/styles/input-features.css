@@ -104,3 +104,62 @@
     linear-gradient(to bottom, #000 78%, transparent 100%);
   mask-composite: intersect;
 }
+
+/* ==================================================
+   GHL FIX — Sticky Tabs + Mobile Horizontal Scroll
+   (à coller en bas de features.css)
+================================================== */
+
+/* 1) On force le sticky à gagner contre GHL */
+#features .cc-tabs-sticky {
+  position: sticky !important;
+  top: 96px !important;        /* ajuste si besoin */
+  z-index: 9999 !important;
+}
+
+/* 2) Sticky se casse si un parent a overflow != visible ou transform/contain.
+   GHL applique souvent ça sur ses sections/rows/containers.
+   On "désarme" localement autour de la section features. */
+#features,
+#features > div,
+#features .max-w-7xl {
+  overflow: visible !important;
+}
+
+/* Certains builders mettent un transform sur des wrappers.
+   Sticky ne fonctionne pas comme prévu dans un ancêtre transformé. */
+#features,
+#features * {
+  transform: none;
+}
+
+/* 3) Conteneur des tabs : toujours une seule ligne + scroll horizontal sur mobile */
+#features .cc-tabswrap {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+#features .cc-tabswrap::-webkit-scrollbar {
+  display: none;
+}
+
+/* 4) Boutons : ne jamais shrink → pas de wrap déguisé */
+#features .cc-tabswrap .tab-btn {
+  flex: 0 0 auto !important;     /* = shrink-0 */
+  white-space: nowrap !important;
+}
+
+/* 5) (Optionnel) scroll-snap plus smooth sur mobile */
+#features .cc-tabswrap {
+  scroll-snap-type: x mandatory;
+}
+#features .cc-tabswrap .tab-btn {
+  scroll-snap-align: start;
+}
+/* Fin du fix GHL */
