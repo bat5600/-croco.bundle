@@ -119,9 +119,9 @@
         }
 
         /* Team photo — cadrage mobile */
-        .team-photo { object-position: 50% 35%; } /* desktop/tablet (ajuste si besoin) */
+        .team-photo { object-position: 50% 5%; } /* desktop/tablet (ajuste si besoin) */
 
         @media (max-width: 640px) {
-        .team-photo { object-position: 50% 70%; } /* “baisse” l’image → montre plus le haut */
+        .team-photo { object-position: 50% 3%; } /* “baisse” l’image → montre plus le haut */
         }
 
