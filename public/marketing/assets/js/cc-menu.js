@@ -422,14 +422,18 @@
 
     // Click delegation
     document.addEventListener("click", (e) => {
-      // Si un élément interactif est cliqué (lien, bouton, etc.) -> on laisse faire
-      if (closestInteractive(e.target)) return;
+    const row = findMappedAncestor(e.target);
+    if (!row) return;
 
-      const row = findMappedAncestor(e.target);
-      if (!row) return;
+    const interactive = closestInteractive(e.target);
 
-      openUrl(ROW_LINKS[row.id], "_self");
+    // Si on clique un vrai lien/bouton À L'INTÉRIEUR de la row, on laisse faire
+    // MAIS si l'élément "interactif" détecté est la row elle-même -> on gère le clic
+    if (interactive && interactive !== row) return;
+
+    openUrl(ROW_LINKS[row.id], "_self");
     });
+
 
     // Keyboard support (Enter/Space when focused on mapped row)
     document.addEventListener("keydown", (e) => {
