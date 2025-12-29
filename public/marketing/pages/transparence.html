@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://croco-bundle.vercel.app/marketing/assets/css/transparence.css?v=2025-12-29-1" />
 
   <!-- JS page-only -->
-  <script defer src="https://croco-bundle.vercel.app/marketing/assets/js/transparence.js?v=2025-122-29-1"></script>
+  <script defer src="https://croco-bundle.vercel.app/marketing/assets/js/transparence.js?v=2025-12-29"></script>
 </head>
 
 <body class="antialiased selection:bg-emerald-100 selection:text-emerald-900">
@@ -106,7 +106,7 @@
             <p class="text-lg text-slate-600 leading-relaxed mb-8 font-medium">
               Ici, pas de VC qui exigent x10 de croissance au détriment de la qualité.
               <span class="text-slate-900 font-bold">Nous ne répondons qu'à vous.</span>
-              Chaque euro est réinvesti pour payer les salaires de cette équipe et améliorer le produit.
+              Chaque euro est réinvesti pour payer les salaires de cette équipe incroyable et améliorer le produit.
             </p>
 
             <div class="flex items-center gap-4">
@@ -148,7 +148,7 @@
             Cockpit Financier
             <span class="inline-flex items-center rounded-full bg-emerald-50 px-2 py-1 text-xs font-medium text-emerald-700 ring-1 ring-inset ring-emerald-600/20">Live Data</span>
           </h2>
-          <p class="text-slate-500 mt-1 text-sm">Allocation auditable des revenus.</p>
+          <p class="text-slate-500 mt-1 text-sm">Allocation des revenus avec mise à jour mensuelle.</p>
         </div>
 
         <div class="mt-4 md:mt-0">
@@ -180,8 +180,8 @@
           </div>
 
           <div class="flex flex-col md:flex-row items-center gap-10 flex-grow">
-            <div class="relative w-full md:w-1/2 h-64">
-              <canvas id="budgetChart"></canvas>
+            <div class="budget-chart-wrapper relative w-full md:w-1/2 h-64">
+             <canvas id="budgetChart"></canvas>
               <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div class="text-center">
                   <span class="text-4xl font-extrabold text-slate-900 block tracking-tight">100%</span>
@@ -192,7 +192,7 @@
 
             <!-- Legend (statique, OK — Chart se nourrit du JSON) -->
             <div class="w-full md:w-1/2 space-y-3">
-              <div class="group flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-md hover:shadow-slate-200/50 hover:border-emerald-100 transition cursor-default">
+              <div class="budget-legend-item group flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-md hover:shadow-slate-200/50 hover:border-emerald-100 transition cursor-default">
                 <div class="flex items-center gap-3">
                   <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.4)]"></div>
                   <span class="text-sm font-semibold text-slate-700">Humain (salaires & freelances)</span>
@@ -200,7 +200,7 @@
                 <span class="font-bold font-mono text-emerald-600">45%</span>
               </div>
 
-              <div class="group flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-md hover:shadow-slate-200/50 hover:border-blue-100 transition cursor-default">
+              <div class="budget-legend-item group flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-md hover:shadow-slate-200/50 hover:border-blue-100 transition cursor-default">
                 <div class="flex items-center gap-3">
                   <div class="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.4)]"></div>
                   <span class="text-sm font-semibold text-slate-700">Infrastructure & Produit</span>
@@ -208,7 +208,7 @@
                 <span class="font-bold font-mono text-blue-600">20%</span>
               </div>
 
-              <div class="group flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-md hover:shadow-slate-200/50 transition cursor-default">
+              <div class="budget-legend-item group flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-md hover:shadow-slate-200/50 transition cursor-default">
                 <div class="flex items-center gap-3">
                   <div class="w-2.5 h-2.5 rounded-full bg-orange-400"></div>
                   <span class="text-sm font-semibold text-slate-700">Marketing</span>
@@ -216,7 +216,7 @@
                 <span class="font-bold font-mono text-orange-500">25%</span>
               </div>
 
-              <div class="group flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-md hover:shadow-slate-200/50 transition cursor-default">
+              <div class="budget-legend-item group flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-md hover:shadow-slate-200/50 transition cursor-default">
                 <div class="flex items-center gap-3">
                   <div class="w-2.5 h-2.5 rounded-full bg-slate-400"></div>
                   <span class="text-sm font-semibold text-slate-700">Réserve</span>

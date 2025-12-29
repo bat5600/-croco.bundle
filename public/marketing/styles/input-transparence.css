@@ -101,3 +101,19 @@
         .animate-fade-in-up {
             animation: fadeInUp 0.6s ease-out forwards;
         }
+        
+        /* =========================
+        Budget — z-index fix
+        ========================= */
+
+        /* Le donut reste "derrière" la légende */
+        .budget-chart-wrapper {
+        position: relative;
+        z-index: 1;
+        }
+
+        /* Les cartes de légende passent au-dessus (et leur hover reste clean) */
+        .budget-legend-item {
+        position: relative;
+        z-index: 5;
+        }
