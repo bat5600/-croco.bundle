@@ -290,6 +290,10 @@
     }
   }
 
+  function isMobileViewport() {
+     return window.matchMedia("(max-width: 767px)").matches;
+  }
+
   function safeQueryById(id) {
     if (!id) return null;
     return document.getElementById(id) || null;
@@ -750,14 +754,17 @@
   // BOOT
   // =========================================================
 
-  onReady(function () {
-    // Mobile menu injection (optional)
-    injectMobileMarkupIfNeeded();
+    onReady(function () {
+        // Features
+        initScrolledMode();
+        initCtaLastLink();
+        initRowLinks();
 
-    // Features
-    initScrolledMode();
-    initCtaLastLink();
-    initRowLinks();
-    initMobileMenu();
-  });
+        // Mobile menu: seulement sur mobile
+        if (isMobileViewport()) {
+            injectMobileMarkupIfNeeded();
+            initMobileMenu();
+        }
+    });
+
 })();
