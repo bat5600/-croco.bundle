@@ -23,13 +23,10 @@
   // CONFIG
   // =========================
   const CFG = {
-    // Mets tes JSON ici (relatifs si tu host sur le même domaine)
-    BUDGET_JSON_URL: "/transparence/data/budget.json",
-    VIDEOS_JSON_URL: "/transparence/data/videos.json",
-
+    
     // Si tu host sur croco-bundle.vercel.app directement, remplace par:
-    // BUDGET_JSON_URL: "https://croco-bundle.vercel.app/marketing/data/budget.json",
-    // VIDEOS_JSON_URL: "https://croco-bundle.vercel.app/marketing/data/videos.json",
+    BUDGET_JSON_URL: "https://croco-bundle.vercel.app/marketing/data/budget.json",
+    VIDEOS_JSON_URL: "https://croco-bundle.vercel.app/marketing/data/videos.json",
 
     DEFAULT_YEAR_LABEL: "2024",
 
