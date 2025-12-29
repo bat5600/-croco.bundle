@@ -101,8 +101,8 @@
   /* 2. LE SECRET : saturate(180%)
      Cela intensifie les couleurs qui passent derrière le flou. 
      Ça évite l'effet "laiteux/gris" et rend l'effet vibrant. */
-  backdrop-filter: saturate(280%) blur(20px);
-  -webkit-backdrop-filter: saturate(280%) blur(20px);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
   
   /* 3. Bordure très fine */
   border: 1px solid rgba(255, 255, 255, 0.5);
@@ -245,19 +245,6 @@
       background-position: 0% 50%;
     }
   }
-
-  /* Animation du gradient */
-  @keyframes gradientShift {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
   
   /* Transformer le dernier lien du menu en CTA uniquement dans CE menu */
 #nav-menu-v2-AZgY1W6v-f .cc-cta {
@@ -309,4 +296,12 @@
     .column-2 {
         order: 2;
     }
+}
+
+/* Hover rows (mega menu / lists) */
+.hover-row:hover {
+  background-color: rgba(0,0,0,0.08);
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
 }
