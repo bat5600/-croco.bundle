@@ -9,21 +9,21 @@
     {
       "id": "human",
       "label": "Humain",
-      "value": 45,
+      "value": 55,
       "color": "#10b981",
       "description": "Salaires, équipe, support, opérations quotidiennes"
     },
     {
       "id": "product",
       "label": "Produit",
-      "value": 20,
+      "value": 25,
       "color": "#3b82f6",
       "description": "Développement, UX, R&D, amélioration continue"
     },
     {
       "id": "marketing",
       "label": "Marketing",
-      "value": 25,
+      "value": 10,
       "color": "#fb923c",
       "description": "Acquisition, contenu, partenariats, visibilité"
     },

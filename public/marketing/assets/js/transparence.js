@@ -28,7 +28,7 @@
     BUDGET_JSON_URL: "https://croco-bundle.vercel.app/marketing/data/budget.json",
     VIDEOS_JSON_URL: "https://croco-bundle.vercel.app/marketing/data/videos.json",
 
-    DEFAULT_YEAR_LABEL: "2024",
+    DEFAULT_YEAR_LABEL: "2025",
 
     // Fallback durée si non fournie dans videos.json
     FALLBACK_DURATION: "14 min",
@@ -242,10 +242,10 @@
     state.devChart = new Chart(ctx, {
       type: "polarArea",
       data: {
-        labels: ["Client Success", "Produit", "Ventes"],
+        labels: ["Succes Client", "Produit", "Growth"],
         datasets: [
           {
-            data: [60, 25, 15],
+            data: [60, 30, 10],
             backgroundColor: [
               "rgba(59, 130, 246, 0.7)",
               "rgba(148, 163, 184, 0.7)",

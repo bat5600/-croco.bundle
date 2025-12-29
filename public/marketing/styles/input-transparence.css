@@ -111,6 +111,11 @@
         position: relative;
         z-index: 1;
         }
+    
+        #budgetChart {
+        position: relative;
+        z-index: 1;
+        }
 
         /* Les cartes de légende passent au-dessus (et leur hover reste clean) */
         .budget-legend-item {
