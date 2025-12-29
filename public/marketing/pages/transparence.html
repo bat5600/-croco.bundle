@@ -29,12 +29,12 @@
         Open Startup
       </div>
 
-      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 mb-6 leading-[1.1]">
+      <h1 class="text-4xl md:text-7xl font-extrabold tracking-tight text-slate-900 mb-6 leading-[1.1]">
         Un logiciel construit<br />
         <span class="text-gradient">par ceux qui l'utilisent.</span>
       </h1>
 
-      <p class="text-xl md:text-2xl text-slate-500 mb-12 max-w-2xl mx-auto leading-relaxed font-normal">
+      <p class="text-l md:text-2xl text-slate-500 mb-12 max-w-2xl mx-auto leading-relaxed font-normal">
         CrocoClick est financé par ses utilisateurs pour véhiculer les valeurs de Liberté, d'Ambition et de Transparence.<br class="hidden md:block" />
         <strong class="text-slate-900">0 investisseur. 100% Indépendant.</strong>
       </p>
@@ -258,19 +258,19 @@ Des personnes qui répondent quand vous avez une question. Des personnes qui con
           <p class="text-slate-500 mt-2">Chaque mois, le fondateur partage les coulisses de l'Alligators Group pour <br> vous permettre de prendre part à l'évolution de l'écosystème.</p>
         </div>
         <button class="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-emerald-50 border border-slate-200 hover:border-emerald-200 text-sm font-semibold text-slate-700 hover:text-emerald-700 transition shadow-sm" type="button">
-          <i data-lucide="bell" class="w-4 h-4"></i> S'abonner aux news
+          <i data-lucide="bell" class="w-4 h-4"></i> S'abonner (à venir)
         </button>
       </div>
 
-      <div class="flex flex-col lg:flex-row gap-8 items-stretch">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
         <!-- Player -->
-        <div class="lg:w-2/3 relative group">
-          <div class="absolute -inset-2 bg-gradient-to-r from-emerald-400 to-blue-400 rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition duration-1000"></div>
+<div class="lg:col-span-2 relative group isolate">
+          <div class="absolute -inset-2 bg-gradient-to-r from-emerald-400 to-blue-400 rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition duration-1000 pointer-events-none"></div>
 
           <div id="videoContainer" class="relative bg-slate-900 rounded-2xl overflow-hidden aspect-video shadow-2xl ring-1 ring-slate-900/5">
 
             <div id="videoOverlay" class="absolute inset-0 w-full h-full z-20 transition-opacity duration-500">
-              <img id="mainVideoThumb" src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1600" class="w-full h-full object-cover opacity-90 transition duration-700 group-hover:scale-105" alt="" />
+              <img id="mainVideoThumb" src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1600" class="w-full h-full object-cover opacity-90 transition duration-700 group-hover:scale-105 pointer-events-auto" alt="" />
 
               <div class="absolute inset-0 flex items-center justify-center">
                 <!-- IMPORTANT: plus de onclick -->
@@ -279,10 +279,10 @@ Des personnes qui répondent quand vous avez une question. Des personnes qui con
                 </button>
               </div>
 
-              <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+              <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none">
                 <span class="inline-block px-2.5 py-1 bg-emerald-500 text-white text-[10px] font-bold uppercase rounded-md mb-3 shadow-lg shadow-emerald-900/20">Dernière sortie</span>
                 <h3 id="mainVideoTitle" class="text-2xl md:text-3xl font-bold text-white mb-2 tracking-tight">Bilan Décembre : Refonte UX</h3>
-                <p id="mainVideoDate" class="text-slate-300 text-sm font-medium">31 Décembre 2024 • 14 min</p>
+                <p id="mainVideoDate" class="text-slate-300 text-sm font-medium">31 Décembre 2025 • 14 min</p>
               </div>
             </div>
 
@@ -291,7 +291,7 @@ Des personnes qui répondent quand vous avez une question. Des personnes qui con
         </div>
 
         <!-- Playlist -->
-        <div class="lg:w-1/3 flex flex-col h-[500px] lg:h-auto overflow-hidden bg-white border border-slate-200 rounded-2xl shadow-lg shadow-slate-200/50">
+        <div class="lg:col-span-1 relative flex flex-col h-[420px] md:h-[460px] lg:h-auto overflow-hidden bg-white border border-slate-200 rounded-2xl shadow-lg shadow-slate-200/50">
           <div class="p-5 border-b border-slate-100 bg-slate-50/50">
             <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Archives</h4>
           </div>
