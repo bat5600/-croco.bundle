@@ -140,6 +140,8 @@
     messengerBooted: false,
     changelogInitialized: false,
     surveyWidgetInitialized: false,
+    changelogInitializing: false,
+    surveyWidgetInitializing: false,
     observer: null,
     mountScheduled: false,
   });
@@ -269,27 +271,26 @@
   }
 
   function initSurveyWidget() {
-    if (FB_STATE.surveyWidgetInitialized) return;
+    if (FB_STATE.surveyWidgetInitialized || FB_STATE.surveyWidgetInitializing) return;
     if (typeof window.Featurebase !== "function") return;
+
+    FB_STATE.surveyWidgetInitializing = true;
 
     try {
       window.Featurebase(
         "initialize_survey_widget",
-        {
-          organization: FEATUREBASE_ORG,
-          placement: "bottom-right",
-          theme: "light",
-          email: ctx.email,
-          locale: ctx.locale || "fr",
-        },
+        { organization: FEATUREBASE_ORG, placement: "bottom-right", theme: "light", email: ctx.email, locale: ctx.locale || "fr" },
         (err) => {
+          FB_STATE.surveyWidgetInitializing = false;
           if (!err) FB_STATE.surveyWidgetInitialized = true;
         }
       );
     } catch (e) {
+      FB_STATE.surveyWidgetInitializing = false;
       warn("Featurebase survey init error:", e);
     }
   }
+
 
   function addChangelogButton(controls) {
     if (document.getElementById(CHANGELOG_BTN_ID)) return;
@@ -439,28 +440,49 @@
   }
 
   // ============================================================
-  // 3) PROFITWELL (deprecated — mais si tu veux le garder)
+  // 3) PROFITWELL
   // ============================================================
   async function initProfitwell() {
     if (INIT_STATE.profitwellPromise) return INIT_STATE.profitwellPromise;
-    // Si tu veux le désactiver définitivement: return;
+
     INIT_STATE.profitwellPromise = (async () => {
       try {
         const AUTH = "4ae6190f8f5ef7d4183dd1edd49e7f65";
+
+        // 1) STUB officiel ProfitWell (IMPORTANT)
+        // => crée window.profitwell + queue même si le script met du temps
+        (function (i, s, o, g, r, a, m) {
+          i[o] =
+            i[o] ||
+            function () {
+              (i[o].q = i[o].q || []).push(arguments);
+            };
+        })(window, document, "profitwell");
+
+        // 2) Charger le script (une seule fois)
         await loadScriptOnce(`https://public.profitwell.com/js/profitwell.js?auth=${encodeURIComponent(AUTH)}`, {
           id: "profitwell-js",
+          async: true,
+          defer: false, // important: on veut exécuter dès chargé
         });
 
-        if (typeof window.profitwell === "function" && ctx.email) {
+        // 3) Start quand on a une identité
+        if (ctx.email) {
           window.profitwell("start", { user_email: ctx.email });
-          log("Profitwell started");
+          log("Profitwell started", ctx.email);
+        } else if (ctx.userId) {
+          // option si tu préfères user_id (ex: Stripe customer id)
+          // window.profitwell("start", { user_id: ctx.userId });
+          log("Profitwell loaded but no email yet");
         }
       } catch (e) {
         warn("Profitwell init error:", e);
       }
     })();
+
     return INIT_STATE.profitwellPromise;
   }
+
 
   // ============================================================
   // 4) AMPLITUDE (core + replay + engagement)
@@ -1284,19 +1306,6 @@
             }
           } catch (_) {}
           return origOpen.call(window, url, target, features);
-        };
-
-        const origAssign = window.location.assign.bind(window.location);
-        window.location.assign = function (url) {
-          try {
-            if (typeof url === "string" && url.includes(ytId)) {
-              return origAssign(CFG.youtube.redirectUrl);
-            }
-            if (typeof url === "string" && url.includes("solutions/articles/" + CFG.ghlArticleRedirect.id)) {
-              return origAssign(CFG.ghlArticleRedirect.url);
-            }
-          } catch (_) {}
-          return origAssign(url);
         };
       });
     }
