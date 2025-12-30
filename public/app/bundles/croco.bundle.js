@@ -446,7 +446,7 @@
     if (INIT_STATE.profitwellPromise) return INIT_STATE.profitwellPromise;
 
     INIT_STATE.profitwellPromise = (async () => {
-      const AUTH = "4ae6190f8f5ef7d4183dd1edd49e7f65";
+      const AUTH = "7786303f0a2d4c8e3fd646711ca0c1b4";
 
       try {
         // 0) Anchor tag requis par ProfitWell Engagement (IMPORTANT)
