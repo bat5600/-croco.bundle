@@ -446,34 +446,47 @@
     if (INIT_STATE.profitwellPromise) return INIT_STATE.profitwellPromise;
 
     INIT_STATE.profitwellPromise = (async () => {
+      const AUTH = "4ae6190f8f5ef7d4183dd1edd49e7f65";
+
       try {
-        const AUTH = "4ae6190f8f5ef7d4183dd1edd49e7f65";
+        // 0) Anchor tag requis par ProfitWell Engagement (IMPORTANT)
+        // Doit exister dans le DOM avec id=profitwell-js + data-pw-auth
+        let anchor = document.getElementById("profitwell-js");
+        if (!anchor) {
+          anchor = document.createElement("script");
+          anchor.id = "profitwell-js";
+          document.head.appendChild(anchor);
+        }
+        anchor.setAttribute("data-pw-auth", AUTH);
 
-        // 1) STUB officiel ProfitWell (IMPORTANT)
-        // => crée window.profitwell + queue même si le script met du temps
-        (function (i, s, o, g, r, a, m) {
-          i[o] =
-            i[o] ||
-            function () {
-              (i[o].q = i[o].q || []).push(arguments);
-            };
-        })(window, document, "profitwell");
+        // 1) Stub officiel (queue)
+        // (ta version est OK — on la garde simple)
+        window.profitwell =
+          window.profitwell ||
+          function () {
+            (window.profitwell.q = window.profitwell.q || []).push(arguments);
+          };
 
-        // 2) Charger le script (une seule fois)
-        await loadScriptOnce(`https://public.profitwell.com/js/profitwell.js?auth=${encodeURIComponent(AUTH)}`, {
-          id: "profitwell-js",
-          async: true,
-          defer: false, // important: on veut exécuter dès chargé
-        });
+        // 2) Charger la lib dans un tag DIFFERENT (sinon tu remplaces l’anchor)
+        await loadScriptOnce(
+          `https://public.profitwell.com/js/profitwell.js?auth=${encodeURIComponent(AUTH)}`,
+          {
+            id: "profitwell-lib", // <-- surtout PAS "profitwell-js"
+            async: true,
+            defer: false,
+          }
+        );
 
         // 3) Start quand on a une identité
-        if (ctx.email) {
+        if (ctx?.email) {
           window.profitwell("start", { user_email: ctx.email });
           log("Profitwell started", ctx.email);
-        } else if (ctx.userId) {
+        } else if (ctx?.userId) {
           // option si tu préfères user_id (ex: Stripe customer id)
           // window.profitwell("start", { user_id: ctx.userId });
           log("Profitwell loaded but no email yet");
+        } else {
+          log("Profitwell loaded but no identity yet");
         }
       } catch (e) {
         warn("Profitwell init error:", e);
