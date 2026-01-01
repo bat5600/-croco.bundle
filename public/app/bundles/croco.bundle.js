@@ -1428,6 +1428,16 @@
   })();
 
   // ============================================================
+  // 10) GOCROCO TRACKING PING (CROCO-TRACK)
+  // ============================================================
+    fetch("https://gocroco.vercel.app/api/track", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email: ctx.email, url: location.href })
+  });
+
+
+  // ============================================================
   // MAIN
   // ============================================================
   async function main() {
