@@ -1428,13 +1428,45 @@
   })();
 
   // ============================================================
-  // 10) GOCROCO TRACKING PING (CROCO-TRACK)
+  // 10) GOCROCO TRACKING (minimal + SPA-safe)
   // ============================================================
-    fetch("https://gocroco.vercel.app/api/track", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email: ctx.email, url: location.href })
-  });
+  (() => {
+    "use strict";
+
+    const ENDPOINT = "https://gocroco.vercel.app/api/track";
+    const TRACK = (window.__CROCO_GOCROCO__ ||= { lastTs: 0, lastUrl: "" });
+
+    function send(url) {
+      // email obligatoire
+      if (!ctx?.email) return;
+
+      const now = Date.now();
+
+      // anti-spam: pas de doublon + max 1 hit / 10s
+      if (url === TRACK.lastUrl && now - TRACK.lastTs < 10_000) return;
+
+      TRACK.lastUrl = url;
+      TRACK.lastTs = now;
+
+      fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        keepalive: true,
+        body: JSON.stringify({
+          email: ctx.email,
+          url,
+          ts: now,
+        }),
+      }).catch(() => {});
+    }
+
+    // 1) premier hit (optionnel mais utile)
+    send(location.href);
+
+    // 2) hit à chaque changement d’URL dans HighLevel
+    onRouteChange((href) => send(href));
+  })();
+
 
 
   // ============================================================
