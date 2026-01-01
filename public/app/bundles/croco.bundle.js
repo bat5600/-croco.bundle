@@ -1428,45 +1428,166 @@
   })();
 
   // ============================================================
-  // 10) GOCROCO TRACKING (minimal + SPA-safe)
+// 10) GOCROCO TRACKING (debounced + normalized, SPA-safe)
+// ============================================================
+(() => {
+  "use strict";
+
+  const ENDPOINT = "https://gocroco.vercel.app/api/track";
+
+  const STATE = (window.__CROCO_GOCROCO__ ||= {
+    lastSentRoute: "",
+    lastSentTs: 0,
+    pendingTimer: null,
+    pendingRoute: "",
+    pendingHref: "",
+  });
+
+  const MIN_DWELL_MS = 3000; // doit rester >= 3s sur la route
+  const MIN_GAP_MS = 15000;  // max 1 event / 15s (même si URLs différentes)
+
+  function normalizeRoute(href) {
+    try {
+      const u = new URL(href);
+      const parts = u.pathname.split("/").filter(Boolean);
+      const i = parts.indexOf("location");
+      if (i === -1) return u.pathname;
+
+      const locationId = parts[i + 1] || "";
+      const feature = parts[i + 2] || "";
+      return `/v2/location/${locationId}/${feature}`;
+    } catch {
+      return href;
+    }
+  }
+
+  function sendNow(href, route) {
+    if (!ctx?.email) return;
+
+    const now = Date.now();
+
+    // hard cap: pas plus d'1 event / 15s
+    if (now - STATE.lastSentTs < MIN_GAP_MS) return;
+
+    // pas de doublon de route logique
+    if (route === STATE.lastSentRoute) return;
+
+    STATE.lastSentRoute = route;
+    STATE.lastSentTs = now;
+
+    fetch(ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      keepalive: true,
+      body: JSON.stringify({
+        email: ctx.email,
+        url: href,
+        ts: now,
+        // optionnel: utile pour debug (pas stocké si ta table events ne l'a pas)
+        // route,
+      }),
+    }).catch(() => {});
+  }
+
+  function schedule(href) {
+    const route = normalizeRoute(href);
+    if (!route) return;
+
+    // si déjà sur la même route logique, ignore
+    if (route === STATE.lastSentRoute) return;
+
+    // debounce: si l'utilisateur reclique, on annule et on replanifie
+    if (STATE.pendingTimer) clearTimeout(STATE.pendingTimer);
+
+    STATE.pendingRoute = route;
+    STATE.pendingHref = href;
+
+    STATE.pendingTimer = setTimeout(() => {
+      sendNow(STATE.pendingHref, STATE.pendingRoute);
+      STATE.pendingTimer = null;
+    }, MIN_DWELL_MS);
+  }
+
+  // 1) premier hit (debounced)
+  schedule(location.href);
+
+  // 2) hit à chaque changement d’URL (debounced)
+  onRouteChange((href) => schedule(href));
+})();
+
+  // ============================================================
+  // 11) GOCROCO USAGE TRACKING (time + feature, batched)
   // ============================================================
   (() => {
     "use strict";
 
-    const ENDPOINT = "https://gocroco.vercel.app/api/track";
-    const TRACK = (window.__CROCO_GOCROCO__ ||= { lastTs: 0, lastUrl: "" });
+    if (!ctx?.email) return;
 
-    function send(url) {
-      // email obligatoire
-      if (!ctx?.email) return;
+    const USAGE_ENDPOINT = "https://gocroco.vercel.app/api/usage/batch";
+    const buckets = new Map();
 
-      const now = Date.now();
+    function extractLocationId(url) {
+      const m = url.match(/\/location\/([a-zA-Z0-9_-]+)/);
+      return m?.[1] ?? null;
+    }
 
-      // anti-spam: pas de doublon + max 1 hit / 10s
-      if (url === TRACK.lastUrl && now - TRACK.lastTs < 10_000) return;
+    function extractFeatureKey(url) {
+      try {
+        const u = new URL(url);
+        const parts = u.pathname.split("/").filter(Boolean);
+        const locIndex = parts.indexOf("location");
+        if (locIndex === -1) return null;
+        return parts[locIndex + 2] ?? null;
+      } catch {
+        return null;
+      }
+    }
 
-      TRACK.lastUrl = url;
-      TRACK.lastTs = now;
+    function dayKey() {
+      return new Date().toISOString().slice(0, 10);
+    }
 
-      fetch(ENDPOINT, {
+    function tick() {
+      const url = location.href;
+      const location_id = extractLocationId(url);
+      const feature_key = extractFeatureKey(url);
+      if (!location_id || !feature_key) return;
+
+      const key = `${ctx.email}|${location_id}|${feature_key}|${dayKey()}`;
+      buckets.set(key, (buckets.get(key) || 0) + 15);
+    }
+
+    async function flush() {
+      if (buckets.size === 0) return;
+
+      const items = Array.from(buckets.entries()).map(([k, sec]) => {
+        const [email, location_id, feature_key, day] = k.split("|");
+        return { email, location_id, feature_key, day, sec };
+      });
+
+      buckets.clear();
+
+      fetch(USAGE_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         keepalive: true,
-        body: JSON.stringify({
-          email: ctx.email,
-          url,
-          ts: now,
-        }),
+        body: JSON.stringify({ items }),
       }).catch(() => {});
     }
 
-    // 1) premier hit (optionnel mais utile)
-    send(location.href);
+    // heartbeat + batching
+    setInterval(tick, 15_000);
+    setInterval(flush, 60_000);
 
-    // 2) hit à chaque changement d’URL dans HighLevel
-    onRouteChange((href) => send(href));
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "hidden") flush();
+    });
+
+    window.addEventListener("beforeunload", () => flush());
+
+    // premier tick immédiat
+    tick();
   })();
-
 
 
   // ============================================================
