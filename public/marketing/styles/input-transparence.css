@@ -27,8 +27,16 @@
             mask-image: radial-gradient(circle at center, black 50%, transparent 100%);
             -webkit-mask-image: radial-gradient(circle at center, black 50%, transparent 100%);
             opacity: 0.6;
+        }        
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
         }
-
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
         /* Cartes Bento Box Light Mode avec effet Glass */
         .bento-card {
             background: var(--card-bg);
