@@ -96,3 +96,71 @@ body {
 .animation-delay-2000 {
   animation-delay: 2s;
 }
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  main {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .max-w-7xl.grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .modern-card {
+    padding: 1.5rem;
+  }
+
+  .modern-card .icon-box {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+  }
+
+  .modern-card h2 {
+    font-size: 1.35rem;
+  }
+
+  .modern-card p {
+    font-size: 1rem;
+  }
+
+  .blob {
+    width: 18rem;
+    height: 18rem;
+    opacity: 0.65;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 2.1rem;
+  }
+
+  header p {
+    font-size: 0.95rem;
+  }
+
+  .modern-card {
+    padding: 1.25rem;
+  }
+}
