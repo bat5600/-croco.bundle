@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==================================================
+   CrocoClick - Collaboration
+   Custom CSS (complements Tailwind)
+================================================== */
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: #fafafa;
+  color: #1f2937;
+}
+
+/* Subtle grid background */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+}
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Modern glass cards */
+.modern-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 231, 235, 0.5);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modern-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow:
+    0 20px 40px -10px rgba(16, 185, 129, 0.15),
+    0 0 0 1px rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+/* Icon container gradient */
+.icon-box {
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  transition: all 0.3s ease;
+}
+
+.modern-card:hover .icon-box {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #fff;
+  transform: scale(1.1) rotate(-3deg);
+  box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
+}
+
+.card-arrow {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.modern-card:hover .card-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Decorative blobs */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1;
+  opacity: 0.4;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
