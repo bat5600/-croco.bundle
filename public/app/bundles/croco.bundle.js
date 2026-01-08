@@ -40,84 +40,37 @@
     }
   }
 
-  function loadScriptOnce(src, { id, async = true, defer = true, timeoutMs = 5000, isReady } = {}) {
+  function loadScriptOnce(src, { id, async = true, defer = true } = {}) {
     const key = id || src;
     if (GLOBAL.scriptPromises.has(key)) return GLOBAL.scriptPromises.get(key);
 
     const absoluteSrc = new URL(src, location.href).href;
-    const promise = new Promise((resolve) => {
-      const done = (ok) => resolve(!!ok);
+    const promise = new Promise((resolve, reject) => {
+      const existingById = id ? document.getElementById(id) : null;
+      if (existingById) return resolve(true);
 
-      const existing =
-        (id && document.getElementById(id)) ||
-        [...document.scripts].find((s) => {
-          if (!s.src) return false;
-          try {
-            return new URL(s.src, location.href).href === absoluteSrc;
-          } catch {
-            return false;
-          }
-        });
-
-      if (isReady && isReady()) return done(true);
-
-      if (existing) {
-        let settled = false;
-
-        const cleanup = () => {
-          existing.removeEventListener?.("load", onLoad);
-          existing.removeEventListener?.("error", onErr);
-        };
-
-        const onLoad = () => {
-          if (settled) return;
-          settled = true;
-          cleanup();
-          done(isReady ? !!isReady() : true);
-        };
-
-        const onErr = () => {
-          if (settled) return;
-          settled = true;
-          cleanup();
-          done(false);
-        };
-
-        existing.addEventListener?.("load", onLoad, { once: true });
-        existing.addEventListener?.("error", onErr, { once: true });
-
-        setTimeout(() => {
-          if (settled) return;
-          settled = true;
-          cleanup();
-          done(isReady ? !!isReady() : false);
-        }, timeoutMs);
-
-        return;
-      }
+      const existingBySrc = [...document.scripts].find((s) => {
+        if (!s.src) return false;
+        try {
+          return new URL(s.src, location.href).href === absoluteSrc;
+        } catch {
+          return false;
+        }
+      });
+      if (existingBySrc) return resolve(true);
 
       const s = document.createElement("script");
       if (id) s.id = id;
       s.src = absoluteSrc;
       s.async = async;
       s.defer = defer;
-
-      let settled = false;
-
-      const finish = (ok) => {
-        if (settled) return;
-        settled = true;
-        done(ok);
-      };
-
-      s.onload = () => finish(isReady ? !!isReady() : true);
-      s.onerror = () => finish(false);
+      s.onload = () => resolve(true);
+      s.onerror = (e) => reject(e);
       document.head.appendChild(s);
-
-      setTimeout(() => finish(isReady ? !!isReady() : false), timeoutMs);
     });
 
     GLOBAL.scriptPromises.set(key, promise);
+    promise.catch(() => GLOBAL.scriptPromises.delete(key));
     return promise;
   }
 
@@ -205,13 +158,7 @@
     FB_STATE.sdkPromise = (async () => {
       try {
         ensureFeaturebaseQueueStub();
-        await loadScriptOnce("https://do.featurebase.app/js/sdk.js", {
-          id: "featurebase-sdk",
-          async: true,
-          defer: true,
-          timeoutMs: 5000,
-          isReady: () => typeof window.Featurebase === "function",
-        });
+        await loadScriptOnce("https://do.featurebase.app/js/sdk.js", { id: "featurebase-sdk" });
 
         // identify (safe)
         window.Featurebase?.("identify", {
@@ -477,11 +424,7 @@
     INIT_STATE.localizePromise = (async () => {
       try {
         ensureLocalizeStub();
-        await loadScriptOnce("https://global.localizecdn.com/localize.js", {
-          id: "localize-sdk",
-          timeoutMs: 5000,
-          isReady: () => !!window.Localize?.initialize,
-        });
+        await loadScriptOnce("https://global.localizecdn.com/localize.js", { id: "localize-sdk" });
 
         window.Localize?.initialize?.({
           key: "d4s5PHXt6AYW1",
@@ -531,8 +474,6 @@
             id: "profitwell-lib", // <-- surtout PAS "profitwell-js"
             async: true,
             defer: false,
-            timeoutMs: 5000,
-            isReady: () => typeof window.profitwell === "function",
           }
         );
 
@@ -565,11 +506,7 @@
       try {
         const API_KEY = "ad1137f2178733c908603358ed257639";
 
-        const corePromise = loadScriptOnce(`https://cdn.amplitude.com/script/${API_KEY}.js`, {
-          id: "amplitude-core",
-          timeoutMs: 5000,
-          isReady: () => !!window.amplitude?.init,
-        });
+        const corePromise = loadScriptOnce(`https://cdn.amplitude.com/script/${API_KEY}.js`, { id: "amplitude-core" });
         const engagementPromise = loadScriptOnce(`https://cdn.amplitude.com/script/${API_KEY}.engagement.js`, {
           id: "amplitude-engagement",
         });
