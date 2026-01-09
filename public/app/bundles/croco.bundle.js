@@ -1109,6 +1109,7 @@
             "https://help.crococlick.com/fr/help/articles/7866984-implementer-des-url-imbriquees-pour-vos-pages-de-funnels-et",
           "48001225442":
             "https://help.crococlick.com/fr/articles/10153050-tout-savoir-sur-la-tarification-crococlick-abonnements-credits-et-options",
+          "155000007189": "https://help.crococlick.com/fr/help/articles/7881513",
         },
         forceTargetBlank: true,
         patchedAttr: "data-croco-patched",
