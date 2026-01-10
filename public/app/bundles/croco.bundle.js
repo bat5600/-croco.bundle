@@ -1538,6 +1538,8 @@
 
     const USAGE_ENDPOINT = "https://gocroco.vercel.app/api/usage/batch";
     const buckets = new Map();
+    const IDLE_MS = 2 * 60 * 1000;
+    let lastActivityMs = Date.now();
 
     function extractLocationId(url) {
       const m = url.match(/\/location\/([a-zA-Z0-9_-]+)/);
@@ -1560,7 +1562,18 @@
       return new Date().toISOString().slice(0, 10);
     }
 
+    function markActivity() {
+      lastActivityMs = Date.now();
+    }
+
+    function isIdle() {
+      return Date.now() - lastActivityMs > IDLE_MS;
+    }
+
     function tick() {
+      if (document.visibilityState !== "visible") return;
+      if (isIdle()) return;
+
       const url = location.href;
       const location_id = extractLocationId(url);
       const feature_key = extractFeatureKey(url);
@@ -1592,8 +1605,13 @@
     setInterval(tick, 15_000);
     setInterval(flush, 60_000);
 
+    ["mousemove", "keydown", "scroll", "touchstart"].forEach((eventName) => {
+      window.addEventListener(eventName, markActivity, { passive: true });
+    });
+
     document.addEventListener("visibilitychange", () => {
       if (document.visibilityState === "hidden") flush();
+      if (document.visibilityState === "visible") markActivity();
     });
 
     window.addEventListener("beforeunload", () => flush());
