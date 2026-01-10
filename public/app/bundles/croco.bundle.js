@@ -8,8 +8,20 @@
   // ============================================================
   // BOOT / CTX
   // ============================================================
-  if (window.__CROCO_BUNDLE_RUNNING__) return;
+  const CURRENT_SRC = document.currentScript?.src || "";
+  let CURRENT_VERSION = "";
+  try {
+    CURRENT_VERSION = new URL(CURRENT_SRC, location.href).searchParams.get("v") || "";
+  } catch {}
+  const PREV_VERSION = window.__CROCO_BUNDLE_VERSION__ || "";
+  const HAS_NEW_VERSION = CURRENT_VERSION && CURRENT_VERSION !== PREV_VERSION;
+
+  if (window.__CROCO_BUNDLE_RUNNING__ && !HAS_NEW_VERSION) return;
+  if (HAS_NEW_VERSION && window.__CROCO_GLOBAL__?.once) {
+    window.__CROCO_GLOBAL__.once.clear();
+  }
   window.__CROCO_BUNDLE_RUNNING__ = true;
+  window.__CROCO_BUNDLE_VERSION__ = CURRENT_VERSION || PREV_VERSION || "dev";
 
   const ctx = (window.__CROCO_CTX__ ||= {
     email: "",
