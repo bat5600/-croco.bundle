@@ -1122,6 +1122,7 @@
           "48001225442":
             "https://help.crococlick.com/fr/articles/10153050-tout-savoir-sur-la-tarification-crococlick-abonnements-credits-et-options",
           "155000007189": "https://help.crococlick.com/fr/help/articles/7881513",
+          "155000002608": "https://help.crococlick.com/fr/help/articles/2493302",
         },
         forceTargetBlank: true,
         patchedAttr: "data-croco-patched",
