@@ -1575,7 +1575,7 @@
 
       const items = Array.from(buckets.entries()).map(([k, sec]) => {
         const [email, location_id, feature_key, day] = k.split("|");
-        return { email, location_id, feature_key, day, sec };
+        return { email, location_id, feature_key, day, sec, url: location.href };
       });
 
       buckets.clear();
