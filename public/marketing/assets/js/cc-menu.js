@@ -46,7 +46,7 @@
     "row-hG8mpBF27V":
       "https://help.crococlick.com/fr/articles/11959052-introduction-a-longlet-paiement-dans-crococlick",
     "row-fEWCt-5qzI":
-      "https://help.crococlick.com/fr/collections/10975133-documents-factures-and-devis",
+      "https://crococlick.com/fonctionnalites/factures-contrats",
     "row-KLET6Qzvhs": "https://crococlick.com/fonctionnalites/calendriers",
     "row-da4dm5iGuM":
       "https://help.crococlick.com/fr/articles/10331906-vue-densemble-de-laffiliate-managers",
@@ -170,7 +170,7 @@
               {
                 icon: "🧾",
                 label: "Facture & Devis",
-                href: "https://help.crococlick.com/fr/collections/10975133-documents-factures-and-devis",
+                href: "https://crococlick.com/fonctionnalites/factures-contrats",
               },
               {
                 icon: "📅",
