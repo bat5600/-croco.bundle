@@ -1124,6 +1124,7 @@
           "155000007189": "https://help.crococlick.com/fr/help/articles/7881513",
           "155000002608": "https://help.crococlick.com/fr/help/articles/2493302",
           "48001239675": "https://help.crococlick.com/fr/articles/11782205",
+          "155000001462": "https://help.crococlick.com/fr/help/articles/2765846",
         },
         forceTargetBlank: true,
         patchedAttr: "data-croco-patched",
