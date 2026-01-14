@@ -40,7 +40,8 @@ html, body, #app {
 .hl-text-sm-medium,
 .launchpad-title,
 .hr-data-table__body .hr-data-table__body-cell,
-#hr-ellipsis-id span {
+#hr-ellipsis-id span,
+.crm-highrise .inbox-menu[data-v-0f518a5e] {
   font-family: var(--font-family-base) !important;
 }
 
