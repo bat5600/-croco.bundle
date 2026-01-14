@@ -4,6 +4,7 @@
    ========================= */
 :root {
   --font-family-base: "Plus Jakarta Sans", "Helvetica Neue", Arial, sans-serif;
+  --hr-font-family-base: "Plus Jakarta Sans", "Helvetica Neue", Arial, sans-serif;
 
   /* Palette primary Croco */
   --primary-25:  #f6fef9;
